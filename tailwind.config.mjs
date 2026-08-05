@@ -85,6 +85,7 @@ export default {
           "text-secondary": "var(--text-secondary)",
           muted: "var(--text-muted)",
           accent: "var(--accent-primary)",
+          "on-accent": "var(--md-on-accent)",
           border: "var(--border-light)",
           "border-medium": "var(--border-medium)",
         },
@@ -153,12 +154,12 @@ export default {
       },
       // Box Shadow - Elevation System
       boxShadow: {
-        sm: "0px 1px 2px rgba(26, 26, 26, 0.05), 0px 1px 3px rgba(26, 26, 26, 0.04)",
-        DEFAULT: "0px 2px 4px rgba(26, 26, 26, 0.06), 0px 3px 6px rgba(26, 26, 26, 0.05)",
-        md: "0px 2px 4px rgba(26, 26, 26, 0.06), 0px 3px 6px rgba(26, 26, 26, 0.05)",
-        lg: "0px 4px 8px rgba(26, 26, 26, 0.08), 0px 6px 12px rgba(26, 26, 26, 0.06)",
-        xl: "0px 8px 16px rgba(26, 26, 26, 0.09), 0px 12px 24px rgba(26, 26, 26, 0.07)",
-        "2xl": "0px 12px 24px rgba(26, 26, 26, 0.10), 0px 16px 32px rgba(26, 26, 26, 0.08)",
+        sm: "0px 1px 2px rgba(46, 48, 51, 0.05), 0px 1px 3px rgba(46, 48, 51, 0.04)",
+        DEFAULT: "0px 2px 4px rgba(46, 48, 51, 0.06), 0px 3px 6px rgba(46, 48, 51, 0.05)",
+        md: "0px 2px 4px rgba(46, 48, 51, 0.06), 0px 3px 6px rgba(46, 48, 51, 0.05)",
+        lg: "0px 4px 8px rgba(46, 48, 51, 0.08), 0px 6px 12px rgba(46, 48, 51, 0.06)",
+        xl: "0px 8px 16px rgba(46, 48, 51, 0.09), 0px 12px 24px rgba(46, 48, 51, 0.07)",
+        "2xl": "0px 12px 24px rgba(46, 48, 51, 0.10), 0px 16px 32px rgba(46, 48, 51, 0.08)",
         none: "none",
       },
       // Animation Duration

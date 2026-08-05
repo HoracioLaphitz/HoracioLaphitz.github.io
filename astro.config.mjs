@@ -13,12 +13,26 @@ export default defineConfig({
   srcDir: "./src",
   publicDir: "./public",
 
+  i18n: {
+    defaultLocale: "es",
+    locales: ["es", "en"],
+    routing: { prefixDefaultLocale: false },
+  },
+
   integrations: [
     tailwind({
       applyBaseStyles: true,
     }),
     react(),
-    sitemap(),
+    sitemap({
+      i18n: {
+        defaultLocale: "es",
+        locales: {
+          es: "es-AR",
+          en: "en-US",
+        },
+      },
+    }),
   ],
 
   // Optimizaciones para producción
@@ -95,6 +109,7 @@ export default defineConfig({
         "@shared": "/src/shared",
         "@main": "/src/main",
         "@data": "/src/data",
+        "@i18n": "/src/i18n",
       },
     },
   },

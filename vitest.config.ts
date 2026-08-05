@@ -27,6 +27,7 @@ export default defineConfig({
       "@shared": resolve(__dirname, "./src/shared"),
       "@main": resolve(__dirname, "./src/main"),
       "@data": resolve(__dirname, "./src/data"),
+      "@i18n": resolve(__dirname, "./src/i18n"),
     },
   },
   esbuild: {
@@ -42,6 +43,7 @@ export default defineConfig({
         /@shared/,
         /@main/,
         /@data/,
+        /@i18n/,
       ],
     },
   },
