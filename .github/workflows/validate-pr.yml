@@ -89,7 +89,6 @@ jobs:
       - name: Build test
         run: pnpm run build
         env:
-          PUBLIC_WEB3FORMS_ACCESS_KEY: ${{ secrets.PUBLIC_WEB3FORMS_ACCESS_KEY }}
           NODE_ENV: production
 
       - name: Validate build output

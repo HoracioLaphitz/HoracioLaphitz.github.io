@@ -231,6 +231,7 @@ protocolo_*.md
 !CONTRIBUTING.md
 !CODE_OF_CONDUCT.md
 !CHANGELOG.md
+!CLAUDE.md
 !src/content/**/*.md
 
 # ============================================================================
