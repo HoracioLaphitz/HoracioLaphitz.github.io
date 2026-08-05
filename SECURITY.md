@@ -110,9 +110,10 @@ Before each release:
 - No third-party scripts (except essential CDNs)
 
 ### Content Security
-- All user-generated content is sanitized
-- DOMPurify used for HTML sanitization
-- No inline scripts in production
+- No raw HTML rendering: dashboard data is parsed (d3-dsv / JSON with required keys) and rendered as typed React text
+- JSON parser sanitizes non-finite tokens (`Infinity`/`NaN`) before parsing
+- `Content-Security-Policy` restricts scripts, styles, fonts and connections to allowlisted origins
+- No user-generated content is rendered as HTML
 
 ## Security Tools
 
@@ -135,6 +136,16 @@ This project follows:
 - npm Security Best Practices
 - Python Security Best Practices
 
+## ISO 27001 Alignment
+
+The site applies controls aligned to ISO 27001 (Annex A) without exposing them in the UI:
+
+- **A.8.10 / A.8.11 — Information & Protection**: CSP restricts resource loading to allowlisted origins (`script-src`, `style-src`, `font-src`, `connect-src`, `frame-src`); `Permissions-Policy` disables unused browser APIs (camera, microphone, geolocation, payment, USB).
+- **A.8.24 — Use of Cryptography / A.5.10 — Acceptable Use**: HTTPS enforced everywhere (GitHub Pages enforces HTTPS; Vercel adds `Strict-Transport-Security` via `vercel.json`).
+- **A.8.28 — Secure Coding**: typed data parsing (d3-dsv / JSON with required keys), no raw HTML rendering, strict TypeScript, secret detection in pre-commit hooks.
+- **A.5.23 — Cloud Services**: least-privilege GitHub Actions permissions, deployment tokens stored as GitHub Secrets.
+- **A.5.10 — Acceptable Use / A.8.12**: no tracking cookies or user data collection (Vercel Analytics/Speed Insights only, no PII).
+
 ## Contact
 
 For security concerns, contact:
@@ -147,4 +158,4 @@ We appreciate responsible disclosure and will acknowledge security researchers w
 
 ---
 
-Last updated: 2026-05-15
+Last updated: 2026-08-05

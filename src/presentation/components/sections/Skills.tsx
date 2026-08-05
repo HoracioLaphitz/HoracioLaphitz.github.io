@@ -27,8 +27,16 @@ const SKILL_GROUPS: { label: string; names: string[] }[] = [
     names: ["SQL", "PostgreSQL", "MySQL", "BigQuery", "Databricks"],
   },
   {
+    label: "Desarrollo Web",
+    names: ["Astro", "React", "TypeScript", "JavaScript", "HTML", "CSS", "Tailwind CSS", "Vite", "Node.js", "GitHub Actions", "CI/CD"],
+  },
+  {
     label: "Dev & Herramientas",
     names: ["Git", "Docker", "Streamlit", "Web Scraping", "Testing"],
+  },
+  {
+    label: "Seguridad de la Información",
+    names: ["ISO 27001", "Gobernanza de Datos", "Privacidad de Datos"],
   },
   {
     label: "Soft Skills",
@@ -51,11 +59,11 @@ const Skills = () => {
     <section
       ref={elementRef as React.RefObject<HTMLElement>}
       id="skills"
-      className="bg-skin-primary py-16 md:py-20"
+      className="bg-skin-primary py-10 md:py-14"
     >
       <div className="mx-auto max-w-content px-6">
         <div
-          className={`mb-12 transition-all duration-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+          className={`mb-8 transition-all duration-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
         >
           <h2
             className="text-display-sm font-bold text-skin-text tracking-tight"
@@ -65,7 +73,7 @@ const Skills = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
           {SKILL_GROUPS.map((group, gi) => {
             const visible = group.names.filter((name) => skillMap.has(name));
 
@@ -75,14 +83,14 @@ const Skills = () => {
                 className={`transition-all duration-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
                 style={{ transitionDelay: `${gi * 60}ms` }}
               >
-                <h3 className="text-xs font-semibold text-skin-muted uppercase tracking-widest mb-4">
+                <h3 className="text-xs font-semibold text-skin-muted uppercase tracking-widest mb-2.5">
                   {group.label}
                 </h3>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5">
                   {visible.map((name) => (
                     <span
                       key={name}
-                      className="px-3 py-1.5 text-sm font-medium text-skin-text bg-skin-secondary border border-skin-border rounded-lg hover:border-skin-border-medium transition-colors duration-200"
+                      className="px-2.5 py-1 text-xs font-medium text-skin-text bg-skin-secondary border border-skin-border rounded-lg hover:border-skin-border-medium transition-colors duration-200"
                     >
                       {name}
                     </span>

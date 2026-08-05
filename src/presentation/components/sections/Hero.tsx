@@ -14,11 +14,12 @@ const Hero = () => {
       className="min-h-screen flex items-center justify-center relative pt-14"
     >
       <div
-        className={`mx-auto max-w-prose-narrow w-full px-6 py-20 text-center transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}
+        className={`mx-auto max-w-prose-narrow w-full px-6 py-20 text-center transition-all duration-700 ${
+          mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
       >
         <p className="text-sm font-semibold text-brand-primary uppercase tracking-widest mb-6">
-          Data Analytics | Machine Learning | GenAI
+          Data Analytics · Business Intelligence · Machine Learning · GenAI
         </p>
 
         <h1
@@ -32,7 +33,7 @@ const Hero = () => {
         </h1>
 
         <p className="text-lg text-skin-muted max-w-xl mx-auto leading-relaxed mb-10">
-          Analista de Datos con Python + SQL + GenAI
+          Analista de Datos · ISO 27001
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-6">

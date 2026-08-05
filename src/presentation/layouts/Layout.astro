@@ -15,7 +15,7 @@ interface Props {
 
 const {
   title,
-  description = "Data Analyst especializado en Python, SQL y Machine Learning: pipelines de datos, dashboards en Power BI y modelos evaluados con métricas.",
+  description = "Data Analyst especializado en Python, SQL y Machine Learning: pipelines de datos, dashboards en Power BI y modelos evaluados con métricas, tratando datos bajo estándares de seguridad ISO 27001.",
   image = "/img/profile.jpg",
   type = "website",
   canonical,
@@ -30,6 +30,27 @@ const ogImage = new URL(image, siteUrl).href;
 const canonicalUrl = canonical
   ? new URL(canonical, siteUrl).href
   : new URL(Astro.url.pathname, siteUrl).href;
+
+// CSP baseline for a static site on GitHub Pages (meta tag only — Pages does not
+// support response headers). Astro inlines its island runtime/loaders and Vercel
+// injects its analytics bootstrap as inline scripts, so script-src needs
+// 'unsafe-inline'. There is no user-input XSS surface (static content, typed
+// parsing), and connect-src is strictly allowlisted — so even an injected inline
+// script could not exfiltrate to an unknown origin. HSTS is added for Vercel via
+// vercel.json.
+const csp = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "font-src 'self' https://fonts.gstatic.com",
+  "img-src 'self' data: https:",
+  "connect-src 'self' https://raw.githubusercontent.com https://va.vercel-scripts.com https://fonts.googleapis.com https://fonts.gstatic.com",
+  "frame-src 'self'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "upgrade-insecure-requests",
+].join("; ");
 ---
 
 <!doctype html>
@@ -71,11 +92,15 @@ const canonicalUrl = canonical
 
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta http-equiv="X-Frame-Options" content="DENY" />
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
     <meta
       http-equiv="Referrer-Policy"
       content="strict-origin-when-cross-origin"
     />
+    <meta
+      http-equiv="Permissions-Policy"
+      content="camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+    />
+    <meta http-equiv="Content-Security-Policy" content={csp} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -93,7 +118,7 @@ const canonicalUrl = canonical
         "@type": "Person",
         "name": "Horacio Laphitz",
         "jobTitle": "Data Analyst",
-        "description": "Data Analyst especializado en Python, SQL y Machine Learning: pipelines de datos, dashboards en Power BI y Databricks, y modelos evaluados con métricas.",
+        "description": "Data Analyst especializado en Python, SQL y Machine Learning: pipelines de datos, dashboards en Power BI y Databricks, modelos evaluados con métricas y datos tratados bajo estándares de seguridad ISO 27001.",
         "url": "https://horaciolaphitz.github.io",
         "image": "https://horaciolaphitz.github.io/img/profile.jpg",
         "email": "horaciolaphitz99@gmail.com",
@@ -112,7 +137,8 @@ const canonicalUrl = canonical
           "Data Visualization",
           "Business Intelligence",
           "Data Science",
-          "LangChain"
+          "LangChain",
+          "Information Security (ISO 27001)"
         ],
         "hasCredential": [
           {

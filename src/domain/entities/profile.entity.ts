@@ -50,7 +50,8 @@ export enum SkillCategory {
   Visualization = "Visualización",
   Database = "Bases de Datos",
   Tools = "Herramientas",
-  Soft = "Habilidades Blandas"
+  Soft = "Habilidades Blandas",
+  Security = "Seguridad de la Información"
 }
 
 export enum SkillLevel {

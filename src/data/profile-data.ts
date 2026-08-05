@@ -13,7 +13,7 @@ export const PROFILE_DATA = new ProfileEntity(
   "Horacio Laphitz",
   "",
   [
-    "Analista de Datos orientado al desarrollo agéntico de soluciones para problemas del mundo real",
+    "Analista de Datos orientado al desarrollo agéntico de soluciones para problemas del mundo real, aplicando estándares de seguridad de la información (ISO 27001)",
   ],
   {
     email: "horaciolaphitz99@gmail.com",
@@ -277,6 +277,62 @@ export const PROFILE_DATA = new ProfileEntity(
       category: SkillCategory.Tools,
       level: SkillLevel.Advanced,
     },
+    // Desarrollo Web
+    {
+      name: "Astro",
+      category: SkillCategory.Programming,
+      level: SkillLevel.Advanced,
+    },
+    {
+      name: "React",
+      category: SkillCategory.Programming,
+      level: SkillLevel.Advanced,
+    },
+    {
+      name: "TypeScript",
+      category: SkillCategory.Programming,
+      level: SkillLevel.Advanced,
+    },
+    {
+      name: "JavaScript",
+      category: SkillCategory.Programming,
+      level: SkillLevel.Advanced,
+    },
+    {
+      name: "HTML",
+      category: SkillCategory.Programming,
+      level: SkillLevel.Advanced,
+    },
+    {
+      name: "CSS",
+      category: SkillCategory.Programming,
+      level: SkillLevel.Advanced,
+    },
+    {
+      name: "Tailwind CSS",
+      category: SkillCategory.Programming,
+      level: SkillLevel.Advanced,
+    },
+    {
+      name: "Vite",
+      category: SkillCategory.Programming,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Node.js",
+      category: SkillCategory.Programming,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "GitHub Actions",
+      category: SkillCategory.Tools,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "CI/CD",
+      category: SkillCategory.Tools,
+      level: SkillLevel.Intermediate,
+    },
     // Soft Skills
     {
       name: "Resolución de Problemas",
@@ -327,6 +383,22 @@ export const PROFILE_DATA = new ProfileEntity(
     {
       name: "Gestión de Compras",
       category: SkillCategory.Tools,
+      level: SkillLevel.Intermediate,
+    },
+    // Seguridad de la Información
+    {
+      name: "ISO 27001",
+      category: SkillCategory.Security,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Gobernanza de Datos",
+      category: SkillCategory.Security,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Privacidad de Datos",
+      category: SkillCategory.Security,
       level: SkillLevel.Intermediate,
     },
   ],
