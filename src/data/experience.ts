@@ -19,7 +19,8 @@ export const EXPERIENCE_ITEMS: readonly ExperienceItem[] = [
     role: "Data Entry Specialist",
     company: "Ucrop.it",
     location: "Remoto",
-    description: "Procesamiento y validación de datos georreferenciados",
+    description:
+      "Validación de registros georreferenciados de Molinos SA, Heineken y COFCO con tasa de error menor al 5%; automaticé la validación para su carga en bases de datos SQL",
     sortDate: new Date(2025, 11, 1),
   },
   {

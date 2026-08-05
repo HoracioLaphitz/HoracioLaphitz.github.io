@@ -13,7 +13,7 @@ const Footer = () => {
               Horacio Laphitz
             </h3>
             <a
-              href="/cv-horacio-laphitz.pdf"
+              href="/CV_HoracioLaphitz.pdf"
               download
               className="focus-ring inline-flex items-center gap-1.5 text-sm text-brand-primary hover:text-brand-primary/80 transition-colors duration-200"
             >

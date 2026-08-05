@@ -7,6 +7,12 @@ tags: ["Python", "SQL", "Market Basket Analysis", "Apriori", "Power BI", "Pandas
 github: "https://github.com/HoracioLaphitz/MarketBasketAnalytics"
 featured: true
 draft: false
+impact:
+  revenueIncrease: "+15-20% ticket promedio"
+  customMetrics:
+    "Transacciones analizadas": "4.9M+"
+    "Reglas de asociación": "50+"
+    "Lift máximo": "2.3x"
 resources:
   notebooks:
     - name: "Market Basket Analysis"

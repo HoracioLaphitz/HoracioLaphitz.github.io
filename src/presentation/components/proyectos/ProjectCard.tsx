@@ -1,6 +1,11 @@
 import { RobotIcon, ChartBarIcon, BriefcaseIcon, PresentationChartLineIcon, DocumentIcon, GithubMarkIcon, DashboardIcon, ArrowRightIcon } from "@presentation/components/ui/Icons";
 import type { ReactElement } from "react";
 
+export interface ImpactMetric {
+    label: string;
+    value: string;
+}
+
 interface ProjectCardProps {
     title: string;
     description: string;
@@ -10,9 +15,10 @@ interface ProjectCardProps {
     github?: string;
     dashboard?: string;
     featured?: boolean;
+    impact?: ImpactMetric[];
 }
 
-const ProjectCard = ({ title, description, slug, category, tags, github, dashboard }: ProjectCardProps) => {
+const ProjectCard = ({ title, description, slug, category, tags, github, dashboard, impact }: ProjectCardProps) => {
     const categoryIcons: Record<string, ReactElement> = {
         "Machine Learning": <RobotIcon className="w-4 h-4" />,
         "Análisis de datos": <ChartBarIcon className="w-4 h-4" />,
@@ -44,6 +50,20 @@ const ProjectCard = ({ title, description, slug, category, tags, github, dashboa
                 <p className="text-sm text-skin-muted mb-4 leading-relaxed line-clamp-3 flex-grow">
                     {description}
                 </p>
+
+                {/* Métricas de impacto */}
+                {impact && impact.length > 0 && (
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                        {impact.map((metric, idx) => (
+                            <span
+                                key={idx}
+                                className="text-xs px-2.5 py-1 bg-brand-primary/10 text-brand-primary rounded-md font-semibold"
+                            >
+                                {metric.label}: {metric.value}
+                            </span>
+                        ))}
+                    </div>
+                )}
 
                 {/* Tags */}
                 <div className="flex flex-wrap gap-1.5 mb-4">

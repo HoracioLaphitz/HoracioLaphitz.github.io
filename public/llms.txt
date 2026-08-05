@@ -1,21 +1,21 @@
-# Horacio Laphitz — Applied GenAI Data Analyst
+# Horacio Laphitz — Data Analyst
 
-> Applied GenAI Data Analyst based in Argentina. I build pipelines where company data feeds large language models — RAG systems, internal chatbots, and self-generating reports. Core stack: Python, LangChain, LlamaIndex, Vector Databases, SQL, and Power BI. Available for freelance and full-time roles.
+> Data Analyst based in Argentina. I turn raw data into business decisions: ETL pipelines, dashboards in Power BI, and machine learning models evaluated with metrics. Core stack: Python, SQL, Power BI, and GenAI (LangChain, RAG). Available for freelance and full-time roles.
 
 ## About
 
 - **Name:** Horacio Laphitz
-- **Role:** Applied GenAI Data Analyst (Python, LLMs, Vector Databases & LangChain)
+- **Role:** Data Analyst (Python, SQL, Power BI & GenAI)
 - **Location:** Argentina (remote-friendly)
-- **Focus:** RAG pipelines, internal chatbots over business data, LLM-driven reporting, ETL/EDA, and business intelligence
+- **Focus:** ETL/EDA, business intelligence, dashboards, predictive models, and GenAI applications (RAG, LLM-driven reporting)
 - **Email:** horaciolaphitz99@gmail.com
 
 ## Skills
 
 - GenAI & LLMs: LangChain, LlamaIndex, RAG, Vector Databases, OpenAI API, Prompt Engineering
-- Data Analysis: Python (Pandas, NumPy, Scikit-learn), SQL, R, Power BI, Tableau
-- Databases: PostgreSQL, MySQL, MongoDB, Databricks
-- Engineering: ETL pipelines, web scraping, Git, Docker
+- Data Analysis: Python (Pandas, NumPy, Scikit-learn, XGBoost), SQL, R, Power BI, Excel Avanzado, Matplotlib
+- Databases: PostgreSQL, MySQL, SQLite, BigQuery, Databricks
+- Engineering: ETL pipelines, web scraping, Git, Docker, Streamlit, Testing (pytest)
 
 ## Links
 
@@ -26,11 +26,10 @@
 
 ## Featured projects
 
-- SanoYFresco — Market Basket Analysis (Apriori) over 4.9M+ retail transactions to drive cross-selling and layout decisions: https://horaciolaphitz.github.io/proyectos/sano-y-fresco-market-basket/
-- AI Sales Assistant — Natural-language chat over 100k+ e-commerce orders with LangChain + Groq llama3-70b: https://horaciolaphitz.github.io/proyectos/ai-sales-assistant/
-- Cyclistic — Bike-share user analysis capstone: https://horaciolaphitz.github.io/proyectos/analisis-cyclistic-bike-share/
+- SanoYFresco — Market Basket Analysis (Apriori) over 4.9M+ retail transactions with +15-20% ticket potential: https://horaciolaphitz.github.io/proyectos/sano-y-fresco-market-basket/
+- AI Sales Assistant — ETL to a star schema over 100k+ e-commerce orders, Streamlit insights app, and churn prediction (AUC-ROC 0.99): https://horaciolaphitz.github.io/proyectos/ai-sales-assistant/
 
 ## Notes
 
-- Full project catalog is available at https://horaciolaphitz.github.io (Projects section), grouped by category: GenAI, Análisis de datos, Notebooks Analytics.
+- Full project catalog is available at https://horaciolaphitz.github.io (Projects section), grouped by category: Análisis de datos, Data Science, Notebooks Analytics.
 - Sitemap: https://horaciolaphitz.github.io/sitemap-index.xml

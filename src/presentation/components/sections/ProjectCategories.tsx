@@ -1,5 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
-import ProjectCard from "@presentation/components/proyectos/ProjectCard";
+import ProjectCard, {
+  type ImpactMetric,
+} from "@presentation/components/proyectos/ProjectCard";
 import ProjectFilters from "@presentation/components/proyectos/ProjectFilters";
 import { FolderIcon } from "@presentation/components/ui/Icons";
 import type { ProjectEntity } from "@domain/entities/project.entity";
@@ -16,7 +18,24 @@ export interface SerializedProject {
   dashboardUrl?: string;
   status: string;
   featured: boolean;
+  impact: ImpactMetric[];
 }
+
+const serializeImpact = (p: ProjectEntity): ImpactMetric[] => {
+  if (!p.impact || !p.hasImpactMetrics()) return [];
+
+  const metrics: ImpactMetric[] = [];
+  const primary = p.getPrimaryImpactMetric();
+  if (primary) metrics.push(primary);
+
+  if (p.impact.customMetrics) {
+    Object.entries(p.impact.customMetrics).forEach(([label, value]) =>
+      metrics.push({ label, value: String(value) })
+    );
+  }
+
+  return metrics.slice(0, 4);
+};
 
 export const serializeProjects = (
   projects: ProjectEntity[]
@@ -33,6 +52,7 @@ export const serializeProjects = (
     dashboardUrl: p.dashboardUrl,
     status: p.status,
     featured: p.featured,
+    impact: serializeImpact(p),
   }));
 
 interface ProjectCategoriesProps {
@@ -123,6 +143,7 @@ const ProjectCategories = ({ posts }: ProjectCategoriesProps) => {
                   github={project.githubUrl}
                   dashboard={project.dashboardUrl}
                   featured={project.featured}
+                  impact={project.impact}
                 />
               ))}
             </div>

@@ -8,6 +8,11 @@ github: "https://github.com/HoracioLaphitz/Data-Analysis-Ecommerce"
 dashboard: "https://data-analysis-ecommerce-horaciolaphitz.streamlit.app/"
 featured: true
 draft: false
+impact:
+  customMetrics:
+    "AUC-ROC": 0.99
+    "Precisión": 0.95
+    "Órdenes analizadas": "100k+"
 ---
 
 ## El problema
