@@ -28,19 +28,20 @@ jobs:
         id: extract_branch
         env:
           HEAD_REF: ${{ github.head_ref }}
+          EVENT_NAME: ${{ github.event_name }}
         run: |
-          if [ "${{ github.event_name }}" == "pull_request" ]; then
+          if [ "$EVENT_NAME" = "pull_request" ]; then
             BRANCH_NAME="$HEAD_REF"
           else
             BRANCH_NAME="${GITHUB_REF#refs/heads/}"
           fi
-          echo "branch=$BRANCH_NAME" >> $GITHUB_OUTPUT
+          echo "branch=$BRANCH_NAME" >> "$GITHUB_OUTPUT"
           echo "Branch name: $BRANCH_NAME"
 
       - name: Validate branch naming
+        env:
+          BRANCH: ${{ steps.extract_branch.outputs.branch }}
         run: |
-          BRANCH="${{ steps.extract_branch.outputs.branch }}"
-
           echo "🔍 Validating branch name: $BRANCH"
 
           # Valid patterns
@@ -78,7 +79,9 @@ jobs:
 
       - name: Validation summary
         if: always()
+        env:
+          BRANCH: ${{ steps.extract_branch.outputs.branch }}
         run: |
-          echo "## Branch Validation" >> $GITHUB_STEP_SUMMARY
-          echo "- Branch: ${{ steps.extract_branch.outputs.branch }}" >> $GITHUB_STEP_SUMMARY
-          echo "- Status: ✅ Valid" >> $GITHUB_STEP_SUMMARY
+          echo "## Branch Validation" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Branch: $BRANCH" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Status: ✅ Valid" >> "$GITHUB_STEP_SUMMARY"

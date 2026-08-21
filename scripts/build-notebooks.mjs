@@ -7,12 +7,6 @@ import { load as loadYaml } from "js-yaml";
 import { getNotebookConversionJobs } from "../src/shared/notebook-jobs.ts";
 
 const CONTENT_DIR = "src/content/proyectos";
-
-// gray-matter@4.0.3 bundles js-yaml and calls the removed `yaml.safeLoad`
-// API. This repo's security overrides (pnpm-workspace.yaml) force any
-// transitive js-yaml resolution to a modern major version, where
-// `safeLoad` no longer exists, so we pass gray-matter a custom YAML
-// engine backed by our own explicit js-yaml dependency instead.
 const YAML_ENGINE = (content) => loadYaml(content);
 
 function loadProyectos() {
@@ -21,7 +15,7 @@ function loadProyectos() {
     .map((file) => {
       const raw = readFileSync(join(CONTENT_DIR, file), "utf-8");
       const { data } = matter(raw, { engines: { yaml: YAML_ENGINE } });
-      // Content frontmatter stores web paths (/Proyectos/...); nbconvert
+       // Content frontmatter stores web paths (/Proyectos/...); nbconvert
       // needs the on-disk location under public/.
       const resources = data.resources?.notebooks
         ? {

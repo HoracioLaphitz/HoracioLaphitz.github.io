@@ -89,11 +89,9 @@ export default defineConfig({
     resolve: {
       alias: {
         "@domain": "/src/domain",
-        "@application": "/src/application",
         "@infrastructure": "/src/infrastructure",
         "@presentation": "/src/presentation",
         "@shared": "/src/shared",
-        "@main": "/src/main",
         "@data": "/src/data",
       },
     },

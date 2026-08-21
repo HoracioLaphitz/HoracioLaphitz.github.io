@@ -6,7 +6,7 @@ import { ProjectDashboard } from "@presentation/components/dashboards/ProjectDas
 import { DASHBOARD_SLUGS } from "@presentation/components/dashboards/dashboard-slugs";
 
 export async function getStaticPaths() {
-  const proyectos = await getCollection("proyectos");
+  const proyectos = await getCollection("proyectos", ({ data }) => !data.draft);
   return proyectos.map((proyecto) => ({
     params: { slug: proyecto.slug },
     props: { proyecto },

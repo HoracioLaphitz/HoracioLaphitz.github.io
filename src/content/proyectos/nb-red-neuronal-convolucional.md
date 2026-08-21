@@ -1,6 +1,6 @@
 ---
 title: "Red Neuronal Convolucional (CNN)"
-description: "Implementación de una CNN para clasificación de imágenes con TensorFlow/Keras."
+description: "Implementación de una CNN para clasificación de imágenes desarrollado con TensorFlow/Keras."
 pubDate: 2024-03-05
 category: "Notebooks Analytics"
 tags: ["Python", "TensorFlow", "CNN", "Deep Learning", "Computer Vision"]
@@ -16,7 +16,7 @@ resources:
 
 ## El problema
 
-Una red densa trata cada píxel como independiente y pierde la estructura espacial de la imagen. Las CNN existen para eso: detectar patrones locales (bordes, texturas, formas) y componerlos jerárquicamente.
+Una red densa  trata cada píxel como independiente y pierde la estructura espacial de la imagen. Las CNN existen para eso: detectar patrones locales (Data Analytics | Machine Learning | GenAIbordes, texturas, formas) y componerlos jerárquicamente.
 
 ## Resolución
 
@@ -29,6 +29,6 @@ Una red densa trata cada píxel como independiente y pierde la estructura espaci
 
 Python · TensorFlow · Keras · tensorflow_datasets · OpenCV
 
-## Conocimiento Demostrado
+## Moraleja
 
 Por qué la convolución gana en visión: menos parámetros que una densa equivalente y mejor accuracy, porque la arquitectura codifica el conocimiento de que los píxeles vecinos se relacionan.

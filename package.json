@@ -3,19 +3,18 @@
   "packageManager": "pnpm@11.1.2",
   "type": "module",
   "version": "0.0.1",
-  "description": "Portfolio personal de Horacio Laphitz - Data Analyst | Python, SQL, Machine Learning & GenAI",
+  "description": "Portfolio personal de Horacio Laphitz",
   "author": {
     "name": "Horacio Laphitz",
-    "email": "horaciolaphitz99@gmail.com",
-    "url": "https://horaciolaphitz.github.io"
+    "url": "https://horaciolaphitz.vercel.app"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/HoracioLaphitz/horaciolaphitz.github.io.git"
   },
-  "homepage": "https://horaciolaphitz.github.io",
+  "homepage": "https://horaciolaphitz.vercel.app",
   "bugs": {
-    "url": "https://github.com/HoracioLaphitz/horaciolaphitz.github.io/issues"
+    "url": "https://horaciolaphitz.vercel.app"
   },
   "license": "MIT",
   "scripts": {

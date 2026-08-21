@@ -1,10 +1,10 @@
 # Portfolio - Horacio Laphitz
 
-Portfolio profesional desplegado en Vercel.
+Portfolio profesional Analisis de Datos.
 
 ## 👋 Sobre mí
 
-Soy **Horacio Laphitz**, Data Analyst especializado en Python, SQL y Machine Learning. Construyo pipelines de datos y modelos evaluados con métricas. Mis proyectos incluyen tests y arquitectura documentada, no solo notebooks.
+Soy **Horacio Laphitz**, Analista de Datos orientado a mejorar procesos con el uso de Machine Learning. Analizo datos y modelos evaluados con métricas.
 
 ### URL del Sitio
 
@@ -20,8 +20,6 @@ Soy **Horacio Laphitz**, Data Analyst especializado en Python, SQL y Machine Lea
 
 ## 🏗️ Arquitectura
 
-El proyecto sigue Clean Architecture:
-
 ```
 src/
 ├── domain/          # Lógica de negocio
@@ -33,4 +31,4 @@ src/
 
 ## 📄 Licencia
 
-© 2026 Horacio Laphitz. Todos los derechos reservados.
+© 2026 Horacio Laphitz. 

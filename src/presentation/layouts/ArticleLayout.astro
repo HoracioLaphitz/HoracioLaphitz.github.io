@@ -24,7 +24,7 @@ interface Props {
 
 const { title, description, category, pubDate, tags, author, github, dashboard, currentPath, notebooks, projectSlug } = Astro.props;
 
-const siteUrl = "https://horaciolaphitz.github.io";
+const siteUrl = "https://horaciolaphitz.vercel.app";
 const articleUrl = new URL(currentPath, siteUrl).href;
 const articleSchema = {
   "@context": "https://schema.org",

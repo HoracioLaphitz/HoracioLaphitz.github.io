@@ -52,7 +52,7 @@ export const EXPERIENCE_ITEMS: readonly ExperienceItem[] = [
     period: "Mar 2019 – Jun 2019",
     role: "Asistente Administrativo Contable",
     company: "Ministerio de Salud Pública de Misiones",
-    location: "",
+    location: "Posadas",
     description: "Gestión de compras, licitaciones y ERP",
     sortDate: new Date(2019, 5, 1),
   },

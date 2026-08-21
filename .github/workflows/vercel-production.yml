@@ -94,8 +94,12 @@ jobs:
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
       - name: Deployment summary
+        env:
+          PROD_URL: ${{ steps.deploy.outputs.url }}
+          COMMIT_SHA: ${{ github.sha }}
+          ACTOR: ${{ github.actor }}
         run: |
           echo "✅ Production deployment completed successfully"
-          echo "🌐 Production URL: ${{ steps.deploy.outputs.url }}"
-          echo "📦 Commit: ${{ github.sha }}"
-          echo "👤 Deployed by: ${{ github.actor }}"
+          echo "🌐 Production URL: $PROD_URL"
+          echo "📦 Commit: $COMMIT_SHA"
+          echo "👤 Deployed by: $ACTOR"

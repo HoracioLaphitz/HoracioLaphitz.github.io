@@ -19,18 +19,18 @@
 
 ## Links
 
-- Portfolio: https://horaciolaphitz.github.io
+- Portfolio: https://horaciolaphitz.vercel.app
 - GitHub: https://github.com/HoracioLaphitz
 - LinkedIn: https://www.linkedin.com/in/horacio-laphitz/
 - Credly (verified badges): https://www.credly.com/users/horacio-laphitz
 
 ## Featured projects
 
-- SanoYFresco — Market Basket Analysis (Apriori) over 4.9M+ retail transactions to drive cross-selling and layout decisions: https://horaciolaphitz.github.io/proyectos/sano-y-fresco-market-basket/
-- AI Sales Assistant — Natural-language chat over 100k+ e-commerce orders with LangChain + Groq llama3-70b: https://horaciolaphitz.github.io/proyectos/ai-sales-assistant/
-- Cyclistic — Bike-share user analysis capstone: https://horaciolaphitz.github.io/proyectos/analisis-cyclistic-bike-share/
+- SanoYFresco — Market Basket Analysis (Apriori) over 4.9M+ retail transactions to drive cross-selling and layout decisions: https://horaciolaphitz.vercel.app/proyectos/sano-y-fresco-market-basket/
+- AI Sales Assistant — Natural-language chat over 100k+ e-commerce orders with LangChain + Groq llama3-70b: https://horaciolaphitz.vercel.app/proyectos/ai-sales-assistant/
+- Cyclistic — Bike-share user analysis capstone: https://horaciolaphitz.vercel.app/proyectos/analisis-cyclistic-bike-share/
 
 ## Notes
 
-- Full project catalog is available at https://horaciolaphitz.github.io (Projects section), grouped by category: GenAI, Análisis de datos, Notebooks Analytics.
-- Sitemap: https://horaciolaphitz.github.io/sitemap-index.xml
+- Full project catalog is available at https://horaciolaphitz.vercel.app (Projects section), grouped by category: GenAI, Análisis de datos, Notebooks Analytics.
+- Sitemap: https://horaciolaphitz.vercel.app/sitemap-index.xml

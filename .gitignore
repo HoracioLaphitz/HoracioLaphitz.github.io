@@ -60,7 +60,9 @@ node_modules/
 # Build output
 dist/
 build/
-
+openspec/
+.superpowers/
+docs/
 # Testing
 coverage/
 .nyc_output/

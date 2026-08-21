@@ -1,11 +1,6 @@
-# Redirects for renamed pages (Spanish to English)
-# This file is used by Netlify, Vercel, and GitHub Pages (with plugins)
-
-/sobre-mi     /about      301
-/habilidades  /skills     301
-/proyectos    /projects   301
-/contacto     /contact    301
-/gracias      /thanks     301
-
-# Ensure www redirects to non-www
-https://www.horaciolaphitz.github.io/*  https://horaciolaphitz.github.io/:splat  301
+# Legacy redirects to valid routes and anchors
+/projects    /           301
+/about       /#inicio    301
+/skills      /#skills    301
+/contact     /#contacto  301
+/thanks      /gracias    301

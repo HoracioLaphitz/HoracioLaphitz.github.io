@@ -47,7 +47,7 @@ function Shell({ children }: { children: ReactNode }) {
     return (
         <DashboardShell
             title="Financiero — Capitalización Bancaria"
-            subtitle="Ranking de los bancos más grandes por capitalización de mercado (pipeline ETL)."
+            subtitle="Ranking de los bancos más grandes por capitalización de mercado."
             repoUrl={REPO_URL}
             theme={theme}
         >

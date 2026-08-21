@@ -21,10 +21,6 @@ resources:
     - name: "Trabajo de Análisis de Insights"
       path: "/Proyectos/Proyecto SanoYFresco/plantillas/Trabajo de Analisis de Insights.xlsx"
       description: "Matriz de insights derivados de las reglas de asociación, priorizados por impacto."
-  datasets:
-    - name: "Reglas de asociación (CSV)"
-      path: "/Proyectos/Proyecto SanoYFresco/Datos en si/reglas.csv"
-      description: "50+ reglas de asociación minadas con Apriori: soporte, confianza y lift por combinación de productos."
 ---
 
 ## Situación
