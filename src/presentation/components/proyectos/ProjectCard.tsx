@@ -24,55 +24,55 @@ const ProjectCard = ({ title, description, slug, category, tags, github, dashboa
 
     return (
         <article
-            className="card-elevated group relative overflow-hidden hover:border-skin-border-medium"
+            className="bg-skin-secondary border border-skin-border/60 rounded-2xl md:rounded-3xl transition-all duration-300 hover:shadow-md hover:-translate-y-1 hover:border-skin-border-medium group relative overflow-hidden"
         >
-            <div className="p-5 flex flex-col h-full">
+            <div className="p-6 flex flex-col h-full">
                 {/* Header con categoría */}
                 <div className="flex items-center gap-2 mb-3 text-skin-muted">
-                    {categoryIcons[category] || <DocumentIcon className="w-4 h-4" />}
-                    <span className="text-xs font-medium uppercase tracking-wide">
+                    {categoryIcons[category] || <DocumentIcon className="w-4 h-4 text-brand-primary" />}
+                    <span className="text-xs font-medium uppercase tracking-[0.15em] text-skin-muted">
                         {category}
                     </span>
                 </div>
 
                 {/* Título */}
-                <h3 className="text-lg font-bold text-skin-text mb-2 transition-colors duration-200 line-clamp-2">
+                <h3 className="text-lg md:text-xl font-semibold text-skin-text mb-2 tracking-tight transition-colors duration-200 line-clamp-2">
                     {title}
                 </h3>
 
                 {/* Descripción */}
-                <p className="text-sm text-skin-muted mb-4 leading-relaxed line-clamp-3 flex-grow">
+                <p className="text-sm text-skin-muted mb-5 leading-relaxed line-clamp-3 flex-grow font-normal">
                     {description}
                 </p>
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-1.5 mb-4">
+                <div className="flex flex-wrap gap-1.5 mb-6">
                     {tags.slice(0, 3).map((tag, idx) => (
                         <span
                             key={idx}
-                            className="text-xs px-2.5 py-1 bg-skin-primary text-skin-muted rounded-md font-medium"
+                            className="text-xs px-3 py-1 bg-skin-primary/70 text-skin-muted border border-skin-border/40 rounded-full font-medium tracking-tight"
                         >
                             {tag}
                         </span>
                     ))}
                     {tags.length > 3 && (
-                        <span className="text-xs px-2.5 py-1 bg-skin-primary text-skin-muted rounded-md font-medium">
+                        <span className="text-xs px-2.5 py-1 bg-skin-primary/70 text-skin-muted border border-skin-border/40 rounded-full font-medium">
                             +{tags.length - 3}
                         </span>
                     )}
                 </div>
 
                 {/* Actions */}
-                <div className="flex items-center gap-2 mt-auto pt-4 border-t border-skin-border/50">
+                <div className="flex items-center gap-2 mt-auto pt-4 border-t border-skin-border/40">
                     {github && (
                         <a
                             href={github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn-ghost gap-1.5 px-3 py-2 text-xs rounded-lg bg-skin-primary hover:bg-brand-primary/10 hover:text-brand-primary"
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-full bg-skin-primary text-skin-text border border-skin-border/40 hover:bg-skin-primary/80 transition-colors"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <GithubMarkIcon className="w-4 h-4" />
+                            <GithubMarkIcon className="w-3.5 h-3.5" />
                             Código
                         </a>
                     )}
@@ -81,19 +81,19 @@ const ProjectCard = ({ title, description, slug, category, tags, github, dashboa
                             href={dashboard}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn-ghost gap-1.5 px-3 py-2 text-xs rounded-lg bg-skin-primary hover:bg-brand-primary/10 hover:text-brand-primary"
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-full bg-skin-primary text-skin-text border border-skin-border/40 hover:bg-skin-primary/80 transition-colors"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <DashboardIcon className="w-4 h-4" />
+                            <DashboardIcon className="w-3.5 h-3.5" />
                             Dashboard
                         </a>
                     )}
                     <a
                         href={`/proyectos/${slug}`}
-                        className="btn-primary gap-1.5 px-3 py-2 text-xs rounded-lg ml-auto"
+                        className="inline-flex items-center gap-1 px-4 py-1.5 text-xs font-medium rounded-full bg-brand-primary text-white hover:opacity-90 transition-opacity ml-auto shadow-xs"
                     >
                         Ver más
-                        <ArrowRightIcon className="w-4 h-4" />
+                        <ArrowRightIcon className="w-3.5 h-3.5" />
                     </a>
                 </div>
             </div>

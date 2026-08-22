@@ -88,6 +88,11 @@
     --bg-primary: #FFFFFF;
     --bg-secondary: #F5F5F7;
     --bg-tertiary: #F0F0F2;
+
+    --bg-pattern-color: var(--md-outline-variant);
+    --bg-pattern-opacity: 0.06;
+    --bg-pattern-size: 64px;
+    --bg-pattern-grain-opacity: 0.04;
   }
 
   .dark {
@@ -173,6 +178,11 @@
     --bg-primary: #000000;
     --bg-secondary: #1C1C1E;
     --bg-tertiary: #2C2C2E;
+
+    --bg-pattern-color: var(--md-outline-variant);
+    --bg-pattern-opacity: 0.09;
+    --bg-pattern-size: 64px;
+    --bg-pattern-grain-opacity: 0.05;
   }
 
   * {
@@ -190,6 +200,61 @@
     transition: background-color 0.3s ease, color 0.3s ease;
     letter-spacing: -0.011em;
     line-height: 1.6;
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent calc(var(--bg-pattern-size) - 1px),
+        color-mix(in srgb, var(--bg-pattern-color) var(--bg-pattern-opacity), transparent) calc(var(--bg-pattern-size) - 1px),
+        color-mix(in srgb, var(--bg-pattern-color) var(--bg-pattern-opacity), transparent) var(--bg-pattern-size)
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent calc(var(--bg-pattern-size) - 1px),
+        color-mix(in srgb, var(--bg-pattern-color) var(--bg-pattern-opacity), transparent) calc(var(--bg-pattern-size) - 1px),
+        color-mix(in srgb, var(--bg-pattern-color) var(--bg-pattern-opacity), transparent) var(--bg-pattern-size)
+      ),
+      radial-gradient(
+        circle at 50% 50%,
+        color-mix(in srgb, var(--bg-pattern-color) var(--bg-pattern-grain-opacity), transparent) 0%,
+        transparent 70%
+      );
+    background-size:
+      var(--bg-pattern-size) var(--bg-pattern-size),
+      var(--bg-pattern-size) var(--bg-pattern-size),
+      200% 200%;
+    background-attachment: fixed;
+    opacity: 1;
+    transition: opacity 0.2s ease, background-color 0.3s ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    body::before {
+      background-position: 0 0, 0 0, 50% 50% !important;
+      transition: none !important;
+    }
+  }
+
+  @media (prefers-contrast: more) {
+    body::before {
+      opacity: 0;
+    }
+  }
+
+  @supports not (background-attachment: fixed) {
+    body::before {
+      background-attachment: scroll;
+    }
   }
 
   ::selection {
@@ -244,31 +309,31 @@
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed rounded-full px-5 py-2.5 text-sm tracking-tight;
   }
 
   .btn-primary {
-    @apply btn bg-brand-primary text-skin-primary hover:bg-brand-hover focus:ring-brand-primary;
+    @apply btn bg-brand-primary text-white hover:opacity-90 focus:ring-brand-primary shadow-sm hover:shadow;
   }
 
   .btn-secondary {
-    @apply btn bg-skin-secondary text-skin-text border border-skin-border hover:bg-skin-primary focus:ring-skin-accent;
+    @apply btn bg-skin-secondary text-skin-text border border-skin-border hover:bg-skin-primary hover:border-skin-border-medium focus:ring-skin-accent;
   }
 
   .btn-ghost {
-    @apply btn text-skin-text hover:bg-skin-secondary focus:ring-skin-accent;
+    @apply btn text-skin-text hover:bg-skin-secondary focus:ring-skin-accent rounded-lg;
   }
 
   .card {
-    @apply bg-skin-secondary border border-skin-border rounded-xl transition-all duration-200;
+    @apply bg-skin-secondary border border-skin-border rounded-2xl transition-all duration-300;
   }
 
   .card-elevated {
-    @apply card shadow-md hover:shadow-lg;
+    @apply card shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-skin-border-medium;
   }
 
   .card-interactive {
-    @apply card hover:border-skin-accent cursor-pointer;
+    @apply card hover:border-skin-accent cursor-pointer hover:-translate-y-0.5;
   }
 
   .input {

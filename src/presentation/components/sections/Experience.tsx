@@ -12,12 +12,13 @@ const Experience = () => {
     <section
       ref={elementRef as React.RefObject<HTMLElement>}
       id="experience"
-      className="bg-skin-secondary py-16 md:py-20"
+      className="bg-skin-secondary/50 py-16 md:py-24"
     >
       <div className="mx-auto max-w-content px-6">
         <div
-          className={`mb-12 transition-all duration-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-            }`}
+          className={`mb-12 transition-all duration-300 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+          }`}
         >
           <h2
             className="text-display-sm font-bold text-skin-text tracking-tight"
@@ -27,26 +28,27 @@ const Experience = () => {
           </h2>
         </div>
 
-        <div className="border-t border-skin-border">
+        <div className="border-t border-skin-border/40">
           {items.map((item, index) => (
             <article
               key={`${item.company}-${item.period}`}
-              className={`grid gap-2 border-b border-skin-border py-8 md:grid-cols-[200px_1fr] md:gap-8 transition-all duration-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-                }`}
+              className={`grid gap-3 border-b border-skin-border/40 py-8 md:grid-cols-[180px_1fr] md:gap-8 transition-all duration-300 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+              }`}
               style={{ transitionDelay: `${index * 60}ms` }}
             >
-              <span className="font-mono text-xs text-skin-muted md:pt-1.5">
+              <span className="font-mono text-xs text-skin-muted tracking-tight md:pt-1">
                 {item.period}
               </span>
               <div>
-                <h3 className="text-lg font-semibold text-skin-text">
+                <h3 className="text-lg md:text-xl font-semibold text-skin-text tracking-tight">
                   {item.role}
                 </h3>
-                <p className="mt-1 text-sm text-skin-muted">
+                <p className="mt-1 text-sm font-medium text-skin-muted">
                   {item.company}
                   {item.location ? ` · ${item.location}` : ""}
                 </p>
-                <p className="mt-3 text-sm leading-relaxed text-skin-muted">
+                <p className="mt-3 text-sm leading-relaxed text-skin-muted font-normal">
                   {item.description}
                 </p>
               </div>

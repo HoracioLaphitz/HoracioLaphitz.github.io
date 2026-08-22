@@ -1,62 +1,154 @@
 import { GithubIcon, LinkedinIcon, MailIcon, DownloadIcon } from "../ui/Icons";
+import { AvailabilityBadge } from "../ui/AvailabilityBadge";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const scrollToTop = () => {
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    window.scrollTo({ top: 0, behavior: prefersReduced ? "auto" : "smooth" });
+  };
+
   return (
-    <footer className="bg-skin-secondary border-t border-skin-border">
-      <div className="container mx-auto px-6 py-12 max-w-7xl">
-        <div className="flex flex-col items-center justify-center space-y-8">
-          {/* Nombre */}
-          <div className="text-center">
-            <h3 className="text-xl font-bold text-skin-text mb-1">
+    <footer className="bg-skin-secondary/80 border-t border-skin-border/40 text-xs">
+      <div className="container mx-auto max-w-content px-6 py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Brand */}
+          <div className="space-y-3">
+            <h3 className="text-base font-semibold text-skin-text tracking-tight">
               Horacio Laphitz
             </h3>
+            <p className="text-xs font-medium text-skin-muted">
+              Data Analytics · Hardware Expertise · Sotware Development
+            </p>
+
             <a
               href="/CV_HoracioLaphitz.pdf"
               download
-              className="focus-ring inline-flex items-center gap-1.5 text-sm text-brand-primary hover:text-brand-primary/80 transition-colors duration-200"
+              className="focus-ring inline-flex items-center gap-1.5 text-xs font-medium text-brand-primary hover:opacity-80 transition-opacity"
             >
-              <DownloadIcon className="w-4 h-4" />
-              Descargar CV
+              <DownloadIcon className="w-3.5 h-3.5" />
+              Cv↓
             </a>
+            <div className="pt-1">
+              <AvailabilityBadge variant="compact" />
+            </div>
+            <div className="flex items-center gap-2 pt-1">
+              <a
+                href="https://www.linkedin.com/in/horacio-laphitz/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="focus-ring inline-flex items-center justify-center h-8 w-8 rounded-full text-skin-muted hover:text-skin-text hover:bg-skin-primary/80 border border-skin-border/30 transition-all"
+                aria-label="LinkedIn"
+              >
+                <LinkedinIcon width="16" height="16" />
+              </a>
+              <a
+                href="https://github.com/horaciolaphitz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="focus-ring inline-flex items-center justify-center h-8 w-8 rounded-full text-skin-muted hover:text-skin-text hover:bg-skin-primary/80 border border-skin-border/30 transition-all"
+                aria-label="GitHub"
+              >
+                <GithubIcon width="16" height="16" />
+              </a>
+              <a
+                href="mailto:horaciolaphitz99@gmail.com"
+                className="focus-ring inline-flex items-center justify-center h-8 w-8 rounded-full text-skin-muted hover:text-skin-text hover:bg-skin-primary/80 border border-skin-border/30 transition-all"
+                aria-label="Email"
+              >
+                <MailIcon width="16" height="16" />
+              </a>
+            </div>
           </div>
 
-          {/* Redes Sociales */}
-          <div className="flex items-center gap-6">
-            <a
-              href="https://www.linkedin.com/in/horacio-laphitz/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="focus-ring text-skin-muted hover:text-skin-accent transition-all duration-200 hover-scale"
-              aria-label="LinkedIn"
-            >
-              <LinkedinIcon width="24" height="24" />
-            </a>
-            <a
-              href="https://github.com/horaciolaphitz"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="focus-ring text-skin-muted hover:text-skin-accent transition-all duration-200 hover-scale"
-              aria-label="GitHub"
-            >
-              <GithubIcon width="24" height="24" />
-            </a>
-            <a
-              href="mailto:horaciolaphitz99@gmail.com"
-              className="focus-ring text-skin-muted hover:text-skin-accent transition-all duration-200 hover-scale"
-              aria-label="Email"
-            >
-              <MailIcon width="24" height="24" />
-            </a>
+          {/* Explorar */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-semibold uppercase tracking-[0.1em] text-skin-text">
+              Explorar
+            </h4>
+            <nav className="flex flex-col gap-2">
+              <a
+                href="#inicio"
+                className="text-xs text-skin-muted hover:text-skin-text transition-colors"
+              >
+                Inicio
+              </a>
+              <a
+                href="#proyectos"
+                className="text-xs text-skin-muted hover:text-skin-text transition-colors"
+              >
+                Proyectos
+              </a>
+              <a
+                href="#skills"
+                className="text-xs text-skin-muted hover:text-skin-text transition-colors"
+              >
+                Stack
+              </a>
+              <a
+                href="#experience"
+                className="text-xs text-skin-muted hover:text-skin-text transition-colors"
+              >
+                Experiencia
+              </a>
+              <a
+                href="#certifications"
+                className="text-xs text-skin-muted hover:text-skin-text transition-colors"
+              >
+                Certificaciones
+              </a>
+              <a
+                href="#contacto"
+                className="text-xs text-skin-muted hover:text-skin-text transition-colors"
+              >
+                Contacto
+              </a>
+            </nav>
           </div>
 
-          {/* Copyright */}
-          <div className="pt-6 border-t border-skin-border/50 w-full">
-            <p className="text-sm text-skin-muted text-center">
-              © {currentYear}
-            </p>
+          {/* Contacto */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-semibold uppercase tracking-[0.1em] text-skin-text">
+              Contacto
+            </h4>
+            <div className="flex flex-col gap-2">
+              <a
+                href="mailto:horaciolaphitz99@gmail.com"
+                className="text-xs text-skin-muted hover:text-skin-text transition-colors"
+              >
+                horaciolaphitz99@gmail.com
+              </a>
+              <a
+                href="https://www.linkedin.com/in/horacio-laphitz/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-skin-muted hover:text-skin-text transition-colors"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://github.com/horaciolaphitz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-skin-muted hover:text-skin-text transition-colors"
+              >
+                GitHub
+              </a>
+              <p className="text-xs text-skin-muted pt-1">
+                Posadas, Misiones | Remoto
+              </p>
+            </div>
           </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="mt-10 pt-6 border-t border-skin-border/40 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-skin-muted">
+          <p className="text-center sm:text-left">
+            {`© ${currentYear} Horacio Laphitz`}
+          </p>
         </div>
       </div>
     </footer>

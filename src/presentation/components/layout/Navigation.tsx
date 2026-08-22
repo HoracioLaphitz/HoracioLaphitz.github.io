@@ -35,16 +35,16 @@ const Navigation = () => {
   };
 
   const navClass = scrolled
-    ? "bg-skin-primary/95 backdrop-blur-xl border-b border-skin-border shadow-sm"
-    : "bg-transparent border-b border-transparent";
+    ? "bg-skin-primary/80 backdrop-blur-xl border-b border-skin-border/60 shadow-xs"
+    : "bg-skin-primary/50 backdrop-blur-md border-b border-skin-border/30";
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navClass}`}>
       <div className="mx-auto px-6 max-w-content">
-        <div className="flex items-center justify-between h-14">
+        <div className="flex items-center justify-between h-12 md:h-14">
           <a
             href="/"
-            className="focus-ring flex items-center gap-2 text-skin-text hover:opacity-70 transition-opacity duration-200"
+            className="focus-ring flex items-center gap-2 text-skin-text hover:opacity-75 transition-opacity duration-200"
           >
             <Logo size="sm" />
           </a>
@@ -55,12 +55,12 @@ const Navigation = () => {
                 key={item.path}
                 href={item.path}
                 onClick={(e) => handleNavClick(e, item.path)}
-                className="focus-ring px-4 py-2 text-sm font-medium text-skin-muted hover:text-skin-text transition-colors duration-200 rounded-lg"
+                className="focus-ring px-3.5 py-1.5 text-xs font-normal tracking-tight text-skin-muted hover:text-skin-text transition-all duration-200 rounded-full hover:bg-skin-secondary/60"
               >
                 {item.name}
               </a>
             ))}
-            <div className="ml-3 pl-3 border-l border-skin-border">
+            <div className="ml-2 pl-2 border-l border-skin-border/40">
               <ThemeToggle />
             </div>
           </div>
@@ -69,14 +69,14 @@ const Navigation = () => {
             <ThemeToggle />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="focus-ring p-2 text-skin-muted hover:text-skin-text transition-colors duration-200 rounded-lg"
+              className="focus-ring p-1.5 text-skin-muted hover:text-skin-text transition-colors duration-200 rounded-full hover:bg-skin-secondary/80"
               aria-label="Toggle menu"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {isMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
                 ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
                 )}
               </svg>
             </button>
@@ -84,14 +84,14 @@ const Navigation = () => {
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-skin-border">
+          <div className="md:hidden py-4 border-t border-skin-border/40 bg-skin-primary/95 backdrop-blur-xl rounded-b-2xl px-2">
             <div className="flex flex-col gap-1">
               {navItems.map((item) => (
                 <a
                   key={item.path}
                   href={item.path}
                   onClick={(e) => handleNavClick(e, item.path)}
-                  className="focus-ring px-4 py-2.5 text-sm font-medium text-skin-muted hover:text-skin-text hover:bg-skin-secondary transition-all duration-200 rounded-lg"
+                  className="focus-ring px-4 py-2.5 text-sm font-normal tracking-tight text-skin-muted hover:text-skin-text hover:bg-skin-secondary/80 transition-all duration-200 rounded-xl"
                 >
                   {item.name}
                 </a>

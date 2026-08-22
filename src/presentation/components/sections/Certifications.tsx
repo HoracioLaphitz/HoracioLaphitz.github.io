@@ -23,26 +23,26 @@ const Certifications = () => {
   const renderCert = (cert: Certification) => {
     const inner = (
       <>
-        <span className="mb-1 block text-xs font-semibold uppercase tracking-widest text-brand-primary">
+        <span className="mb-1 block text-xs font-semibold uppercase tracking-[0.15em] text-brand-primary">
           {cert.company}
         </span>
-        <span className="block text-sm font-medium text-skin-text">
+        <span className="block text-sm font-medium text-skin-text tracking-tight">
           {cert.title}
         </span>
-        <span className="mt-0.5 block font-mono text-xs text-skin-muted">
+        <span className="mt-1 block font-mono text-xs text-skin-muted">
           {cert.period}
         </span>
       </>
     );
     const base =
-      "rounded-lg border border-skin-border bg-skin-secondary px-4 py-3 text-left";
+      "rounded-2xl border border-skin-border/50 bg-skin-secondary/70 p-5 text-left transition-all duration-300 hover:border-skin-border-medium hover:-translate-y-0.5";
     const key = `${cert.title}-${cert.period}`;
 
     return cert.certificateUrl ? (
       <button
         key={key}
         onClick={() => setSelectedCert(cert)}
-        className={`${base} transition-colors duration-200 hover:border-skin-border-medium`}
+        className={`${base} hover:shadow-xs`}
       >
         {inner}
       </button>
@@ -57,12 +57,13 @@ const Certifications = () => {
     <section
       ref={elementRef as React.RefObject<HTMLElement>}
       id="certifications"
-      className="bg-skin-primary py-16 md:py-20"
+      className="bg-skin-primary py-16 md:py-24"
     >
       <div className="mx-auto max-w-content px-6">
         <div
-          className={`mb-12 transition-all duration-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-            }`}
+          className={`mb-12 transition-all duration-300 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+          }`}
         >
           <h2
             className="text-display-sm font-bold text-skin-text tracking-tight"
@@ -74,20 +75,21 @@ const Certifications = () => {
 
         {/* Insignias verificables — arriba */}
         <div
-          className={`mb-12 transition-all duration-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-            }`}
+          className={`mb-12 transition-all duration-300 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+          }`}
         >
-          <h3 className="mb-6 text-xs font-semibold uppercase tracking-widest text-skin-muted">
+          <h3 className="mb-6 text-xs font-semibold uppercase tracking-[0.15em] text-skin-muted">
             Insignias verificables
           </h3>
-          <div className="flex flex-wrap items-start gap-4">
+          <div className="flex flex-wrap items-start gap-3">
             {CREDLY_BADGES.map((badge) => (
               <a
                 key={badge.id}
                 href={badge.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-lg border border-skin-border bg-skin-secondary px-4 py-2 text-sm font-medium text-skin-text transition-colors duration-200 hover:border-skin-border-medium"
+                className="flex items-center gap-2 rounded-full border border-skin-border/50 bg-skin-secondary/70 px-4 py-2 text-xs md:text-sm font-medium text-skin-text transition-all duration-200 hover:border-skin-border-medium hover:bg-skin-secondary"
               >
                 <AwardIcon className="h-4 w-4 text-skin-muted" />
                 {badge.label}
@@ -110,10 +112,11 @@ const Certifications = () => {
 
         {/* Destacadas — flagship para reclutadores */}
         <div
-          className={`transition-all duration-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-            }`}
+          className={`transition-all duration-300 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+          }`}
         >
-          <h3 className="mb-6 text-xs font-semibold uppercase tracking-widest text-skin-muted">
+          <h3 className="mb-6 text-xs font-semibold uppercase tracking-[0.15em] text-skin-muted">
             Destacadas
           </h3>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

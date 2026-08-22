@@ -16,13 +16,13 @@ const ProjectFilters = ({
     return (
         <div className="mb-12">
             {/* Category Buttons */}
-            <div className="flex flex-wrap justify-center gap-3 mb-8">
+            <div className="flex flex-wrap justify-center gap-2 mb-8">
                 <button
                     onClick={() => onCategoryChange("all")}
-                    className={`px-6 py-2 font-medium rounded-lg transition-all duration-200 ${
+                    className={`px-5 py-2 text-xs font-medium tracking-tight rounded-full transition-all duration-200 ${
                         selectedCategory === "all"
-                            ? "bg-brand-primary text-white"
-                            : "bg-skin-primary border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white"
+                            ? "bg-brand-primary text-white shadow-xs"
+                            : "bg-skin-primary/80 border border-skin-border/60 text-skin-muted hover:text-skin-text hover:border-skin-border-medium"
                     }`}
                 >
                     Mostrar todo
@@ -31,10 +31,10 @@ const ProjectFilters = ({
                     <button
                         key={cat}
                         onClick={() => onCategoryChange(cat)}
-                        className={`px-6 py-2 font-medium rounded-lg transition-all duration-200 ${
+                        className={`px-5 py-2 text-xs font-medium tracking-tight rounded-full transition-all duration-200 ${
                             selectedCategory === cat
-                                ? "bg-brand-primary text-white"
-                                : "bg-skin-primary border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white"
+                                ? "bg-brand-primary text-white shadow-xs"
+                                : "bg-skin-primary/80 border border-skin-border/60 text-skin-muted hover:text-skin-text hover:border-skin-border-medium"
                         }`}
                     >
                         {cat}

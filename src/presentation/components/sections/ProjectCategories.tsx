@@ -90,9 +90,12 @@ const ProjectCategories = ({ posts }: ProjectCategoriesProps) => {
       <div className="max-w-content mx-auto px-6">
         {/* Header */}
         <header
-          className={`mb-12 lg:mb-16 ${getAnimationClass(0)}`}
+          className={`mb-10 lg:mb-12 ${getAnimationClass(0)}`}
         >
-          <h2 className="text-display-sm font-bold text-skin-text tracking-tight">
+          <h2
+            className="text-display-sm font-bold text-skin-text tracking-tight"
+            style={{ letterSpacing: "-0.02em" }}
+          >
             Proyectos
           </h2>
         </header>
@@ -111,7 +114,7 @@ const ProjectCategories = ({ posts }: ProjectCategoriesProps) => {
         {/* Projects Grid */}
         {filteredPosts.length > 0 && (
           <div className={`mb-12 ${getAnimationClass(2)}`}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {filteredPosts.map((project) => (
                 <ProjectCard
                   key={project.slug}

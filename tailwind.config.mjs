@@ -65,14 +65,15 @@ export default {
           { lineHeight: "1.1", letterSpacing: "-0.02em" },
         ],
       },
-      // Border Radius - Basado en Spacing
+      // Border Radius - Apple Bento radii
       borderRadius: {
-        sm: "0.75rem",  // 12px
-        DEFAULT: "1rem", // 16px
+        sm: "0.5rem",   // 8px
+        DEFAULT: "0.75rem", // 12px
         md: "1rem",     // 16px
-        lg: "1.5rem",   // 24px
-        xl: "2.25rem",  // 36px
-        "2xl": "3.375rem", // 54px
+        lg: "1.25rem",  // 20px
+        xl: "1.5rem",   // 24px (Apple Bento standard)
+        "2xl": "2rem",  // 32px (Apple Bento large)
+        "3xl": "2.5rem", // 40px
         full: "9999px"
       },
       // Colors - WCAG AAA Compliant
@@ -101,30 +102,33 @@ export default {
           info: "var(--info)",
         },
       },
-      // Font Family - Space Grotesk (display) + Inter (body)
+      // Font Family - SF Pro Display / Text + Inter
       fontFamily: {
         sans: [
-          "Inter",
+          "SF Pro Text",
           "-apple-system",
           "BlinkMacSystemFont",
+          "Inter",
           "system-ui",
           "sans-serif",
         ],
         display: [
-          "Space Grotesk",
+          "SF Pro Display",
           "-apple-system",
           "BlinkMacSystemFont",
+          "Inter",
           "system-ui",
           "sans-serif",
         ],
         body: [
-          "Inter",
+          "SF Pro Text",
           "-apple-system",
           "BlinkMacSystemFont",
+          "Inter",
           "system-ui",
           "sans-serif",
         ],
-        mono: ["JetBrains Mono", "SF Mono", "Consolas", "monospace"],
+        mono: ["SF Mono", "JetBrains Mono", "Menlo", "Consolas", "monospace"],
       },
       // Font Weight
       fontWeight: {
