@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Logo from "../ui/Logo";
 import ThemeToggle from "../ui/ThemeToggle";
+import { PUBLIC_POSITIONING } from "@data/public-positioning.v1";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,10 +14,13 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
+    { name: "Sobre mí", path: "#about" },
     { name: "Proyectos", path: "#proyectos" },
     { name: "Stack", path: "#skills" },
     { name: "Contacto", path: "#contacto" },
   ];
+
+  const menuLabel = isMenuOpen ? "Cerrar menú" : "Abrir menú";
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     if (path.startsWith("#")) {
@@ -35,18 +39,21 @@ const Navigation = () => {
   };
 
   const navClass = scrolled
-    ? "bg-skin-primary/80 backdrop-blur-xl border-b border-skin-border/60 shadow-xs"
-    : "bg-skin-primary/50 backdrop-blur-md border-b border-skin-border/30";
+    ? "bg-skin-primary border-b border-skin-border shadow-sm"
+    : "bg-skin-primary border-b border-skin-border/60";
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navClass}`}>
-      <div className="mx-auto px-6 max-w-content">
-        <div className="flex items-center justify-between h-12 md:h-14">
+    <>
+      <a href="#main-content" className="focus-ring fixed left-4 top-2 z-[60] -translate-y-20 rounded-lg bg-skin-primary px-4 py-3 text-sm font-semibold text-skin-text shadow-md focus:translate-y-0">Saltar al contenido</a>
+      <nav aria-label="Navegación principal" className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-200 ${navClass}`}>
+      <div className="mx-auto max-w-content px-4 sm:px-6">
+        <div className="flex h-14 items-center justify-between">
           <a
             href="/"
             className="focus-ring flex items-center gap-2 text-skin-text hover:opacity-75 transition-opacity duration-200"
           >
             <Logo size="sm" />
+            <span className="sr-only">{PUBLIC_POSITIONING.identity.name}</span>
           </a>
 
           <div className="hidden md:flex items-center gap-1">
@@ -55,7 +62,7 @@ const Navigation = () => {
                 key={item.path}
                 href={item.path}
                 onClick={(e) => handleNavClick(e, item.path)}
-                className="focus-ring px-3.5 py-1.5 text-xs font-normal tracking-tight text-skin-muted hover:text-skin-text transition-all duration-200 rounded-full hover:bg-skin-secondary/60"
+                className="focus-ring inline-flex min-h-11 items-center rounded-lg px-3.5 text-sm text-skin-muted hover:text-skin-text"
               >
                 {item.name}
               </a>
@@ -69,8 +76,10 @@ const Navigation = () => {
             <ThemeToggle />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="focus-ring p-1.5 text-skin-muted hover:text-skin-text transition-colors duration-200 rounded-full hover:bg-skin-secondary/80"
-              aria-label="Toggle menu"
+              className="focus-ring inline-flex h-11 w-11 items-center justify-center rounded-xl text-skin-muted hover:bg-skin-secondary hover:text-skin-text"
+              aria-label={menuLabel}
+              aria-expanded={isMenuOpen}
+              aria-controls="navigation-menu"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {isMenuOpen ? (
@@ -84,14 +93,14 @@ const Navigation = () => {
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-skin-border/40 bg-skin-primary/95 backdrop-blur-xl rounded-b-2xl px-2">
+          <div id="navigation-menu" className="border-t border-skin-border bg-skin-primary px-2 py-3 md:hidden">
             <div className="flex flex-col gap-1">
               {navItems.map((item) => (
                 <a
                   key={item.path}
                   href={item.path}
                   onClick={(e) => handleNavClick(e, item.path)}
-                  className="focus-ring px-4 py-2.5 text-sm font-normal tracking-tight text-skin-muted hover:text-skin-text hover:bg-skin-secondary/80 transition-all duration-200 rounded-xl"
+                  className="focus-ring flex min-h-11 items-center rounded-lg px-4 text-sm text-skin-muted hover:bg-skin-secondary hover:text-skin-text"
                 >
                   {item.name}
                 </a>
@@ -100,7 +109,8 @@ const Navigation = () => {
           </div>
         )}
       </div>
-    </nav>
+      </nav>
+    </>
   );
 };
 

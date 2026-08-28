@@ -144,6 +144,36 @@ export const PROFILE_DATA = new ProfileEntity(
       level: SkillLevel.Intermediate,
     },
     {
+      name: "LangGraph",
+      category: SkillCategory.Tools,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "CrewAI",
+      category: SkillCategory.Tools,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Autogen/AG2",
+      category: SkillCategory.Tools,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Claude Agent SDK",
+      category: SkillCategory.Tools,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Google ADK",
+      category: SkillCategory.Tools,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "OpenAI Agents SDK",
+      category: SkillCategory.Tools,
+      level: SkillLevel.Intermediate,
+    },
+    {
       name: "RAG",
       category: SkillCategory.DataAnalysis,
       level: SkillLevel.Intermediate,
@@ -165,6 +195,171 @@ export const PROFILE_DATA = new ProfileEntity(
     },
     {
       name: "Prompt Engineering",
+      category: SkillCategory.DataAnalysis,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Descomposición de tareas",
+      category: SkillCategory.Tools,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Enrutamiento supervisor",
+      category: SkillCategory.Tools,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Subagentes especializados",
+      category: SkillCategory.Tools,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Human-in-the-loop",
+      category: SkillCategory.Tools,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "MCP",
+      category: SkillCategory.Tools,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "A2A",
+      category: SkillCategory.Tools,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Evaluación de agentes",
+      category: SkillCategory.Tools,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Observabilidad de agentes",
+      category: SkillCategory.Tools,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Gobernanza de agentes",
+      category: SkillCategory.Tools,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "ETL",
+      category: SkillCategory.DataAnalysis,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "EDA",
+      category: SkillCategory.DataAnalysis,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Análisis Multivariante",
+      category: SkillCategory.DataAnalysis,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Análisis Estadístico",
+      category: SkillCategory.DataAnalysis,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Limpieza y preparación de datos",
+      category: SkillCategory.DataAnalysis,
+      level: SkillLevel.Advanced,
+    },
+    {
+      name: "Estadística descriptiva",
+      category: SkillCategory.DataAnalysis,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Pruebas de hipótesis e inferencia",
+      category: SkillCategory.DataAnalysis,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Correlación",
+      category: SkillCategory.DataAnalysis,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Chi-cuadrado",
+      category: SkillCategory.DataAnalysis,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Series temporales",
+      category: SkillCategory.DataAnalysis,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Segmentación y RFM",
+      category: SkillCategory.DataAnalysis,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Reglas de asociación (Market Basket)",
+      category: SkillCategory.DataAnalysis,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Aprendizaje supervisado",
+      category: SkillCategory.DataAnalysis,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Aprendizaje no supervisado",
+      category: SkillCategory.DataAnalysis,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Regresión",
+      category: SkillCategory.DataAnalysis,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Clasificación",
+      category: SkillCategory.DataAnalysis,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Clustering",
+      category: SkillCategory.DataAnalysis,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Ingeniería de variables",
+      category: SkillCategory.DataAnalysis,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Selección de variables",
+      category: SkillCategory.DataAnalysis,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Reducción de dimensionalidad",
+      category: SkillCategory.DataAnalysis,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "PCA",
+      category: SkillCategory.DataAnalysis,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Validación y métricas",
+      category: SkillCategory.DataAnalysis,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Ajuste de hiperparámetros",
+      category: SkillCategory.DataAnalysis,
+      level: SkillLevel.Intermediate,
+    },
+    {
+      name: "Transfer Learning",
       category: SkillCategory.DataAnalysis,
       level: SkillLevel.Intermediate,
     },

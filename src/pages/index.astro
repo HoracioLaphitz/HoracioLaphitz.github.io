@@ -1,6 +1,7 @@
 ---
 import PageLayout from "@presentation/layouts/PageLayout.astro";
 import Hero from "@presentation/components/sections/Hero.tsx";
+import About from "@presentation/components/sections/About.tsx";
 import Experience from "@presentation/components/sections/Experience.tsx";
 import Certifications from "@presentation/components/sections/Certifications.tsx";
 import Skills from "@presentation/components/sections/Skills.tsx";
@@ -32,6 +33,7 @@ try {
   description="Data Analyst especializado en Python, SQL y Machine Learning: pipelines de datos, dashboards en Power BI y modelos evaluados con métricas."
 >
   <Hero client:load />
+  <About />
   <ProjectCategories posts={proyectosSerializados} client:load />
   <Skills client:visible />
   <Experience client:visible />

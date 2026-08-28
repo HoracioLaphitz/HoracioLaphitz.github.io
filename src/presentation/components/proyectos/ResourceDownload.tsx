@@ -33,11 +33,11 @@ const ResourceItem = ({
   <a
     href={resource.path}
     download
-    className="flex items-center gap-3 p-4 rounded-lg border border-skin-border bg-skin-surface hover:bg-skin-surface-hover transition-colors group"
+    className="focus-ring group flex min-h-11 items-center gap-3 rounded-xl bg-skin-secondary p-4 transition-colors hover:bg-skin-tertiary"
   >
     <div className="flex-shrink-0 text-skin-accent">{getIcon(type)}</div>
     <div className="flex-1 min-w-0">
-      <p className="font-medium text-skin-primary group-hover:text-skin-accent transition-colors truncate">
+      <p className="truncate font-medium text-skin-text transition-colors group-hover:text-skin-accent">
         {resource.name}
       </p>
       {resource.description && (
@@ -58,15 +58,15 @@ export function ResourceDownload({
   if (!hasResources) return null;
 
   return (
-    <div className="mt-12 p-6 rounded-2xl bg-skin-surface border border-skin-border">
-      <h2 className="text-2xl font-bold text-skin-primary mb-6">
+    <section className="mt-12 rounded-2xl bg-skin-secondary p-5 sm:p-6">
+      <h2 className="mb-6 text-2xl font-bold text-skin-text">
         Recursos
       </h2>
 
       <div className="space-y-6">
         {notebooks && notebooks.length > 0 && (
           <div>
-            <h3 className="text-lg font-semibold text-skin-primary mb-3 flex items-center gap-2">
+            <h3 className="mb-3 flex items-center gap-2 text-lg font-semibold text-skin-text">
               <BookOpenIcon className="w-5 h-5 text-skin-accent" />
               Notebooks Jupyter
             </h3>
@@ -80,7 +80,7 @@ export function ResourceDownload({
 
         {pdfs && pdfs.length > 0 && (
           <div>
-            <h3 className="text-lg font-semibold text-skin-primary mb-3 flex items-center gap-2">
+            <h3 className="mb-3 flex items-center gap-2 text-lg font-semibold text-skin-text">
               <DocumentIcon className="w-5 h-5 text-skin-accent" />
               Documentos PDF
             </h3>
@@ -94,7 +94,7 @@ export function ResourceDownload({
 
         {datasets && datasets.length > 0 && (
           <div>
-            <h3 className="text-lg font-semibold text-skin-primary mb-3 flex items-center gap-2">
+            <h3 className="mb-3 flex items-center gap-2 text-lg font-semibold text-skin-text">
               <DatabaseIcon className="w-5 h-5 text-skin-accent" />
               Datasets
             </h3>
@@ -106,6 +106,6 @@ export function ResourceDownload({
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 }

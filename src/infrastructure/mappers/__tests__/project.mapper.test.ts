@@ -16,7 +16,7 @@ describe("ProjectMapper", () => {
     overrides: Partial<ProyectoEntry> = {}
   ): ProyectoEntry => {
     return {
-      slug: "test-project",
+      id: "test-project",
       data: {
         title: "Test Project",
         description: "Test description",
@@ -178,9 +178,9 @@ describe("ProjectMapper", () => {
   describe("toDomainArray", () => {
     it("should map array of entries", () => {
       const entries = [
-        createMockEntry({ slug: "project-1" }),
-        createMockEntry({ slug: "project-2" }),
-        createMockEntry({ slug: "project-3" }),
+        createMockEntry({ id: "project-1" }),
+        createMockEntry({ id: "project-2" }),
+        createMockEntry({ id: "project-3" }),
       ];
 
       const entities = ProjectMapper.toDomainArray(entries);
@@ -193,17 +193,17 @@ describe("ProjectMapper", () => {
 
     it("should filter out draft entries", () => {
       const entries = [
-        createMockEntry({ slug: "published-1" }),
+        createMockEntry({ id: "published-1" }),
         createMockEntry({
-          slug: "draft-1",
+          id: "draft-1",
           data: {
             ...createMockEntry().data,
             draft: true,
           },
         }),
-        createMockEntry({ slug: "published-2" }),
+        createMockEntry({ id: "published-2" }),
         createMockEntry({
-          slug: "draft-2",
+          id: "draft-2",
           data: {
             ...createMockEntry().data,
             draft: true,
@@ -227,14 +227,14 @@ describe("ProjectMapper", () => {
     it("should handle array with only drafts", () => {
       const entries = [
         createMockEntry({
-          slug: "draft-1",
+          id: "draft-1",
           data: {
             ...createMockEntry().data,
             draft: true,
           },
         }),
         createMockEntry({
-          slug: "draft-2",
+          id: "draft-2",
           data: {
             ...createMockEntry().data,
             draft: true,
@@ -249,16 +249,16 @@ describe("ProjectMapper", () => {
 
     it("should preserve order of non-draft entries", () => {
       const entries = [
-        createMockEntry({ slug: "project-a" }),
+        createMockEntry({ id: "project-a" }),
         createMockEntry({
-          slug: "draft",
+          id: "draft",
           data: {
             ...createMockEntry().data,
             draft: true,
           },
         }),
-        createMockEntry({ slug: "project-b" }),
-        createMockEntry({ slug: "project-c" }),
+        createMockEntry({ id: "project-b" }),
+        createMockEntry({ id: "project-c" }),
       ];
 
       const entities = ProjectMapper.toDomainArray(entries);

@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import type { DashboardTheme } from "../themes";
+import { ExternalLinkIcon } from "../../ui/Icons";
 
 interface DashboardShellProps {
     title: string;
@@ -19,8 +20,7 @@ export function DashboardShell({
     return (
         <section
             aria-label={title}
-            className="mt-2xl rounded-md border border-skin-border bg-skin-primary p-lg"
-            style={{ borderTop: `4px solid ${theme.accent}` }}
+            className="mt-2xl rounded-xl bg-skin-secondary p-4 sm:p-lg"
         >
             <header className="mb-lg flex flex-wrap items-end justify-between gap-sm">
                 <div>
@@ -33,10 +33,11 @@ export function DashboardShell({
                     href={repoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-medium hover:underline"
+                    className="focus-ring inline-flex min-h-11 items-center gap-2 rounded-lg text-sm font-medium hover:underline"
                     style={{ color: theme.accent }}
                 >
-                    Datos en vivo desde GitHub ↗
+                    Datos en vivo desde GitHub
+                    <ExternalLinkIcon className="h-4 w-4" />
                 </a>
             </header>
             <div className="flex flex-col gap-lg">{children}</div>

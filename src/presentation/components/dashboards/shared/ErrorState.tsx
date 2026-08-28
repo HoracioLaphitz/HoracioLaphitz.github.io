@@ -1,3 +1,5 @@
+import { ExternalLinkIcon } from "../../ui/Icons";
+
 interface ErrorStateProps {
     message: string;
     repoUrl: string;
@@ -8,7 +10,7 @@ export function ErrorState({ message, repoUrl, onRetry }: ErrorStateProps) {
     return (
         <div
             role="alert"
-            className="rounded-sm border border-skin-border bg-skin-secondary p-lg text-center"
+            className="rounded-xl bg-skin-secondary p-lg text-center"
         >
             <p className="font-medium text-status-error">
                 No se pudieron cargar los datos del dashboard.
@@ -18,7 +20,7 @@ export function ErrorState({ message, repoUrl, onRetry }: ErrorStateProps) {
                 <button
                     type="button"
                     onClick={onRetry}
-                    className="rounded-full border border-skin-border-medium px-md py-xs text-sm font-medium text-skin-text transition-colors hover:bg-skin-tertiary"
+                    className="focus-ring min-h-11 rounded-xl border border-skin-border-medium px-md py-xs text-sm font-medium text-skin-text transition-colors hover:bg-skin-tertiary"
                 >
                     Reintentar
                 </button>
@@ -26,9 +28,10 @@ export function ErrorState({ message, repoUrl, onRetry }: ErrorStateProps) {
                     href={repoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full px-md py-xs text-sm font-medium text-brand-primary hover:underline"
+                    className="focus-ring inline-flex min-h-11 items-center gap-2 rounded-xl px-md py-xs text-sm font-medium text-brand-primary hover:underline"
                 >
-                    Ver repositorio ↗
+                    Ver repositorio
+                    <ExternalLinkIcon className="h-4 w-4" />
                 </a>
             </div>
         </div>

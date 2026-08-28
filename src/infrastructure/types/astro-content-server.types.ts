@@ -27,7 +27,7 @@ export function isProyectoEntry(entry: unknown): entry is ProyectoEntry {
   const e = entry as Record<string, unknown>;
 
   return (
-    typeof e.slug === "string" &&
+    typeof e.id === "string" &&
     e.data !== null &&
     typeof e.data === "object" &&
     "title" in e.data &&

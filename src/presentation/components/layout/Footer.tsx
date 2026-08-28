@@ -1,27 +1,21 @@
 import { GithubIcon, LinkedinIcon, MailIcon, DownloadIcon } from "../ui/Icons";
 import { AvailabilityBadge } from "../ui/AvailabilityBadge";
+import { PUBLIC_POSITIONING } from "@data/public-positioning.v1";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const scrollToTop = () => {
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    window.scrollTo({ top: 0, behavior: prefersReduced ? "auto" : "smooth" });
-  };
-
   return (
     <footer className="bg-skin-secondary/80 border-t border-skin-border/40 text-xs">
       <div className="container mx-auto max-w-content px-6 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Brand */}
           <div className="space-y-3">
             <h3 className="text-base font-semibold text-skin-text tracking-tight">
-              Horacio Laphitz
+              {PUBLIC_POSITIONING.identity.name}
             </h3>
             <p className="text-xs font-medium text-skin-muted">
-              Data Analytics · Hardware Expertise · Sotware Development
+              {PUBLIC_POSITIONING.positioning.focus}
             </p>
 
             <a
@@ -30,14 +24,14 @@ const Footer = () => {
               className="focus-ring inline-flex items-center gap-1.5 text-xs font-medium text-brand-primary hover:opacity-80 transition-opacity"
             >
               <DownloadIcon className="w-3.5 h-3.5" />
-              Cv↓
+              Descargar CV
             </a>
             <div className="pt-1">
               <AvailabilityBadge variant="compact" />
             </div>
             <div className="flex items-center gap-2 pt-1">
               <a
-                href="https://www.linkedin.com/in/horacio-laphitz/"
+                href={PUBLIC_POSITIONING.contact.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="focus-ring inline-flex items-center justify-center h-8 w-8 rounded-full text-skin-muted hover:text-skin-text hover:bg-skin-primary/80 border border-skin-border/30 transition-all"
@@ -46,7 +40,7 @@ const Footer = () => {
                 <LinkedinIcon width="16" height="16" />
               </a>
               <a
-                href="https://github.com/horaciolaphitz"
+                href={PUBLIC_POSITIONING.contact.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="focus-ring inline-flex items-center justify-center h-8 w-8 rounded-full text-skin-muted hover:text-skin-text hover:bg-skin-primary/80 border border-skin-border/30 transition-all"
@@ -55,7 +49,7 @@ const Footer = () => {
                 <GithubIcon width="16" height="16" />
               </a>
               <a
-                href="mailto:horaciolaphitz99@gmail.com"
+                href={`mailto:${PUBLIC_POSITIONING.contact.email}`}
                 className="focus-ring inline-flex items-center justify-center h-8 w-8 rounded-full text-skin-muted hover:text-skin-text hover:bg-skin-primary/80 border border-skin-border/30 transition-all"
                 aria-label="Email"
               >
@@ -71,37 +65,43 @@ const Footer = () => {
             </h4>
             <nav className="flex flex-col gap-2">
               <a
-                href="#inicio"
+                href="/#inicio"
                 className="text-xs text-skin-muted hover:text-skin-text transition-colors"
               >
                 Inicio
               </a>
               <a
-                href="#proyectos"
+                href="/#about"
+                className="text-xs text-skin-muted hover:text-skin-text transition-colors"
+              >
+                Sobre mí
+              </a>
+              <a
+                href="/#proyectos"
                 className="text-xs text-skin-muted hover:text-skin-text transition-colors"
               >
                 Proyectos
               </a>
               <a
-                href="#skills"
+                href="/#skills"
                 className="text-xs text-skin-muted hover:text-skin-text transition-colors"
               >
                 Stack
               </a>
               <a
-                href="#experience"
+                href="/#experience"
                 className="text-xs text-skin-muted hover:text-skin-text transition-colors"
               >
                 Experiencia
               </a>
               <a
-                href="#certifications"
+                href="/#certifications"
                 className="text-xs text-skin-muted hover:text-skin-text transition-colors"
               >
                 Certificaciones
               </a>
               <a
-                href="#contacto"
+                href="/#contacto"
                 className="text-xs text-skin-muted hover:text-skin-text transition-colors"
               >
                 Contacto

@@ -1,36 +1,24 @@
-# Horacio Laphitz — Applied GenAI Data Analyst
+# Horacio Laphitz — Analista de Datos
 
-> Applied GenAI Data Analyst based in Argentina. I build pipelines where company data feeds large language models — RAG systems, internal chatbots, and self-generating reports. Core stack: Python, LangChain, LlamaIndex, Vector Databases, SQL, and Power BI. Available for freelance and full-time roles.
+> Enterprise AI solutions architecture, autonomous agents, and private LLM infrastructure. Estado: Currently deepening expertise in.
 
 ## About
 
 - **Name:** Horacio Laphitz
-- **Role:** Applied GenAI Data Analyst (Python, LLMs, Vector Databases & LangChain)
-- **Location:** Argentina (remote-friendly)
-- **Focus:** RAG pipelines, internal chatbots over business data, LLM-driven reporting, ETL/EDA, and business intelligence
+- **Role:** Analista de Datos
+- **Focus:** Enterprise AI solutions architecture, autonomous agents, and private LLM infrastructure
 - **Email:** horaciolaphitz99@gmail.com
-
-## Skills
-
-- GenAI & LLMs: LangChain, LlamaIndex, RAG, Vector Databases, OpenAI API, Prompt Engineering
-- Data Analysis: Python (Pandas, NumPy, Scikit-learn), SQL, R, Power BI, Tableau
-- Databases: PostgreSQL, MySQL, MongoDB, Databricks
-- Engineering: ETL pipelines, web scraping, Git, Docker
 
 ## Links
 
 - Portfolio: https://horaciolaphitz.vercel.app
-- GitHub: https://github.com/HoracioLaphitz
+- GitHub: https://github.com/horaciolaphitz
 - LinkedIn: https://www.linkedin.com/in/horacio-laphitz/
-- Credly (verified badges): https://www.credly.com/users/horacio-laphitz
 
-## Featured projects
+## Evidence status
 
-- SanoYFresco — Market Basket Analysis (Apriori) over 4.9M+ retail transactions to drive cross-selling and layout decisions: https://horaciolaphitz.vercel.app/proyectos/sano-y-fresco-market-basket/
-- AI Sales Assistant — Natural-language chat over 100k+ e-commerce orders with LangChain + Groq llama3-70b: https://horaciolaphitz.vercel.app/proyectos/ai-sales-assistant/
-- Cyclistic — Bike-share user analysis capstone: https://horaciolaphitz.vercel.app/proyectos/analisis-cyclistic-bike-share/
+Enterprise-AI capability areas without qualifying delivery evidence are marked as In development or Currently deepening expertise in. Existing analytics and data projects remain Portfolio project evidence.
 
-## Notes
+## Sitemap
 
-- Full project catalog is available at https://horaciolaphitz.vercel.app (Projects section), grouped by category: GenAI, Análisis de datos, Notebooks Analytics.
-- Sitemap: https://horaciolaphitz.vercel.app/sitemap-index.xml
+- https://horaciolaphitz.vercel.app/sitemap-index.xml

@@ -105,26 +105,23 @@ export default {
       // Font Family - SF Pro Display / Text + Inter
       fontFamily: {
         sans: [
-          "SF Pro Text",
+          "Inter",
           "-apple-system",
           "BlinkMacSystemFont",
-          "Inter",
           "system-ui",
           "sans-serif",
         ],
         display: [
-          "SF Pro Display",
+          "Space Grotesk",
           "-apple-system",
           "BlinkMacSystemFont",
-          "Inter",
           "system-ui",
           "sans-serif",
         ],
         body: [
-          "SF Pro Text",
+          "Inter",
           "-apple-system",
           "BlinkMacSystemFont",
-          "Inter",
           "system-ui",
           "sans-serif",
         ],

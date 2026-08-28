@@ -20,7 +20,7 @@ const { title, description, type, canonical } = Astro.props;
 >
   <Navigation client:load />
 
-  <main class="pt-14 min-h-screen bg-skin-primary">
+  <main id="main-content" class="pt-14 min-h-screen bg-skin-primary">
     <slot />
   </main>
 </Layout>

@@ -2,6 +2,7 @@
 import Analytics from "@vercel/analytics/astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
 import Footer from "@presentation/components/layout/Footer.tsx";
+import { PUBLIC_POSITIONING } from "@data/public-positioning.v1";
 import "../styles/global.css";
 import "../styles/fonts.css";
 
@@ -15,17 +16,17 @@ interface Props {
 
 const {
   title,
-  description = "Data Analyst especializado en Python, SQL y Machine Learning: pipelines de datos, dashboards en Power BI y modelos evaluados con métricas.",
+  description = `${PUBLIC_POSITIONING.identity.role} que está ${PUBLIC_POSITIONING.positioning.qualification.toLowerCase()} ${PUBLIC_POSITIONING.positioning.focus}.`,
   image = "/img/profile.png",
   type = "website",
   canonical,
 } = Astro.props;
 
-const siteUrl = "https://horaciolaphitz.vercel.app";
+const siteUrl = PUBLIC_POSITIONING.siteUrl;
 const fullTitle =
   title === "Home"
-    ? "Horacio Laphitz - Data Analyst | Python, SQL & Machine Learning"
-    : `${title} | Horacio Laphitz`;
+    ? `${PUBLIC_POSITIONING.identity.name} - ${PUBLIC_POSITIONING.identity.role}`
+    : `${title} | ${PUBLIC_POSITIONING.identity.name}`;
 const ogImage = new URL(image, siteUrl).href;
 const canonicalUrl = canonical
   ? new URL(canonical, siteUrl).href
@@ -70,7 +71,6 @@ const canonicalUrl = canonical
     />
 
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta http-equiv="X-Frame-Options" content="DENY" />
     <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
     <meta
       http-equiv="Referrer-Policy"
@@ -87,21 +87,16 @@ const canonicalUrl = canonical
     <link rel="dns-prefetch" href="//github.com" />
     <link rel="dns-prefetch" href="//linkedin.com" />
 
-    <script type="application/ld+json" is:inline>
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Horacio Laphitz",
-        "jobTitle": "Data Analyst",
-        "description": "Data Analyst especializado en Python, SQL y Machine Learning: pipelines de datos, dashboards en Power BI y Databricks, y modelos evaluados con métricas.",
-        "url": "https://horaciolaphitz.vercel.app",
-        "image": "https://horaciolaphitz.vercel.app/img/profile.png",
-        "email": "horaciolaphitz99@gmail.com",
-        "sameAs": [
-          "https://linkedin.com/in/horacio-laphitz",
-          "https://github.com/HoracioLaphitz",
-          "https://www.credly.com/users/horacio-laphitz"
-        ],
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: PUBLIC_POSITIONING.identity.name,
+      jobTitle: PUBLIC_POSITIONING.identity.role,
+      description,
+      url: siteUrl,
+      image: new URL(image, siteUrl).href,
+      email: PUBLIC_POSITIONING.contact.email,
+      sameAs: [PUBLIC_POSITIONING.contact.linkedin, PUBLIC_POSITIONING.contact.github],
         "knowsAbout": [
           "Python Programming",
           "SQL Database Management",
@@ -186,21 +181,8 @@ const canonicalUrl = canonical
         "worksFor": {
           "@type": "Organization",
           "name": "Freelance Data Analytics Consultant"
-        },
-        "seeks": {
-          "@type": "JobPosting",
-          "title": "Data Analyst, BI Analyst, Junior Data Scientist",
-          "employmentType": ["FULL_TIME", "CONTRACTOR", "FREELANCE"],
-          "jobLocation": {
-            "@type": "Place",
-            "address": {
-              "@type": "PostalAddress",
-              "addressCountry": "AR"
-            }
-          }
         }
-      }
-    </script>
+    }).replace(/</g, "\\u003c")} />
 
     <link rel="manifest" href="/manifest.json" />
     <link rel="sitemap" href="/sitemap-index.xml" />

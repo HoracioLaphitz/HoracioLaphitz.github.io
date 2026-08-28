@@ -1,12 +1,12 @@
 // astro.config.mjs
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
+import { PUBLIC_POSITIONING } from "./src/data/public-positioning.v1.ts";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://horaciolaphitz.vercel.app",
+  site: PUBLIC_POSITIONING.siteUrl,
   base: "/",
 
   // Configurar directorio de páginas
@@ -14,9 +14,6 @@ export default defineConfig({
   publicDir: "./public",
 
   integrations: [
-    tailwind({
-      applyBaseStyles: true,
-    }),
     react(),
     sitemap(),
   ],
@@ -48,14 +45,19 @@ export default defineConfig({
     build: {
       cssCodeSplit: true,
       minify: "esbuild",
-      rollupOptions: {
+      rolldownOptions: {
         external: [
           /\.ipynb$/,
           /notebooks\//
         ],
         output: {
-          manualChunks: {
-            "react-vendor": ["react", "react-dom"],
+          codeSplitting: {
+            groups: [
+              {
+                name: "react-vendor",
+                test: /node_modules[\\/](?:react|react-dom)[\\/]/,
+              },
+            ],
           },
           chunkFileNames: "chunks/[name].[hash].js",
           assetFileNames: "assets/[name].[hash][extname]",

@@ -19,6 +19,14 @@ export enum ProjectStatus {
   Archived = "archived",
 }
 
+export type ProjectMaturity =
+  | "Delivered work"
+  | "Portfolio project"
+  | "Functional prototype"
+  | "Reference architecture"
+  | "In development"
+  | "Currently deepening expertise in";
+
 /**
  * Métricas de Impacto del Proyecto
  * Representa el valor medible entregado al cliente/negocio
@@ -49,7 +57,11 @@ export class ProjectEntity {
     public readonly dashboardUrl?: string,
     public readonly status: ProjectStatus = ProjectStatus.Completed,
     public readonly featured: boolean = false,
-    public readonly impact?: ProjectImpact
+    public readonly impact?: ProjectImpact,
+    public readonly claimId?: string,
+    public readonly maturity: ProjectMaturity = "Portfolio project",
+    public readonly evidenceId?: string,
+    public readonly boundaries: readonly string[] = []
   ) {}
 
   isPublishable(): boolean {

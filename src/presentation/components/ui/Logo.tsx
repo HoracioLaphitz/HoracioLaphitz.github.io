@@ -12,9 +12,8 @@ const Logo = ({ size = 'md', className = '' }: LogoProps) => {
 
     return (
         <div className={`flex items-center justify-center ${className}`}>
-            {/* Logo optimizado para ambos temas */}
-            <div className={`${sizeClasses[size]} rounded-full bg-gradient-to-br from-neutral-600 to-neutral-800 dark:from-neutral-300 dark:to-neutral-100 flex items-center justify-center shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-md`}>
-                <span className="text-white dark:text-neutral-900 font-bold text-sm">
+            <div className={`${sizeClasses[size]} rounded-full bg-skin-text flex items-center justify-center transition-colors duration-200`}>
+                <span className="text-skin-primary font-display font-bold text-sm">
                     HL
                 </span>
             </div>

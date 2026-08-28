@@ -89,10 +89,6 @@
     --bg-secondary: #F5F5F7;
     --bg-tertiary: #F0F0F2;
 
-    --bg-pattern-color: var(--md-outline-variant);
-    --bg-pattern-opacity: 0.06;
-    --bg-pattern-size: 64px;
-    --bg-pattern-grain-opacity: 0.04;
   }
 
   .dark {
@@ -179,10 +175,6 @@
     --bg-secondary: #1C1C1E;
     --bg-tertiary: #2C2C2E;
 
-    --bg-pattern-color: var(--md-outline-variant);
-    --bg-pattern-opacity: 0.09;
-    --bg-pattern-size: 64px;
-    --bg-pattern-grain-opacity: 0.05;
   }
 
   * {
@@ -200,61 +192,6 @@
     transition: background-color 0.3s ease, color 0.3s ease;
     letter-spacing: -0.011em;
     line-height: 1.6;
-    position: relative;
-  }
-
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    background-image:
-      repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent calc(var(--bg-pattern-size) - 1px),
-        color-mix(in srgb, var(--bg-pattern-color) var(--bg-pattern-opacity), transparent) calc(var(--bg-pattern-size) - 1px),
-        color-mix(in srgb, var(--bg-pattern-color) var(--bg-pattern-opacity), transparent) var(--bg-pattern-size)
-      ),
-      repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent calc(var(--bg-pattern-size) - 1px),
-        color-mix(in srgb, var(--bg-pattern-color) var(--bg-pattern-opacity), transparent) calc(var(--bg-pattern-size) - 1px),
-        color-mix(in srgb, var(--bg-pattern-color) var(--bg-pattern-opacity), transparent) var(--bg-pattern-size)
-      ),
-      radial-gradient(
-        circle at 50% 50%,
-        color-mix(in srgb, var(--bg-pattern-color) var(--bg-pattern-grain-opacity), transparent) 0%,
-        transparent 70%
-      );
-    background-size:
-      var(--bg-pattern-size) var(--bg-pattern-size),
-      var(--bg-pattern-size) var(--bg-pattern-size),
-      200% 200%;
-    background-attachment: fixed;
-    opacity: 1;
-    transition: opacity 0.2s ease, background-color 0.3s ease;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    body::before {
-      background-position: 0 0, 0 0, 50% 50% !important;
-      transition: none !important;
-    }
-  }
-
-  @media (prefers-contrast: more) {
-    body::before {
-      opacity: 0;
-    }
-  }
-
-  @supports not (background-attachment: fixed) {
-    body::before {
-      background-attachment: scroll;
-    }
   }
 
   ::selection {
@@ -270,6 +207,23 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 4rem;
+  }
+
+  main,
+  section,
+  article,
+  header,
+  footer,
+  nav,
+  div {
+    min-width: 0;
+  }
+
+  img,
+  svg,
+  video,
+  iframe {
+    max-width: 100%;
   }
 
   ::-webkit-scrollbar {
@@ -295,11 +249,12 @@
   h4,
   h5,
   h6 {
-    @apply font-semibold tracking-tight;
+    @apply font-display font-semibold tracking-tight;
   }
 
   a {
     @apply transition-colors duration-200;
+    text-underline-offset: 0.2em;
   }
 
   button {
@@ -309,7 +264,7 @@
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed rounded-full px-5 py-2.5 text-sm tracking-tight;
+    @apply inline-flex min-h-11 items-center justify-center rounded-xl px-5 py-2.5 text-sm font-medium tracking-tight transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
   }
 
   .btn-primary {
@@ -325,7 +280,7 @@
   }
 
   .card {
-    @apply bg-skin-secondary border border-skin-border rounded-2xl transition-all duration-300;
+    @apply rounded-xl bg-skin-secondary transition-colors duration-200;
   }
 
   .card-elevated {
@@ -442,16 +397,6 @@
     text-wrap: balance;
   }
 
-  .backdrop-blur-glass {
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-  }
-
-  .glass-panel {
-    @apply backdrop-blur-glass border border-skin-border;
-    background-color: rgba(var(--bg-secondary-rgb, 243, 244, 246), 0.8);
-  }
-
   .animate-in {
     animation: fadeIn 0.5s ease-out;
   }
@@ -461,7 +406,7 @@
   }
 
   .focus-ring {
-    @apply focus:outline-none focus:ring-2 focus:ring-skin-accent focus:ring-offset-2;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-skin-accent focus-visible:ring-offset-2 focus-visible:ring-offset-skin-primary;
   }
 
   .hover-lift {

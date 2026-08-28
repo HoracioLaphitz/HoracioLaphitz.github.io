@@ -1,4 +1,3 @@
-import { useScrollAnimation } from "@presentation/hooks/useScrollAnimation";
 import { PROFILE_DATA } from "@data/profile-data";
 import type { Skill } from "@domain/entities/profile.entity";
 
@@ -9,54 +8,133 @@ import type { Skill } from "@domain/entities/profile.entity";
  * Skills not found are silently skipped. Add new skills to profile-data.ts first,
  * then reference them here. The source of truth is profile-data.ts, not this list.
  */
-const SKILL_GROUPS: { label: string; names: string[] }[] = [
+export const SKILL_GROUPS: { label: string; names: string[] }[] = [
   {
     label: "GenAI & IA",
-    names: ["LangChain", "LlamaIndex", "RAG", "Vector Databases", "OpenAI API", "Prompt Engineering"],
+    names: [
+      "RAG",
+      "Descomposición de tareas",
+      "Enrutamiento supervisor",
+      "Subagentes especializados",
+      "Human-in-the-loop",
+      "MCP",
+      "A2A",
+      "Evaluación de agentes",
+      "Observabilidad de agentes",
+      "Gobernanza de agentes",
+    ],
   },
   {
     label: "Análisis de Datos",
-    names: ["Pandas", "NumPy", "Scikit-learn", "XGBoost", "Deep Learning", "Computer Vision", "Market Basket Analysis", "Matplotlib", "Power BI", "Excel Avanzado"],
+    names: [
+      "ETL",
+      "EDA",
+      "Limpieza y preparación de datos",
+      "Estadística descriptiva",
+      "Análisis Estadístico",
+      "Pruebas de hipótesis e inferencia",
+      "Correlación",
+      "Chi-cuadrado",
+      "Análisis Multivariante",
+      "Series temporales",
+      "Segmentación y RFM",
+      "Reglas de asociación (Market Basket)",
+    ],
+  },
+  {
+    label: "Machine Learning",
+    names: [
+      "Aprendizaje supervisado",
+      "Aprendizaje no supervisado",
+      "Regresión",
+      "Clasificación",
+      "Clustering",
+      "Ingeniería de variables",
+      "Selección de variables",
+      "Reducción de dimensionalidad",
+      "PCA",
+      "Validación y métricas",
+      "Ajuste de hiperparámetros",
+      "Deep Learning",
+      "Computer Vision",
+      "Transfer Learning",
+    ],
+  },
+  {
+    label: "Frameworks y herramientas",
+    names: [
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Power BI",
+      "Excel Avanzado",
+      "LangChain",
+      "LangGraph",
+      "LlamaIndex",
+      "CrewAI",
+      "Autogen/AG2",
+      "Claude Agent SDK",
+      "Google ADK",
+      "OpenAI Agents SDK",
+      "OpenAI API",
+      "Scikit-learn",
+      "XGBoost",
+      "TensorFlow",
+      "Streamlit",
+    ],
   },
   {
     label: "Programación",
-    names: ["Python", "R", "TensorFlow"],
+    names: ["Python", "R", "SQL"],
   },
   {
     label: "Bases de Datos & Cloud",
-    names: ["SQL", "PostgreSQL", "MySQL", "BigQuery", "Databricks"],
+    names: ["PostgreSQL", "MySQL", "BigQuery", "Databricks"],
   },
   {
     label: "Dev & Herramientas",
-    names: ["Git", "Docker", "Streamlit", "Web Scraping", "Testing"],
+    names: ["Git", "Docker", "Web Scraping", "Testing"],
   },
   {
     label: "Soft Skills",
-    names: ["Resolución de Problemas", "Pensamiento Analítico", "Comunicación", "Trabajo en Equipo"],
+    names: [
+      "Resolución de Problemas",
+      "Pensamiento Analítico",
+      "Comunicación",
+      "Trabajo en Equipo",
+    ],
   },
   {
     label: "Tango Gestión (ERP)",
-    names: ["Parametrización Contable", "Gestión de Datos Maestros", "Gestión de Stock", "Procesos de Ventas", "Tesorería", "Gestión de Compras"],
+    names: [
+      "Parametrización Contable",
+      "Gestión de Datos Maestros",
+      "Gestión de Stock",
+      "Procesos de Ventas",
+      "Tesorería",
+      "Gestión de Compras",
+    ],
   },
 ];
 
-const Skills = () => {
-  const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
+export const getVisibleSkillGroups = (skills: readonly Skill[]) => {
+  const skillMap = new Map(skills.map((skill) => [skill.name, skill]));
 
-  const skillMap = new Map<string, Skill>(
-    PROFILE_DATA.skills.map((s) => [s.name, s])
-  );
+  return SKILL_GROUPS.map(({ label, names }) => ({
+    label,
+    skills: names
+      .map((name) => skillMap.get(name))
+      .filter((skill): skill is Skill => skill !== undefined),
+  })).filter(({ skills: visibleSkills }) => visibleSkills.length > 0);
+};
+
+const Skills = () => {
+  const visibleGroups = getVisibleSkillGroups(PROFILE_DATA.skills);
 
   return (
-    <section
-      ref={elementRef as React.RefObject<HTMLElement>}
-      id="skills"
-      className="bg-skin-primary py-16 md:py-20"
-    >
+    <section id="skills" className="bg-skin-primary py-16 md:py-20">
       <div className="mx-auto max-w-content px-6">
-        <div
-          className={`mb-12 transition-all duration-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
-        >
+        <div className="mb-12">
           <h2
             className="text-display-sm font-bold text-skin-text tracking-tight"
             style={{ letterSpacing: "-0.02em" }}
@@ -65,34 +143,27 @@ const Skills = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SKILL_GROUPS.map((group, gi) => {
-            const visible = group.names.filter((name) => skillMap.has(name));
-
-            return (
-              <div
-                key={group.label}
-                className={`bg-skin-secondary/70 border border-skin-border/50 rounded-2xl md:rounded-3xl p-6 transition-all duration-300 hover:border-skin-border-medium hover:shadow-xs ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-                }`}
-                style={{ transitionDelay: `${gi * 60}ms` }}
-              >
-                <h3 className="text-xs font-semibold text-skin-muted uppercase tracking-[0.15em] mb-4">
-                  {group.label}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {visible.map((name) => (
-                    <span
-                      key={name}
-                      className="px-3.5 py-1.5 text-xs md:text-sm font-medium text-skin-text bg-skin-primary/80 border border-skin-border/40 rounded-full hover:border-skin-border-medium transition-all duration-200"
-                    >
-                      {name}
-                    </span>
-                  ))}
-                </div>
+        <div className="grid items-start grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {visibleGroups.map(({ label, skills }) => (
+            <article
+              key={label}
+              className="self-start rounded-xl bg-skin-secondary p-6"
+            >
+              <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.15em] text-skin-muted">
+                {label}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {skills.map(({ name }) => (
+                  <span
+                    key={name}
+                    className="rounded-full border border-skin-border/40 bg-skin-primary/80 px-3.5 py-1.5 text-xs font-medium text-skin-text transition-colors duration-200 hover:border-skin-border-medium md:text-sm"
+                  >
+                    {name}
+                  </span>
+                ))}
               </div>
-            );
-          })}
+            </article>
+          ))}
         </div>
       </div>
     </section>

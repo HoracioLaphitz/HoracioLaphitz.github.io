@@ -3,17 +3,17 @@ import PageLayout from "@presentation/layouts/PageLayout.astro";
 ---
 
 <PageLayout title="¡Gracias!" description="Mensaje enviado correctamente.">
-  <section class="min-h-screen flex items-center justify-center px-4">
+  <section class="min-h-screen flex items-center justify-center bg-skin-primary px-4 text-skin-text">
     <div class="text-center max-w-2xl mx-auto">
       <h1 class="text-4xl md:text-6xl font-bold mb-6">
         Gracias!
       </h1>
-      <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-8">
+      <p class="mb-8 text-xl text-skin-muted md:text-2xl">
         El mensaje fue enviado satisfactoriamente, puedes seguir explorando.
       </p>
       <a
         href="/"
-        class="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+        class="focus-ring inline-flex min-h-11 items-center rounded-xl bg-brand-primary px-8 py-3 font-semibold text-white hover:bg-brand-hover"
       >
         Volver al inicio
       </a>

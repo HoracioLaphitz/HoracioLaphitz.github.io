@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import PageLayout from "@presentation/layouts/PageLayout.astro";
 import { slugify } from "@shared/slugify";
+import { ArrowLeftIcon } from "@presentation/components/ui/Icons";
 
 export async function getStaticPaths() {
   const proyectos = await getCollection("proyectos", ({ data }) => !data.draft);
@@ -11,7 +12,7 @@ export async function getStaticPaths() {
     const notebooks = proyecto.data.resources?.notebooks ?? [];
     for (const notebook of notebooks) {
       paths.push({
-        params: { slug: proyecto.slug, notebook: slugify(notebook.name) },
+        params: { slug: proyecto.id, notebook: slugify(notebook.name) },
         props: { proyecto, notebook },
       });
     }
@@ -21,7 +22,7 @@ export async function getStaticPaths() {
 }
 
 const { proyecto, notebook } = Astro.props;
-const iframeSrc = `/notebooks-html/${proyecto.slug}/${slugify(notebook.name)}.html`;
+const iframeSrc = `/notebooks-html/${proyecto.id}/${slugify(notebook.name)}.html`;
 ---
 
 <PageLayout
@@ -30,17 +31,18 @@ const iframeSrc = `/notebooks-html/${proyecto.slug}/${slugify(notebook.name)}.ht
 >
   <div class="max-w-5xl mx-auto px-4 py-6">
     <a
-      href={`/proyectos/${proyecto.slug}`}
-      class="inline-flex items-center gap-2 text-sm font-medium text-skin-muted hover:text-skin-accent mb-4"
+      href={`/proyectos/${proyecto.id}`}
+      class="focus-ring mb-4 inline-flex min-h-11 items-center gap-2 rounded-lg text-sm font-medium text-skin-muted hover:text-skin-accent"
     >
-      ← Volver al proyecto
+      <ArrowLeftIcon className="h-4 w-4" />
+      Volver al proyecto
     </a>
-    <h1 class="text-2xl font-bold text-skin-primary mb-4">{notebook.name}</h1>
+    <h1 class="mb-4 break-words text-2xl font-bold text-skin-text">{notebook.name}</h1>
     <iframe
       src={iframeSrc}
       title={notebook.name}
       sandbox="allow-same-origin"
-      class="w-full border border-skin-border rounded-lg"
+      class="w-full max-w-full rounded-xl border border-skin-border"
       style="height: 80vh;"
     />
   </div>

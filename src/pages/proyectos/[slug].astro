@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import ArticleLayout from "@presentation/layouts/ArticleLayout.astro";
 import { ResourceDownload } from "@presentation/components/proyectos/ResourceDownload";
 import { ProjectDashboard } from "@presentation/components/dashboards/ProjectDashboard";
@@ -8,15 +8,15 @@ import { DASHBOARD_SLUGS } from "@presentation/components/dashboards/dashboard-s
 export async function getStaticPaths() {
   const proyectos = await getCollection("proyectos", ({ data }) => !data.draft);
   return proyectos.map((proyecto) => ({
-    params: { slug: proyecto.slug },
+    params: { slug: proyecto.id },
     props: { proyecto },
   }));
 }
 
 const { proyecto } = Astro.props;
-const { Content } = await proyecto.render();
+const { Content } = await render(proyecto);
 const hasDashboard = (DASHBOARD_SLUGS as readonly string[]).includes(
-  proyecto.slug
+  proyecto.id
 );
 ---
 
@@ -30,12 +30,15 @@ const hasDashboard = (DASHBOARD_SLUGS as readonly string[]).includes(
   github={proyecto.data.github}
   dashboard={proyecto.data.dashboard}
   notebooks={proyecto.data.resources?.notebooks}
-  projectSlug={proyecto.slug}
-  currentPath={`/proyectos/${proyecto.slug}`}
+  projectSlug={proyecto.id}
+  maturity={proyecto.data.maturity}
+  evidenceId={proyecto.data.evidenceId}
+  boundaries={proyecto.data.boundaries}
+  currentPath={`/proyectos/${proyecto.id}`}
 >
   <Content />
 
-  {hasDashboard && <ProjectDashboard client:visible slug={proyecto.slug} />}
+  {hasDashboard && <ProjectDashboard client:visible slug={proyecto.id} />}
 
   <ResourceDownload
     client:load

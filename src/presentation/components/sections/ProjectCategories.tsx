@@ -1,7 +1,8 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import ProjectCard from "@presentation/components/proyectos/ProjectCard";
 import ProjectFilters from "@presentation/components/proyectos/ProjectFilters";
 import { FolderIcon } from "@presentation/components/ui/Icons";
+import { useProjectMotion } from "@presentation/hooks/useScopedMotion";
 import type { ProjectEntity } from "@domain/entities/project.entity";
 
 export interface SerializedProject {
@@ -16,6 +17,10 @@ export interface SerializedProject {
   dashboardUrl?: string;
   status: string;
   featured: boolean;
+  claimId?: string;
+  maturity?: string;
+  evidenceId?: string;
+  boundaries?: readonly string[];
 }
 
 export const serializeProjects = (
@@ -33,18 +38,22 @@ export const serializeProjects = (
     dashboardUrl: p.dashboardUrl,
     status: p.status,
     featured: p.featured,
+    claimId: p.claimId,
+    maturity: p.maturity,
+    evidenceId: p.evidenceId,
+    boundaries: p.boundaries,
   }));
 
 interface ProjectCategoriesProps {
   posts: SerializedProject[];
+  showHeading?: boolean;
 }
 
-const ProjectCategories = ({ posts }: ProjectCategoriesProps) => {
+const ProjectCategories = ({ posts, showHeading = true }: ProjectCategoriesProps) => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
-  const [mounted, setMounted] = useState(false);
+  const projectRoot = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    setMounted(true);
     if (typeof window !== "undefined") {
       const params = new URLSearchParams(window.location.search);
       const categoryParam = params.get("category");
@@ -78,19 +87,22 @@ const ProjectCategories = ({ posts }: ProjectCategoriesProps) => {
     return filtered;
   }, [posts, selectedCategory]);
 
-  const getAnimationClass = (index: number) =>
-    `transition-all duration-200 delay-${index * 75} ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-    }`;
+  useProjectMotion({
+    root: projectRoot,
+    cardIds: filteredPosts.map(({ slug }) => slug),
+  });
 
   return (
     <section
       id="proyectos"
       className="bg-skin-secondary py-16 md:py-20"
+      ref={projectRoot}
     >
       <div className="max-w-content mx-auto px-6">
         {/* Header */}
-        <header
-          className={`mb-10 lg:mb-12 ${getAnimationClass(0)}`}
+        {showHeading && <header
+          className="mb-10 lg:mb-12"
+          data-motion="projects-heading"
         >
           <h2
             className="text-display-sm font-bold text-skin-text tracking-tight"
@@ -98,10 +110,10 @@ const ProjectCategories = ({ posts }: ProjectCategoriesProps) => {
           >
             Proyectos
           </h2>
-        </header>
+        </header>}
 
         {/* Filters */}
-        <div className={getAnimationClass(1)}>
+        <div data-motion="projects-filters">
           <ProjectFilters
             categories={projectCategories}
             selectedCategory={selectedCategory}
@@ -113,7 +125,7 @@ const ProjectCategories = ({ posts }: ProjectCategoriesProps) => {
 
         {/* Projects Grid */}
         {filteredPosts.length > 0 && (
-          <div className={`mb-12 ${getAnimationClass(2)}`}>
+          <div className="mb-12">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {filteredPosts.map((project) => (
                 <ProjectCard
@@ -126,6 +138,8 @@ const ProjectCategories = ({ posts }: ProjectCategoriesProps) => {
                   github={project.githubUrl}
                   dashboard={project.dashboardUrl}
                   featured={project.featured}
+                  maturity={project.maturity}
+                  evidenceId={project.evidenceId}
                 />
               ))}
             </div>
@@ -134,7 +148,7 @@ const ProjectCategories = ({ posts }: ProjectCategoriesProps) => {
 
         {/* Empty State */}
         {filteredPosts.length === 0 && (
-          <div className={`text-center py-16 ${getAnimationClass(2)}`}>
+          <div className="text-center py-16">
             <div className="text-6xl mb-4 flex justify-center">
               <FolderIcon className="w-16 h-16 text-skin-muted" />
             </div>

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useScrollAnimation } from "@presentation/hooks/useScrollAnimation";
 import { AwardIcon } from "@presentation/components/ui/Icons";
 import {
   CERTIFICATIONS,
@@ -13,7 +12,6 @@ const byDateDesc = (a: Certification, b: Certification) =>
   b.sortDate.getTime() - a.sortDate.getTime();
 
 const Certifications = () => {
-  const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
   const [selectedCert, setSelectedCert] = useState<Certification | null>(null);
   const [showAll, setShowAll] = useState(false);
 
@@ -35,7 +33,7 @@ const Certifications = () => {
       </>
     );
     const base =
-      "rounded-2xl border border-skin-border/50 bg-skin-secondary/70 p-5 text-left transition-all duration-300 hover:border-skin-border-medium hover:-translate-y-0.5";
+      "focus-ring min-h-11 rounded-xl bg-skin-secondary p-5 text-left transition-colors duration-200 hover:bg-skin-tertiary";
     const key = `${cert.title}-${cert.period}`;
 
     return cert.certificateUrl ? (
@@ -55,16 +53,13 @@ const Certifications = () => {
 
   return (
     <section
-      ref={elementRef as React.RefObject<HTMLElement>}
       id="certifications"
       className="bg-skin-primary py-16 md:py-24"
     >
-      <div className="mx-auto max-w-content px-6">
-        <div
-          className={`mb-12 transition-all duration-300 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-          }`}
-        >
+      <div
+        className="mx-auto max-w-content px-6"
+      >
+        <div className="mb-12">
           <h2
             className="text-display-sm font-bold text-skin-text tracking-tight"
             style={{ letterSpacing: "-0.02em" }}
@@ -74,11 +69,7 @@ const Certifications = () => {
         </div>
 
         {/* Insignias verificables — arriba */}
-        <div
-          className={`mb-12 transition-all duration-300 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-          }`}
-        >
+        <div className="mb-12">
           <h3 className="mb-6 text-xs font-semibold uppercase tracking-[0.15em] text-skin-muted">
             Insignias verificables
           </h3>
@@ -111,11 +102,7 @@ const Certifications = () => {
         </div>
 
         {/* Destacadas — flagship para reclutadores */}
-        <div
-          className={`transition-all duration-300 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-          }`}
-        >
+        <div>
           <h3 className="mb-6 text-xs font-semibold uppercase tracking-[0.15em] text-skin-muted">
             Destacadas
           </h3>

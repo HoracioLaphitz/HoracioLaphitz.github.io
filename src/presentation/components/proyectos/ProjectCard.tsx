@@ -10,9 +10,11 @@ interface ProjectCardProps {
     github?: string;
     dashboard?: string;
     featured?: boolean;
+    maturity?: string;
+    evidenceId?: string;
 }
 
-const ProjectCard = ({ title, description, slug, category, tags, github, dashboard }: ProjectCardProps) => {
+const ProjectCard = ({ title, description, slug, category, tags, github, dashboard, maturity = "Portfolio project", evidenceId }: ProjectCardProps) => {
     const categoryIcons: Record<string, ReactElement> = {
         "Machine Learning": <RobotIcon className="w-4 h-4" />,
         "Análisis de datos": <ChartBarIcon className="w-4 h-4" />,
@@ -24,7 +26,8 @@ const ProjectCard = ({ title, description, slug, category, tags, github, dashboa
 
     return (
         <article
-            className="bg-skin-secondary border border-skin-border/60 rounded-2xl md:rounded-3xl transition-all duration-300 hover:shadow-md hover:-translate-y-1 hover:border-skin-border-medium group relative overflow-hidden"
+            className="group relative overflow-hidden rounded-xl bg-skin-secondary transition-colors duration-200 hover:bg-skin-tertiary"
+            data-motion="project-card"
         >
             <div className="p-6 flex flex-col h-full">
                 {/* Header con categoría */}
@@ -34,7 +37,6 @@ const ProjectCard = ({ title, description, slug, category, tags, github, dashboa
                         {category}
                     </span>
                 </div>
-
                 {/* Título */}
                 <h3 className="text-lg md:text-xl font-semibold text-skin-text mb-2 tracking-tight transition-colors duration-200 line-clamp-2">
                     {title}
@@ -44,6 +46,10 @@ const ProjectCard = ({ title, description, slug, category, tags, github, dashboa
                 <p className="text-sm text-skin-muted mb-5 leading-relaxed line-clamp-3 flex-grow font-normal">
                     {description}
                 </p>
+
+                <div className="text-xs text-skin-muted mb-3" data-maturity={maturity} aria-label={`Maturity: ${maturity}`}>
+                    {maturity}{evidenceId ? ` · ${evidenceId}` : ""}
+                </div>
 
                 {/* Tags */}
                 <div className="flex flex-wrap gap-1.5 mb-6">

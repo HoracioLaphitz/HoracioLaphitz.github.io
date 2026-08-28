@@ -1,4 +1,6 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
+import { z } from "astro/zod";
 
 /**
  * Schema para métricas de impacto de proyectos
@@ -10,12 +12,26 @@ const impactSchema = z
     costSavings: z.string().optional(),
     timeReduction: z.string().optional(),
     revenueIncrease: z.string().optional(),
-    customMetrics: z.record(z.union([z.string(), z.number()])).optional(),
+    customMetrics: z
+      .record(z.string(), z.union([z.string(), z.number()]))
+      .optional(),
   })
   .optional();
 
+const maturityStatuses = [
+  "Delivered work",
+  "Portfolio project",
+  "Functional prototype",
+  "Reference architecture",
+  "In development",
+  "Currently deepening expertise in",
+] as const;
+
 const proyectosCollection = defineCollection({
-  type: "content",
+  loader: glob({
+    pattern: "**/[^_]*.{md,mdx}",
+    base: "./src/content/proyectos",
+  }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -28,6 +44,13 @@ const proyectosCollection = defineCollection({
     github: z.string().optional(),
     dashboard: z.string().optional(),
     featured: z.boolean().default(false),
+    claimId: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/).optional(),
+    maturity: z.enum(maturityStatuses).optional(),
+    evidenceId: z
+      .string()
+      .regex(/^(project|experience|skill):[a-z0-9-]+$/)
+      .optional(),
+    boundaries: z.array(z.string()).default([]),
     impact: impactSchema,
     resources: z
       .object({

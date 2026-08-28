@@ -10,6 +10,7 @@ import {
   ProjectEntity,
   ProjectCategory,
   ProjectStatus,
+  type ProjectMaturity,
   type ProjectImpact,
 } from "@domain/entities/project.entity";
 import type { ProyectoEntry } from "../types/astro-content-server.types";
@@ -17,7 +18,7 @@ import type { ProyectoEntry } from "../types/astro-content-server.types";
 export class ProjectMapper {
   static toDomain(entry: ProyectoEntry): ProjectEntity {
     return new ProjectEntity(
-      entry.slug,
+      entry.id,
       entry.data.title,
       entry.data.description,
       this.mapCategory(entry.data.category),
@@ -28,7 +29,11 @@ export class ProjectMapper {
       entry.data.dashboard,
       ProjectStatus.Completed,
       entry.data.featured ?? false,
-      this.mapImpact(entry.data.impact)
+      this.mapImpact(entry.data.impact),
+      entry.data.claimId,
+      (entry.data.maturity as ProjectMaturity | undefined) ?? "Portfolio project",
+      entry.data.evidenceId,
+      entry.data.boundaries ?? []
     );
   }
 

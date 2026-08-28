@@ -85,16 +85,12 @@ Los colores de Tailwind apuntan a variables CSS definidas en `global.css`. El te
 
 ### Radios, sombras y elevación
 
-- Radios derivados del espaciado: `sm` 12px, `md` 16px (default), `lg` 24px, `xl` 36px, `2xl` 54px, `full`.
-- Sombras en 5 niveles (`sm` → `2xl`) con doble capa rgba de baja opacidad para elevación sutil.
+- Las superficies editoriales y cards usan radios de 12–16px. `full` queda reservado para indicadores y filtros compactos.
+- La elevación es sutil y se usa sin duplicarla con bordes decorativos.
 
 ### Movimiento
 
-| Categoría | Tokens |
-|---|---|
-| Duración | `fast` 150ms · `normal` 300ms (default) · `slow` 500ms · `slower` 700ms |
-| Easing | `in`, `out`, `in-out` (cubic-bezier estándar) · `spring` `cubic-bezier(0.68, -0.55, 0.265, 1.55)` |
-| Keyframes | `fade-in` (0.5s) · `slide-up` (0.5s, translateY 20px→0) · `scaleIn` (0.3s, scale 0.9→1) · `float` (3s, loop) |
+Anime.js 4.5.0 se usa mediante `useScopedMotion` para un único momento de entrada en el Hero. El contenido parte visible sin JavaScript, respeta `prefers-reduced-motion` y evita animaciones repetidas por sección. El catálogo conserva movimiento funcional al cambiar filtros.
 
 ### Z-index semántico
 
@@ -106,9 +102,9 @@ Todas las secciones de la página principal siguen la misma estructura:
 
 1. `<section id="...">` con ancla estable para la navegación.
 2. Contenedor centrado (`max-w-*` + `mx-auto` + padding horizontal responsivo).
-3. Encabezado: kicker en mayúsculas (`font-mono`, `tracking-widest`, `text-skin-muted`) sobre un título en `font-display` con token `display-sm`.
+3. Encabezado directo en `font-display` con token `display-sm`; sin kicker repetitivo.
 4. Contenido en grid/stack con tokens de espaciado.
-5. Reveal on scroll: `useScrollAnimation` (IntersectionObserver, threshold 0.1) alterna `opacity-0 translate-y-8` → `opacity-100 translate-y-0` con transición suave. La animación es un realce progresivo: el contenido es visible y legible sin JavaScript.
+5. Secciones estáticas; Hero concentra el único gesto de entrada y el catálogo anima solo cambios de resultados.
 
 ## Inventario de componentes
 

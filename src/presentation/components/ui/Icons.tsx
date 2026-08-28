@@ -613,6 +613,18 @@ export const ArrowRightIcon = (props: IconProps) => (
   </svg>
 );
 
+export const ArrowLeftIcon = (props: IconProps) => (
+  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" {...props}>
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+  </svg>
+);
+
+export const ExternalLinkIcon = (props: IconProps) => (
+  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" {...props}>
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5h5m0 0v5m0-5L10 14M19 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h6" />
+  </svg>
+);
+
 export const DownloadIcon = (props: IconProps) => (
   <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" {...props}>
     <path
