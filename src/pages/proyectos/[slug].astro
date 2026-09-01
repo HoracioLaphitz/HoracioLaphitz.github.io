@@ -32,8 +32,6 @@ const hasDashboard = (DASHBOARD_SLUGS as readonly string[]).includes(
   notebooks={proyecto.data.resources?.notebooks}
   projectSlug={proyecto.id}
   maturity={proyecto.data.maturity}
-  evidenceId={proyecto.data.evidenceId}
-  boundaries={proyecto.data.boundaries}
   currentPath={`/proyectos/${proyecto.id}`}
 >
   <Content />

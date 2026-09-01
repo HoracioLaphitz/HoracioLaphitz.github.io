@@ -821,7 +821,7 @@ describe("motion orchestration contracts", () => {
 
     expect(skillsGroup.textContent).toContain("Stack");
     expect(experienceGroup.textContent).toContain("Experiencia");
-    expect(experience.querySelectorAll("article")).toHaveLength(5);
+    expect(experience.querySelectorAll("article")).toHaveLength(6);
     expect(certificationsGroup.textContent).toContain("Certificaciones");
     expect(contactGroup.textContent).toContain("Trabajemos juntos");
     expect(contact.querySelectorAll("form, input, select, textarea")).toHaveLength(0);
@@ -866,7 +866,7 @@ describe("motion orchestration contracts", () => {
     expect(experienceGroup.dataset.motion).toBeUndefined();
     expectFinalVisibleState(experienceGroup);
     expect(experienceGroup.textContent).toContain("Experiencia");
-    expect(container.querySelectorAll("article")).toHaveLength(5);
+    expect(container.querySelectorAll("article")).toHaveLength(6);
     expect(useScopedMotion).not.toHaveBeenCalled();
 
     root.unmount();
@@ -941,7 +941,7 @@ describe("motion orchestration contracts", () => {
     });
   });
 
-  it("preserves the existing home-island hydration directives", () => {
+  it("preserves the home-island hydration directives and uses the featured-project helper", () => {
     const homePage = readFileSync(
       resolve(process.cwd(), "src/pages/index.astro"),
       "utf8",
@@ -949,6 +949,9 @@ describe("motion orchestration contracts", () => {
 
     expect(homePage.match(/client:load/g)).toHaveLength(2);
     expect(homePage.match(/client:visible/g)).toHaveLength(4);
+    expect(homePage).toMatch(/import \{ getHomeProjects, mergeHomeProjectData \} from "@data\/home-projects";/);
+    expect(homePage).toMatch(/getHomeProjects\(proyectosRaw\)/);
+    expect(homePage).toMatch(/mergeHomeProjectData\(homeProjects, allProjects\)/);
     expect(homePage).toMatch(/<Hero client:load\s*\/>/);
     expect(homePage).toMatch(/<ProjectCategories posts=\{proyectosSerializados\} client:load\s*\/>/);
     expect(homePage).toMatch(/<Skills client:visible\s*\/>/);

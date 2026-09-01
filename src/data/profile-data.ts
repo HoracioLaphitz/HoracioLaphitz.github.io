@@ -8,6 +8,11 @@ import {
   SkillCategory,
   SkillLevel,
 } from "@domain/entities/profile.entity";
+import { EXPERIENCE_ITEMS } from "./experience";
+
+const PROFILE_EXPERIENCE = EXPERIENCE_ITEMS.map(({ period, role, company, location, description, sortDate }) => ({
+  period, role, company, location, description, sortDate,
+}));
 
 export const PROFILE_DATA = new ProfileEntity(
   "Horacio Laphitz",
@@ -22,51 +27,7 @@ export const PROFILE_DATA = new ProfileEntity(
     github: "https://github.com/horaciolaphitz",
     credly: "https://www.credly.com/users/horacio-laphitz",
   },
-  [
-    {
-      period: "Dic 2025 – Mar 2026",
-      role: "Data Entry Specialist",
-      company: "Ucrop.it",
-      location: "Remoto",
-      description:
-        "Validación de registros georreferenciados de Molinos SA, Heineken y COFCO con tasa de error menor al 5%; automaticé la validación para su carga en bases de datos SQL",
-      sortDate: new Date(2025, 11, 1),
-    },
-    {
-      period: "Ene 2021 – Nov 2025",
-      role: "Help Desk",
-      company: "PcService Posadas",
-      location: "Posadas",
-      description:
-        "Mantenimiento de hardware y servidores, optimización de sistemas",
-      sortDate: new Date(2025, 10, 1),
-    },
-    {
-      period: "Abr 2024 – May 2024",
-      role: "Data Entry",
-      company: "Ucrop.it",
-      location: "Remoto",
-      description: "Entrada precisa y eficiente de datos georreferenciados",
-      sortDate: new Date(2024, 4, 1),
-    },
-    {
-      period: "Jul 2019 – Dic 2019",
-      role: "Capacitador Help Desk",
-      company: "Hospital Escuela Dr. Ramón Madariaga",
-      location: "Posadas",
-      description:
-        "Coordinación de capacitación e implementación de sistema R.I.S.mi",
-      sortDate: new Date(2019, 11, 1),
-    },
-    {
-      period: "Mar 2019 – Jun 2019",
-      role: "Asistente Administrativo Contable",
-      company: "Ministerio de Salud Pública de Misiones",
-      location: "Posadas",
-      description: "Gestión de compras, licitaciones y ERP",
-      sortDate: new Date(2019, 5, 1),
-    },
-  ],
+  PROFILE_EXPERIENCE,
   [
     {
       period: "Febrero 2026",

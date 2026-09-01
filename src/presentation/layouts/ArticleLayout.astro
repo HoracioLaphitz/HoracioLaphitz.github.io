@@ -21,11 +21,9 @@ interface Props {
   notebooks?: NotebookResource[];
   projectSlug?: string;
   maturity?: string;
-  evidenceId?: string;
-  boundaries?: string[];
 }
 
-const { title, description, category, pubDate, tags, author, github, dashboard, currentPath, notebooks, projectSlug, maturity = "Portfolio project", evidenceId, boundaries = [] } = Astro.props;
+const { title, description, category, pubDate, tags, author, github, dashboard, currentPath, notebooks, projectSlug, maturity = "Portfolio project" } = Astro.props;
 
 const siteUrl = "https://horaciolaphitz.vercel.app";
 const articleUrl = new URL(currentPath, siteUrl).href;
@@ -63,8 +61,6 @@ const articleSchema = {
             })}
           </time>
         </div>
-        {evidenceId && <p class="article-evidence">Evidence: {evidenceId}</p>}
-        {boundaries.length > 0 && <p class="article-boundaries">Boundaries: {boundaries.join(", ")}</p>}
 
         <!-- Título principal -->
         <h1 class="article-title">{title}</h1>

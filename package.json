@@ -20,6 +20,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
+    "sync:github": "node scripts/sync-github-repos.mjs",
+    "prebuild": "pnpm sync:github",
     "build": "astro build --force",
     "build:notebooks": "node --import tsx scripts/build-notebooks.mjs",
     "preview": "astro preview",
@@ -30,6 +32,8 @@
     "deploy:check": "node scripts/check-deploy.mjs",
     "deploy:verify": "node scripts/verify-deploy-setup.mjs",
     "deploy:push": "powershell -ExecutionPolicy Bypass -File scripts/push-to-github.ps1",
+    "smoke": "node scripts/smoke-test.mjs",
+    "smoke:prod": "cross-env BASE_URL=https://horaciolaphitz.vercel.app node scripts/smoke-test.mjs",
     "security:audit": "pnpm audit --audit-level=high",
     "validate": "pnpm astro check && pnpm test:run"
   },
@@ -58,6 +62,7 @@
     "@typescript-eslint/parser": "^8.53.1",
     "@vitest/ui": "^3.2.6",
     "autoprefixer": "^10.4.16",
+    "cross-env": "^10.1.0",
     "cssnano": "^6.0.1",
     "eslint": "^9.39.2",
     "eslint-plugin-astro": "^1.5.0",
@@ -65,7 +70,9 @@
     "gray-matter": "^4.0.3",
     "js-yaml": "^5.2.0",
     "jsdom": "26.1.0",
+    "playwright": "^1.62.1",
     "tsx": "^4.22.4",
+    "vercel": "^59.10.0",
     "vitest": "^3.2.6",
     "zod": "^4.4.3"
   }

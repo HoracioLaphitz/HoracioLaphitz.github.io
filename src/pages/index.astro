@@ -9,6 +9,7 @@ import ProjectCategories from "@presentation/components/sections/ProjectCategori
 import Contact from "@presentation/components/sections/Contact.tsx";
 import { getCollection } from "astro:content";
 import { ProjectMapper } from "@infrastructure/mappers/project.mapper";
+import { getHomeProjects, mergeHomeProjectData } from "@data/home-projects";
 import {
   serializeProjects,
   type SerializedProject,
@@ -20,9 +21,11 @@ try {
     "proyectos",
     ({ data }) => !data.draft
   );
-  proyectosSerializados = serializeProjects(
+  const homeProjects = getHomeProjects(proyectosRaw);
+  const allProjects = serializeProjects(
     ProjectMapper.toDomainArray(proyectosRaw)
   );
+  proyectosSerializados = mergeHomeProjectData(homeProjects, allProjects);
 } catch {
   // Content collection "proyectos" does not exist yet
 }

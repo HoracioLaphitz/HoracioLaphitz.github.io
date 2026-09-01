@@ -10,9 +10,7 @@ const Experience = () => {
       id="experience"
       className="bg-skin-secondary/50 py-16 md:py-24"
     >
-      <div
-        className="mx-auto max-w-content px-6"
-      >
+      <div className="mx-auto max-w-content px-6">
         <div className="mb-12">
           <h2
             className="text-display-sm font-bold text-skin-text tracking-tight"
@@ -25,8 +23,10 @@ const Experience = () => {
         <div className="border-t border-skin-border/40">
           {items.map((item) => (
             <article
-              key={`${item.company}-${item.period}`}
+              key={item.id}
               className="grid gap-3 border-b border-skin-border/40 py-8 md:grid-cols-[180px_1fr] md:gap-8"
+              itemScope
+              itemType="https://schema.org/OrganizationRole"
             >
               <span className="font-mono text-xs text-skin-muted tracking-tight md:pt-1">
                 {item.period}
@@ -38,10 +38,18 @@ const Experience = () => {
                 <p className="mt-1 text-sm font-medium text-skin-muted">
                   {item.company}
                   {item.location ? ` · ${item.location}` : ""}
+                  {item.kind === "unpaid-project" ? " · Experiencia no remunerada" : ""}
                 </p>
-                <p className="mt-3 text-sm leading-relaxed text-skin-muted font-normal">
+                <p className="mt-3 text-sm leading-relaxed text-skin-text font-normal">
                   {item.description}
                 </p>
+                {item.details.length > 0 && (
+                  <ul className="mt-3 space-y-1 text-sm leading-relaxed text-skin-text-secondary list-disc pl-5">
+                    {item.details.map((detail, i) => (
+                      <li key={i}>{detail.text}</li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </article>
           ))}

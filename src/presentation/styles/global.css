@@ -192,6 +192,10 @@
     transition: background-color 0.3s ease, color 0.3s ease;
     letter-spacing: -0.011em;
     line-height: 1.6;
+    overflow-x: clip;
+    min-width: 0;
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
   }
 
   ::selection {
@@ -207,16 +211,12 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 4rem;
+    overflow-x: clip;
   }
 
-  main,
-  section,
-  article,
-  header,
-  footer,
-  nav,
-  div {
+  #root, main, article, section {
     min-width: 0;
+    max-width: 100%;
   }
 
   img,
@@ -224,6 +224,25 @@
   video,
   iframe {
     max-width: 100%;
+    height: auto;
+  }
+
+  table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  pre,
+  code {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  pre {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   ::-webkit-scrollbar {
@@ -250,6 +269,7 @@
   h5,
   h6 {
     @apply font-display font-semibold tracking-tight;
+    overflow-wrap: anywhere;
   }
 
   a {
@@ -259,6 +279,44 @@
 
   button {
     @apply transition-all duration-200;
+  }
+
+  @media (pointer: coarse) {
+    button, a, input, select, textarea {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+
+  @media (hover: hover) {
+    a:hover, button:hover {
+      opacity: 0.9;
+    }
+  }
+
+  @media (prefers-contrast: more) {
+    :root {
+      --border-light: #000000;
+      --border-medium: #000000;
+    }
+    .dark {
+      --border-light: #FFFFFF;
+      --border-medium: #FFFFFF;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 

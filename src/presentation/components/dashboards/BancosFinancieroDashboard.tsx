@@ -136,7 +136,7 @@ export default function BancosFinancieroDashboard() {
 
             <ChartCard title={`Top 10 por capitalización de mercado — ${unit}`}>
                 <ResponsiveContainer>
-                    <BarChart data={ranked} layout="vertical" margin={{ left: 8 }}>
+                    <BarChart data={ranked} layout="vertical" margin={{ left: 8, right: 8 }}>
                         <CartesianGrid stroke={theme.grid} horizontal={false} />
                         <XAxis
                             type="number"
@@ -147,7 +147,7 @@ export default function BancosFinancieroDashboard() {
                         <YAxis
                             type="category"
                             dataKey="name"
-                            width={180}
+                            width={120}
                             tick={{ fill: theme.axis, fontSize: 10 }}
                             stroke={theme.axis}
                         />

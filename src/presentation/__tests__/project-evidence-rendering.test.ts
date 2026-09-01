@@ -6,20 +6,17 @@ import { ENTERPRISE_AI_EVIDENCE } from "@data/enterprise-ai-evidence.v1";
 const read = (path: string) => readFileSync(resolve(process.cwd(), path), "utf8");
 
 describe("project evidence rendering", () => {
-  it("renders maturity and evidence on catalogue cards without dropping factual fields", () => {
+  it("renders maturity on catalogue cards without dropping factual fields", () => {
     const card = read("src/presentation/components/proyectos/ProjectCard.tsx");
     expect(card).toContain("maturity");
-    expect(card).toContain("evidenceId");
     expect(card).toContain("tags");
     expect(card).toContain("description");
   });
 
-  it("renders maturity and evidence boundaries on article pages while retaining resources", () => {
+  it("renders maturity on article pages while retaining resources", () => {
     const article = read("src/presentation/layouts/ArticleLayout.astro");
     const route = read("src/pages/proyectos/[slug].astro");
     expect(article).toContain("maturity");
-    expect(article).toContain("evidenceId");
-    expect(article).toContain("boundaries");
     expect(route).toContain("resources?.notebooks");
     expect(route).toContain("resources?.pdfs");
     expect(route).toContain("resources?.datasets");

@@ -32,8 +32,7 @@ export class ProjectMapper {
       this.mapImpact(entry.data.impact),
       entry.data.claimId,
       (entry.data.maturity as ProjectMaturity | undefined) ?? "Portfolio project",
-      entry.data.evidenceId,
-      entry.data.boundaries ?? []
+      entry.data.status
     );
   }
 

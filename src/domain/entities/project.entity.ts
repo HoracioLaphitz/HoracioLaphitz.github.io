@@ -60,8 +60,7 @@ export class ProjectEntity {
     public readonly impact?: ProjectImpact,
     public readonly claimId?: string,
     public readonly maturity: ProjectMaturity = "Portfolio project",
-    public readonly evidenceId?: string,
-    public readonly boundaries: readonly string[] = []
+    public readonly syncStatus?: string
   ) {}
 
   isPublishable(): boolean {

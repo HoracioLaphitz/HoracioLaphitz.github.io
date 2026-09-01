@@ -42,15 +42,11 @@ const proyectosCollection = defineCollection({
     image: z.string().optional(),
     draft: z.boolean().default(false),
     github: z.string().optional(),
+    status: z.enum(["Nuevo - en proceso"]).optional(),
     dashboard: z.string().optional(),
     featured: z.boolean().default(false),
     claimId: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/).optional(),
     maturity: z.enum(maturityStatuses).optional(),
-    evidenceId: z
-      .string()
-      .regex(/^(project|experience|skill):[a-z0-9-]+$/)
-      .optional(),
-    boundaries: z.array(z.string()).default([]),
     impact: impactSchema,
     resources: z
       .object({

@@ -20,6 +20,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
+      "astro:content": resolve(__dirname, "./src/test/mocks/astro-content.ts"),
       "@domain": resolve(__dirname, "./src/domain"),
       "@application": resolve(__dirname, "./src/application"),
       "@infrastructure": resolve(__dirname, "./src/infrastructure"),

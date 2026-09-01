@@ -103,7 +103,7 @@ export default function AccionesFinancieroDashboard() {
                 className="!border-slate-800 !bg-[#0b1220] [&_h3]:!text-slate-100"
             >
                 <ResponsiveContainer>
-                    <LineChart data={data} margin={{ left: 8 }}>
+                    <LineChart data={data} margin={{ left: 8, right: 8 }}>
                         <CartesianGrid stroke={theme.grid} vertical={false} />
                         <XAxis
                             dataKey="date"

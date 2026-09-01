@@ -1,0 +1,28 @@
+{
+  "generatedDirectory": "src/content/proyectos/github",
+  "ownership": {
+    "manifest": ".github-sync-manifest.json",
+    "marker": "generatedBy: github-auto-sync-platform",
+    "curatedPrecedence": true
+  },
+  "mapping": {
+    "name": "title",
+    "description": "description",
+    "topics": "tags",
+    "html_url": "github",
+    "created_at": "pubDate",
+    "missingReadme": "status=Nuevo - en proceso, maturity=In development"
+  },
+  "environment": {
+    "owner": "GITHUB_OWNER",
+    "token": "GITHUB_TOKEN",
+    "offline": "GITHUB_SYNC_OFFLINE=1 or missing token",
+    "allowUnauthenticated": "GITHUB_SYNC_ALLOW_UNAUTH=1"
+  },
+  "lifecycle": {
+    "build": "prebuild -> sync:github -> astro build",
+    "dev": "astro dev; synchronization is explicit via sync:github",
+    "secrets": "process environment or CI secret store only; never persisted or logged",
+    "performance": { "maxRepositories": 500, "maxPages": 100, "maxRequestMs": 10000, "maxConcurrentRequests": 1 }
+  }
+}

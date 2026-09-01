@@ -123,7 +123,7 @@ export default function MarketBasketDashboard() {
             <div className="grid gap-lg lg:grid-cols-2">
                 <ChartCard title="Top 10 reglas por lift">
                     <ResponsiveContainer>
-                        <BarChart data={top} layout="vertical" margin={{ left: 8 }}>
+                        <BarChart data={top} layout="vertical" margin={{ left: 8, right: 8 }}>
                             <CartesianGrid stroke={theme.grid} horizontal={false} />
                             <XAxis
                                 type="number"
@@ -133,7 +133,7 @@ export default function MarketBasketDashboard() {
                             <YAxis
                                 type="category"
                                 dataKey="label"
-                                width={190}
+                                width={120}
                                 tick={{ fill: theme.axis, fontSize: 10 }}
                                 stroke={theme.axis}
                             />
@@ -157,7 +157,7 @@ export default function MarketBasketDashboard() {
 
                 <ChartCard title="Soporte × Confianza (tamaño = lift)">
                     <ResponsiveContainer>
-                        <ScatterChart margin={{ left: 8 }}>
+                        <ScatterChart margin={{ left: 8, right: 8 }}>
                             <CartesianGrid stroke={theme.grid} />
                             <XAxis
                                 type="number"

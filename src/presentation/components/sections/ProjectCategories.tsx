@@ -19,8 +19,7 @@ export interface SerializedProject {
   featured: boolean;
   claimId?: string;
   maturity?: string;
-  evidenceId?: string;
-  boundaries?: readonly string[];
+  syncStatus?: string;
 }
 
 export const serializeProjects = (
@@ -40,8 +39,7 @@ export const serializeProjects = (
     featured: p.featured,
     claimId: p.claimId,
     maturity: p.maturity,
-    evidenceId: p.evidenceId,
-    boundaries: p.boundaries,
+    syncStatus: p.syncStatus,
   }));
 
 interface ProjectCategoriesProps {
@@ -139,7 +137,7 @@ const ProjectCategories = ({ posts, showHeading = true }: ProjectCategoriesProps
                   dashboard={project.dashboardUrl}
                   featured={project.featured}
                   maturity={project.maturity}
-                  evidenceId={project.evidenceId}
+                  syncStatus={project.syncStatus}
                 />
               ))}
             </div>

@@ -152,7 +152,7 @@ export default function EcommerceExecutiveDashboard() {
             <div className="grid gap-lg lg:grid-cols-2">
                 <ChartCard title="Ingresos mensuales">
                     <ResponsiveContainer>
-                        <LineChart data={data.months} margin={{ left: 8 }}>
+                        <LineChart data={data.months} margin={{ left: 8, right: 8 }}>
                             <CartesianGrid stroke={theme.grid} vertical={false} />
                             <XAxis
                                 dataKey="month"
@@ -182,7 +182,7 @@ export default function EcommerceExecutiveDashboard() {
                         <BarChart
                             data={data.categories}
                             layout="vertical"
-                            margin={{ left: 8 }}
+                            margin={{ left: 8, right: 8 }}
                         >
                             <CartesianGrid stroke={theme.grid} horizontal={false} />
                             <XAxis
@@ -194,7 +194,7 @@ export default function EcommerceExecutiveDashboard() {
                             <YAxis
                                 type="category"
                                 dataKey="category"
-                                width={150}
+                                width={110}
                                 tick={{ fill: theme.axis, fontSize: 10 }}
                                 stroke={theme.axis}
                             />
@@ -212,7 +212,7 @@ export default function EcommerceExecutiveDashboard() {
 
             <ChartCard title="Importancia de variables — churn de sellers">
                 <ResponsiveContainer>
-                    <BarChart data={data.features} layout="vertical" margin={{ left: 8 }}>
+                    <BarChart data={data.features} layout="vertical" margin={{ left: 8, right: 8 }}>
                         <CartesianGrid stroke={theme.grid} horizontal={false} />
                         <XAxis
                             type="number"
@@ -222,7 +222,7 @@ export default function EcommerceExecutiveDashboard() {
                         <YAxis
                             type="category"
                             dataKey="feature"
-                            width={170}
+                            width={120}
                             tick={{ fill: theme.axis, fontSize: 10 }}
                             stroke={theme.axis}
                         />
