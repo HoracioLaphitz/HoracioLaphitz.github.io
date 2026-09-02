@@ -28,7 +28,4 @@ src/
 ├── presentation/    # UI Components
 └── main/           # DI Container
 ```
-
-## 📄 Licencia
-
-© 2026 Horacio Laphitz. 
+ © 2026 Horacio Laphitz. 
