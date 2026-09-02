@@ -105,7 +105,7 @@ export default {
       // Font Family - SF Pro Display / Text + Inter
       fontFamily: {
         sans: [
-          "Inter",
+          "DM Sans",
           "-apple-system",
           "BlinkMacSystemFont",
           "system-ui",
@@ -119,7 +119,7 @@ export default {
           "sans-serif",
         ],
         body: [
-          "Inter",
+          "DM Sans",
           "-apple-system",
           "BlinkMacSystemFont",
           "system-ui",
