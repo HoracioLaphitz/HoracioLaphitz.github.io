@@ -29,7 +29,8 @@ docs
 !src/content/**/*.md
 
 # Scripts de desarrollo (el build ya no ejecuta nada de scripts/)
-scripts
+# NOTA: scripts/sync-github-repos.mjs se ejecuta en prebuild
+# scripts
 
 # Certificados y archivos grandes
 
