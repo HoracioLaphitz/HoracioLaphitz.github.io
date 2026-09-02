@@ -14,7 +14,7 @@ interface ProjectCardProps {
     syncStatus?: string;
 }
 
-const ProjectCard = ({ title, description, slug, category, tags, github, dashboard, maturity = "Portfolio project", syncStatus }: ProjectCardProps) => {
+const ProjectCard = ({ title, description, slug, category, tags, github, dashboard, maturity = "Proyecto personal", syncStatus }: ProjectCardProps) => {
     const categoryIcons: Record<string, ReactElement> = {
         "Machine Learning": <RobotIcon className="w-4 h-4" />,
         "Análisis de datos": <ChartBarIcon className="w-4 h-4" />,
@@ -47,9 +47,9 @@ const ProjectCard = ({ title, description, slug, category, tags, github, dashboa
                     {description}
                 </p>
 
-                <div className="text-xs text-skin-muted mb-3" data-maturity={maturity} aria-label={`Maturity: ${maturity}`}>
+                <div className="text-xs text-skin-muted mb-3" data-maturity={maturity} aria-label={`Etapa: ${maturity}`}>
                     {maturity}
-                    {syncStatus && <span className="ml-2 text-brand-primary" aria-label={`Status: ${syncStatus}`}>{syncStatus}</span>}
+                    {syncStatus && <span className="ml-2 text-brand-primary" aria-label={`Estado: ${syncStatus}`}>{syncStatus}</span>}
                 </div>
 
                 {/* Tags */}

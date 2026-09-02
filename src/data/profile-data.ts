@@ -18,7 +18,7 @@ export const PROFILE_DATA = new ProfileEntity(
   "Horacio Laphitz",
   "",
   [
-    "Analista de Datos orientado al desarrollo agéntico de soluciones para problemas del mundo real",
+    "Trabajo con Python, SQL y Power BI para preparar datos, armar dashboards y automatizar tareas repetitivas",
   ],
   {
     email: "horaciolaphitz99@gmail.com",

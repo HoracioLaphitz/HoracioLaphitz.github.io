@@ -13,11 +13,11 @@ const proyectos = serializeProjects(ProjectMapper.toDomainArray(proyectosRaw));
 
 <PageLayout
   title="Proyectos"
-  description="Explora mis proyectos de análisis de datos y visualización."
+  description="Proyectos de análisis y visualización de datos."
 >
   <header class="mx-auto max-w-content px-6 pt-12">
     <h1 class="text-display-sm font-bold text-skin-text tracking-tight">Proyectos</h1>
-    <p class="mt-3 max-w-2xl text-skin-muted">Evidencia de análisis de datos, machine learning y desarrollo de soluciones.</p>
+    <p class="mt-3 max-w-2xl text-skin-muted">Proyectos de datos y automatización, con modelos de machine learning cuando el problema lo requiere.</p>
   </header>
   <ProjectCategories posts={proyectos} showHeading={false} client:visible />
 </PageLayout>

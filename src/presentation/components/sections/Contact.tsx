@@ -26,7 +26,7 @@ const Contact = () => {
               className="text-display-sm font-bold text-skin-text tracking-tight mb-4"
               style={{ letterSpacing: "-0.02em" }}
             >
-              Trabajemos juntos
+              Hablemos de tu proyecto
             </h2>
             <p className="text-lg md:text-xl text-skin-muted leading-relaxed mb-3 tracking-tight font-normal">
               <span className="font-semibold text-skin-text">Automatización de procesos</span> |{" "}
@@ -37,7 +37,7 @@ const Contact = () => {
               .
             </p>
             <p className="text-base text-skin-muted leading-relaxed mb-8 font-normal">
-              ¿Tenés un proyecto, un reporte o un proceso para automatizar?
+              ¿Necesitás ordenar datos o automatizar una tarea repetitiva?
               Escribime.
             </p>
           </div>

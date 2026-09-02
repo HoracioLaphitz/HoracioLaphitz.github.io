@@ -17,12 +17,12 @@ const FEATURED_SLUGS = [
 ];
 
 const maturityTranslations: Record<string, string> = {
-  "Delivered work": "Trabajo entregado",
-  "Portfolio project": "Proyecto de portfolio",
-  "Functional prototype": "Prototipo funcional",
-  "Reference architecture": "Arquitectura de referencia",
+  "Delivered work": "Trabajo realizado",
+  "Portfolio project": "Proyecto personal",
+  "Functional prototype": "Prototipo en funcionamiento",
+  "Reference architecture": "Diseño de referencia",
   "In development": "En desarrollo",
-  "Currently deepening expertise in": "Profundizando conocimiento en",
+  "Currently deepening expertise in": "En estudio",
 };
 
 type ProyectoEntry = CollectionEntry<"proyectos">;

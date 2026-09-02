@@ -21,19 +21,19 @@ const capabilities = [
   {
     title: "Análisis de datos",
     description:
-      "Python, SQL, modelado y visualización para convertir datos en decisiones.",
+      "Python, SQL y Power BI para preparar datos y responder preguntas concretas.",
     Icon: ChartBarIcon,
   },
   {
     title: "Automatización e integración",
     description:
-      "Validaciones, pipelines y procesos que reducen trabajo manual.",
+      "Pipelines y validaciones para reducir tareas repetitivas.",
     Icon: DatabaseIcon,
   },
   {
-    title: "Exploración de agentes y subagentes en infraestructura privada",
+    title: "Pruebas con agentes de IA",
     description:
-      "Estoy profundizando en despliegues privados orientados a mantener los datos bajo control del usuario.",
+      "Estoy probando RAG y flujos con agentes en proyectos propios.",
     Icon: RobotIcon,
   },
 ] as const;
@@ -55,7 +55,7 @@ const Hero = () => {
             data-motion="hero-eyebrow"
             className="mb-5 max-w-2xl text-xs font-semibold uppercase tracking-[0.14em] text-brand-primary sm:text-sm"
           >
-            Datos · Automatización de procesos · Machine Learning
+            Análisis de datos · Automatización
           </p>
 
           <h1
@@ -66,7 +66,7 @@ const Hero = () => {
           </h1>
 
           <p className="mt-6 max-w-3xl font-display text-xl font-medium leading-snug tracking-[-0.02em] text-skin-text-secondary sm:text-2xl">
-            Analista de datos orientado a la automatización de procesos.
+            Analista de datos. Automatizo tareas con Python y SQL.
           </p>
 
           <div className="mt-8 grid gap-8 border-t border-skin-border pt-7 lg:grid-cols-[minmax(0,1fr)_18rem]">
@@ -74,9 +74,9 @@ const Hero = () => {
               data-motion="hero-summary"
               className="max-w-[68ch] text-base leading-relaxed text-skin-text-secondary sm:text-lg"
             >
-              Convierto datos en decisiones. Integro fuentes, automatizo
-              validaciones y desarrollo soluciones que ayudan a decidir con
-              menos trabajo manual.
+              Trabajo con Python y SQL para preparar y validar datos. Armo
+              dashboards en Power BI y modelos de machine learning para
+              responder preguntas concretas.
             </p>
 
             <div
@@ -130,7 +130,7 @@ const Hero = () => {
 
         <details className="mt-6 rounded-xl bg-skin-secondary p-4 text-sm">
           <summary className="focus-ring cursor-pointer rounded-lg font-semibold text-skin-text">
-            Capacidades de Enterprise AI
+            Pruebas y estudios con IA
           </summary>
           <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {ENTERPRISE_AI_EVIDENCE.map((capability) => (

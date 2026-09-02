@@ -17,7 +17,7 @@ export const PUBLIC_POSITIONING = {
   },
   siteUrl: "https://horaciolaphitz.vercel.app",
   positioning: {
-    focus: "Enterprise AI solutions architecture, autonomous agents, and private LLM infrastructure",
+    focus: "Análisis de datos y automatización con Python, SQL y Power BI; estudio de RAG y flujos con agentes en proyectos personales",
     qualification: "Currently deepening expertise in",
   },
   maturityStatuses: ALLOWED_MATURITY_STATUSES,

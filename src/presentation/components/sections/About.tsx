@@ -13,17 +13,17 @@ const areas = [
     Icon: ChartBarIcon,
   },
   {
-    status: "Arquitectura de referencia",
-    title: "Agentes y subagentes",
+    status: "En estudio",
+    title: "Flujos con agentes",
     description:
-      "Diseño de sistemas supervisor-worker con roles especializados, estado compartido, verificación de tareas y puntos de control humano. Es una línea de investigación y diseño, no una afirmación de despliegue empresarial en producción.",
+      "Estoy armando ejemplos propios donde un agente reparte tareas y una persona revisa el resultado. Todavía no los implementé en una empresa.",
     Icon: RobotIcon,
   },
   {
-    status: "Profundización",
-    title: "Gobernanza y observabilidad",
+    status: "En estudio",
+    title: "Evaluación de resultados",
     description:
-      "Evaluación, trazabilidad, mínimo privilegio, aislamiento y seguimiento de costos para que la autonomía permanezca limitada por objetivos de negocio y controles verificables.",
+      "Estoy aprendiendo a comparar respuestas y registrar errores en pruebas con agentes. Es una práctica personal que todavía no llevé a producción.",
     Icon: CheckCircleIcon,
   },
 ] as const;
@@ -44,20 +44,18 @@ const About = () => (
           className="max-w-xl text-display-sm font-bold tracking-tight text-skin-text"
           style={{ letterSpacing: "-0.02em" }}
         >
-          Datos y automatización como base. IA agéntica con criterio de empresa.
+          Trabajo con datos y automatización. La IA es una línea de estudio.
         </h2>
         <div className="mt-6 max-w-2xl space-y-4 text-sm leading-7 text-skin-muted md:text-base">
           <p>
-            Soy analista de datos orientado a convertir procesos manuales en
-            flujos más claros, medibles y confiables. Trabajo desde el problema
-            de negocio hacia los datos, la automatización y la evidencia que
-            permite evaluar el resultado.
+            Soy analista de datos. Trabajo con Python y SQL para preparar
+            información y automatizar validaciones. También construyo
+            dashboards en Power BI.
           </p>
           <p>
-            Sobre esa base profundizo en arquitecturas de IA con agentes y
-            subagentes para empresas. Investigo cómo coordinar especialistas sin
-            perder trazabilidad, control humano ni una definición explícita de
-            éxito.
+            Ahora estoy explorando RAG y flujos con agentes en proyectos
+            propios. Pruebo cómo evaluarlos y en qué puntos hace falta revisión
+            humana.
           </p>
         </div>
       </div>
