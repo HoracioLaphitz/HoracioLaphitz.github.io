@@ -1,0 +1,7 @@
+---
+import ZoomableImage from '../presentation/components/proyectos/ZoomableImage';
+
+const { src, alt = '' } = Astro.props;
+---
+
+<ZoomableImage client:load src={src} alt={alt} />

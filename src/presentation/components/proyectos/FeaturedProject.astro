@@ -1,0 +1,85 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface ShowcaseData {
+  context: string;
+  contribution: string;
+  result: string;
+  evidenceAction: string;
+  artifact?: string;
+}
+
+interface Props {
+  project: CollectionEntry<"proyectos">;
+  showcase: ShowcaseData;
+  index: number;
+}
+
+const { project, showcase, index } = Astro.props;
+const { title, description, github, dashboard, maturity, tags } = project.data;
+---
+
+<article class="group relative border-b border-skin-border/40 py-10 first:pt-0 last:border-b-0">
+  <div class="grid gap-6 md:grid-cols-[1fr_2fr] md:gap-10">
+    <div>
+      <span class="font-mono text-xs text-skin-muted tracking-tight">
+        {String(index + 1).padStart(2, "0")}
+      </span>
+      <h3 class="mt-2 text-xl md:text-2xl font-semibold text-skin-text tracking-tight">
+        {title}
+      </h3>
+      {maturity && (
+        <p class="mt-2 text-xs font-medium uppercase tracking-[0.14em] text-brand-primary">
+          {maturity}
+        </p>
+      )}
+    </div>
+
+    <div class="space-y-4">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.12em] text-skin-muted mb-1">Contexto</p>
+        <p class="text-sm md:text-base text-skin-text leading-relaxed">{showcase.context}</p>
+      </div>
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.12em] text-skin-muted mb-1">Contribución</p>
+        <p class="text-sm md:text-base text-skin-text leading-relaxed">{showcase.contribution}</p>
+      </div>
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.12em] text-skin-muted mb-1">Resultado</p>
+        <p class="text-sm md:text-base text-skin-text leading-relaxed">{showcase.result}</p>
+      </div>
+
+      <div class="flex flex-wrap gap-2 pt-2">
+        {github && (
+          <a
+            href={github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="focus-ring inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-full bg-skin-primary text-skin-text border border-skin-border/40 hover:bg-skin-primary/80 transition-colors"
+          >
+            Código
+          </a>
+        )}
+        {dashboard && (
+          <a
+            href={dashboard}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="focus-ring inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-full bg-skin-primary text-skin-text border border-skin-border/40 hover:bg-skin-primary/80 transition-colors"
+          >
+            Dashboard
+          </a>
+        )}
+        <a
+          href={`/proyectos/${project.id}`}
+          class="focus-ring inline-flex items-center gap-1 px-4 py-1.5 text-xs font-medium rounded-full bg-brand-primary text-white hover:opacity-90 transition-opacity ml-auto"
+        >
+          {showcase.evidenceAction}
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</article>

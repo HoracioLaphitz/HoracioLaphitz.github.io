@@ -6,7 +6,6 @@ import {
     Line,
     LineChart,
     ResponsiveContainer,
-    Tooltip,
     XAxis,
     YAxis,
 } from "recharts";
@@ -27,6 +26,7 @@ import { ecommerceTheme as theme } from "./themes";
 import { DashboardShell } from "./shared/DashboardShell";
 import { KpiCard } from "./shared/KpiCard";
 import { ChartCard } from "./shared/ChartCard";
+import { CustomTooltip } from "./shared/CustomTooltip";
 import { LoadingSkeleton } from "./shared/LoadingSkeleton";
 import { ErrorState } from "./shared/ErrorState";
 import { formatCompact, formatDecimal, formatPercent } from "./shared/format";
@@ -116,12 +116,6 @@ export default function EcommerceExecutiveDashboard() {
     }
 
     const kpis = ecommerceKpis(data.months);
-    const tooltipStyle = {
-        backgroundColor: "var(--bg-secondary)",
-        border: "1px solid var(--border-light)",
-        borderRadius: 12,
-        color: "var(--text-primary)",
-    } as const;
 
     return (
         <Shell>
@@ -150,7 +144,10 @@ export default function EcommerceExecutiveDashboard() {
             </div>
 
             <div className="grid gap-lg lg:grid-cols-2">
-                <ChartCard title="Ingresos mensuales">
+                <ChartCard
+                    title="Ingresos mensuales"
+                    description="Evolución de ingresos mes a mes durante el período analizado."
+                >
                     <ResponsiveContainer>
                         <LineChart data={data.months} margin={{ left: 8, right: 8 }}>
                             <CartesianGrid stroke={theme.grid} vertical={false} />
@@ -164,7 +161,7 @@ export default function EcommerceExecutiveDashboard() {
                                 tick={{ fill: theme.axis, fontSize: 11 }}
                                 stroke={theme.axis}
                             />
-                            <Tooltip contentStyle={tooltipStyle} />
+                            <CustomTooltip />
                             <Line
                                 type="monotone"
                                 dataKey="revenue"
@@ -177,7 +174,11 @@ export default function EcommerceExecutiveDashboard() {
                     </ResponsiveContainer>
                 </ChartCard>
 
-                <ChartCard title="Top categorías por ingresos">
+                <ChartCard
+                    title="Top categorías por ingresos"
+                    description="Categorías de productos con mayor ingreso total."
+                    dataPoints={data.categories.length}
+                >
                     <ResponsiveContainer>
                         <BarChart
                             data={data.categories}
@@ -198,7 +199,7 @@ export default function EcommerceExecutiveDashboard() {
                                 tick={{ fill: theme.axis, fontSize: 10 }}
                                 stroke={theme.axis}
                             />
-                            <Tooltip contentStyle={tooltipStyle} />
+                            <CustomTooltip />
                             <Bar
                                 dataKey="revenue"
                                 name="Ingresos"
@@ -210,7 +211,11 @@ export default function EcommerceExecutiveDashboard() {
                 </ChartCard>
             </div>
 
-            <ChartCard title="Importancia de variables — churn de sellers">
+            <ChartCard
+                title="Importancia de variables — churn de sellers"
+                description="Variables con mayor peso en la predicción de churn de vendedores según el modelo XGBoost."
+                dataPoints={data.features.length}
+            >
                 <ResponsiveContainer>
                     <BarChart data={data.features} layout="vertical" margin={{ left: 8, right: 8 }}>
                         <CartesianGrid stroke={theme.grid} horizontal={false} />
@@ -226,7 +231,7 @@ export default function EcommerceExecutiveDashboard() {
                             tick={{ fill: theme.axis, fontSize: 10 }}
                             stroke={theme.axis}
                         />
-                        <Tooltip contentStyle={tooltipStyle} />
+                        <CustomTooltip />
                         <Bar
                             dataKey="importance"
                             name="Importancia"

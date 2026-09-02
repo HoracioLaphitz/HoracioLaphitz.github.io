@@ -4,6 +4,7 @@ import ArticleLayout from "@presentation/layouts/ArticleLayout.astro";
 import { ResourceDownload } from "@presentation/components/proyectos/ResourceDownload";
 import { ProjectDashboard } from "@presentation/components/dashboards/ProjectDashboard";
 import { DASHBOARD_SLUGS } from "@presentation/components/dashboards/dashboard-slugs";
+import { ContentImages } from "@presentation/components/proyectos/ContentImages";
 
 export async function getStaticPaths() {
   const proyectos = await getCollection("proyectos", ({ data }) => !data.draft);
@@ -34,7 +35,11 @@ const hasDashboard = (DASHBOARD_SLUGS as readonly string[]).includes(
   maturity={proyecto.data.maturity}
   currentPath={`/proyectos/${proyecto.id}`}
 >
-  <Content />
+  <div data-content-body class="prose-content">
+    <Content />
+  </div>
+
+  <ContentImages client:load />
 
   {hasDashboard && <ProjectDashboard client:visible slug={proyecto.id} />}
 

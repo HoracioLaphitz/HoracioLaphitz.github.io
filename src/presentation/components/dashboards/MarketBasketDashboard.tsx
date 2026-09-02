@@ -6,7 +6,6 @@ import {
     ResponsiveContainer,
     Scatter,
     ScatterChart,
-    Tooltip,
     XAxis,
     YAxis,
     ZAxis,
@@ -22,6 +21,8 @@ import { KpiCard } from "./shared/KpiCard";
 import { ChartCard } from "./shared/ChartCard";
 import { LoadingSkeleton } from "./shared/LoadingSkeleton";
 import { ErrorState } from "./shared/ErrorState";
+import { CustomTooltip } from "./shared/CustomTooltip";
+import { DataTable } from "./shared/DataTable";
 import { formatDecimal, formatPercent } from "./shared/format";
 
 const REPO_URL = "https://github.com/HoracioLaphitz/MarketBasketAnalytics";
@@ -121,7 +122,11 @@ export default function MarketBasketDashboard() {
             </div>
 
             <div className="grid gap-lg lg:grid-cols-2">
-                <ChartCard title="Top 10 reglas por lift">
+                <ChartCard
+                    title="Top 10 reglas por lift"
+                    dataPoints={top.length}
+                    description="Las 10 reglas de asociación más fuertes, ordenadas por lift. El lift indica cuánto más probable es comprar el consecuente dado el antecedente."
+                >
                     <ResponsiveContainer>
                         <BarChart data={top} layout="vertical" margin={{ left: 8, right: 8 }}>
                             <CartesianGrid stroke={theme.grid} horizontal={false} />
@@ -137,14 +142,7 @@ export default function MarketBasketDashboard() {
                                 tick={{ fill: theme.axis, fontSize: 10 }}
                                 stroke={theme.axis}
                             />
-                            <Tooltip
-                                contentStyle={{
-                                    backgroundColor: "var(--bg-secondary)",
-                                    border: "1px solid var(--border-light)",
-                                    borderRadius: 12,
-                                    color: "var(--text-primary)",
-                                }}
-                            />
+                            <CustomTooltip />
                             <Bar
                                 dataKey="lift"
                                 name="Lift"
@@ -155,7 +153,10 @@ export default function MarketBasketDashboard() {
                     </ResponsiveContainer>
                 </ChartCard>
 
-                <ChartCard title="Soporte × Confianza (tamaño = lift)">
+                <ChartCard
+                    title="Soporte × Confianza (tamaño = lift)"
+                    description="Cada punto es una regla de asociación. Posición horizontal = soporte, vertical = confianza, tamaño del círculo = lift."
+                >
                     <ResponsiveContainer>
                         <ScatterChart margin={{ left: 8, right: 8 }}>
                             <CartesianGrid stroke={theme.grid} />
@@ -181,15 +182,7 @@ export default function MarketBasketDashboard() {
                                 stroke={theme.axis}
                             />
                             <ZAxis type="number" dataKey="z" range={[40, 400]} name="Lift" />
-                            <Tooltip
-                                cursor={{ strokeDasharray: "3 3" }}
-                                contentStyle={{
-                                    backgroundColor: "var(--bg-secondary)",
-                                    border: "1px solid var(--border-light)",
-                                    borderRadius: 12,
-                                    color: "var(--text-primary)",
-                                }}
-                            />
+                            <CustomTooltip />
                             <Scatter
                                 data={scatter}
                                 fill={theme.accent}
@@ -200,55 +193,38 @@ export default function MarketBasketDashboard() {
                 </ChartCard>
             </div>
 
-            <div className="rounded-sm border border-skin-border bg-skin-secondary p-md">
-                <div className="mb-sm flex flex-wrap items-center justify-between gap-sm">
-                    <h3 className="font-display text-base font-semibold text-skin-text">
-                        Explorador de reglas
-                    </h3>
-                    <input
-                        type="search"
-                        value={filter}
-                        onChange={(e) => setFilter(e.target.value)}
-                        placeholder="Filtrar por producto…"
-                        aria-label="Filtrar reglas por producto"
-                        className="rounded-full border border-skin-border-medium bg-skin-primary px-md py-xs text-sm text-skin-text placeholder:text-skin-muted focus:outline-none"
-                    />
-                </div>
-                <div className="overflow-x-auto">
-                    <table className="w-full text-left text-sm">
-                        <thead>
-                            <tr className="border-b border-skin-border text-skin-muted">
-                                <th className="py-xs pr-md font-medium">Antecedente</th>
-                                <th className="py-xs pr-md font-medium">Consecuente</th>
-                                <th className="py-xs pr-md font-medium">Soporte</th>
-                                <th className="py-xs pr-md font-medium">Confianza</th>
-                                <th className="py-xs font-medium">Lift</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {filtered.map((r) => (
-                                <tr
-                                    key={`${r.antecedent}-${r.consequent}`}
-                                    className="border-b border-skin-border text-skin-text-secondary"
-                                >
-                                    <td className="py-xs pr-md">{r.antecedent}</td>
-                                    <td className="py-xs pr-md">{r.consequent}</td>
-                                    <td className="py-xs pr-md">{formatPercent(r.support)}</td>
-                                    <td className="py-xs pr-md">
-                                        {formatPercent(r.confidence)}
-                                    </td>
-                                    <td
-                                        className="py-xs font-semibold"
-                                        style={{ color: theme.accent }}
-                                    >
-                                        {formatDecimal(r.lift)}
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <DataTable description="Reglas de asociación filtradas. El lift mide la fuerza de la relación entre productos.">
+                <thead>
+                    <tr className="border-b border-skin-border text-skin-muted">
+                        <th className="py-xs pr-md font-medium">Antecedente</th>
+                        <th className="py-xs pr-md font-medium">Consecuente</th>
+                        <th className="py-xs pr-md font-medium">Soporte</th>
+                        <th className="py-xs pr-md font-medium">Confianza</th>
+                        <th className="py-xs font-medium">Lift</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {filtered.map((r, index) => (
+                        <tr
+                            key={`${r.antecedent}-${r.consequent}`}
+                            className={`border-b border-skin-border text-skin-text-secondary ${index % 2 === 0 ? "bg-skin-secondary" : "bg-skin-primary"}`}
+                        >
+                            <td className="py-xs pr-md">{r.antecedent}</td>
+                            <td className="py-xs pr-md">{r.consequent}</td>
+                            <td className="py-xs pr-md">{formatPercent(r.support)}</td>
+                            <td className="py-xs pr-md">
+                                {formatPercent(r.confidence)}
+                            </td>
+                            <td
+                                className="py-xs font-semibold"
+                                style={{ color: theme.accent }}
+                            >
+                                {formatDecimal(r.lift)}
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </DataTable>
         </Shell>
     );
 }

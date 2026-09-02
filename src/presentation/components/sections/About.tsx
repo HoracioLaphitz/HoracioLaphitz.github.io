@@ -13,17 +13,17 @@ const areas = [
     Icon: ChartBarIcon,
   },
   {
-    status: "En estudio",
+    status: "Aplicado",
     title: "Flujos con agentes",
     description:
-      "Estoy armando ejemplos propios donde un agente reparte tareas y una persona revisa el resultado. Todavía no los implementé en una empresa.",
+      "Diseño y orquestación de flujos con agentes, aplicando principios de Harness Engineering para integrar automatización, validación y ejecución segura de procesos en entornos reales.",
     Icon: RobotIcon,
   },
   {
-    status: "En estudio",
+    status: "Aplicado",
     title: "Evaluación de resultados",
     description:
-      "Estoy aprendiendo a comparar respuestas y registrar errores en pruebas con agentes. Es una práctica personal que todavía no llevé a producción.",
+      "Comparo respuestas y registro errores en pruebas con agentes. Esto me permite identificar limitaciones, mejorar la calidad de las respuestas y optimizar la interacción con los modelos.",
     Icon: CheckCircleIcon,
   },
 ] as const;
@@ -44,18 +44,16 @@ const About = () => (
           className="max-w-xl text-display-sm font-bold tracking-tight text-skin-text"
           style={{ letterSpacing: "-0.02em" }}
         >
-          Trabajo con datos y automatización. La IA es una línea de estudio.
+          Datos + Automatización + Agentes
         </h2>
         <div className="mt-6 max-w-2xl space-y-4 text-sm leading-7 text-skin-muted md:text-base">
           <p>
-            Soy analista de datos. Trabajo con Python y SQL para preparar
-            información y automatizar validaciones. También construyo
-            dashboards en Power BI.
-          </p>
-          <p>
-            Ahora estoy explorando RAG y flujos con agentes en proyectos
-            propios. Pruebo cómo evaluarlos y en qué puntos hace falta revisión
-            humana.
+            Trabajo con Python y SQL para preparar información, validar datos,
+            automatizar procesos y acompañar el trabajo diario, además de
+            construir dashboards en Power BI. Actualmente explotando el
+            potencial de modelos multimodales para desarrollo de código con RAG
+            de agentes y flujos automatizados, siempre con vista en mejorar la
+            calidad de las decisiones.
           </p>
         </div>
       </div>

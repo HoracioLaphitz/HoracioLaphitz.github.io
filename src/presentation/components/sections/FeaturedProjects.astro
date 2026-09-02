@@ -1,0 +1,64 @@
+---
+import { getCollection } from "astro:content";
+import FeaturedProject from "../proyectos/FeaturedProject.astro";
+
+const allProjects = await getCollection("proyectos", ({ data }) => !data.draft && data.featured && data.showcase);
+
+const featuredProjects = allProjects
+  .sort((a, b) => {
+    const order = [
+      "ai-sales-assistant",
+      "nb-capitalizacion-bancos-etl",
+      "dashboards-ventas-marketing-powerbi",
+      "sano-y-fresco-market-basket",
+    ];
+    return order.indexOf(a.id) - order.indexOf(b.id);
+  })
+  .slice(0, 4);
+---
+
+<section
+  id="featured-projects"
+  class="bg-skin-primary py-16 md:py-24"
+>
+  <div class="mx-auto max-w-content px-6">
+    <header class="mb-10 lg:mb-12">
+      <h2 class="text-display-sm font-bold text-skin-text tracking-tight" style={{ letterSpacing: "-0.02em" }}>
+        Proyectos
+      </h2>
+      <p class="mt-4 max-w-2xl text-base md:text-lg text-skin-muted leading-relaxed">
+        Una selección de proyectos de datos y automatización.
+      </p>
+    </header>
+
+    {featuredProjects.length === 4 ? (
+      <div>
+        {featuredProjects.map((project, index) => (
+          <FeaturedProject
+            project={project}
+            showcase={project.data.showcase!}
+            index={index}
+          />
+        ))}
+      </div>
+    ) : (
+      <div class="rounded-xl bg-skin-secondary p-8 text-center">
+        <p class="text-skin-muted">
+          Encontrados: {featuredProjects.length}
+        </p>
+      </div>
+    )}
+
+    <div class="mt-10 text-center">
+      <a
+        href="/projects"
+        class="focus-ring inline-flex items-center gap-2 px-6 py-3 text-sm font-medium rounded-full bg-brand-primary text-white hover:opacity-90 transition-opacity"
+      >
+        Ver todos los proyectos
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

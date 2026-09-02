@@ -4,6 +4,7 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import { PUBLIC_POSITIONING } from "./src/data/public-positioning.v1.ts";
 
+
 // https://astro.build/config
 export default defineConfig({
   site: PUBLIC_POSITIONING.siteUrl,
