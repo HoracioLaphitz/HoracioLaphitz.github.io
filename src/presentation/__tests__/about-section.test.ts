@@ -11,13 +11,13 @@ describe("about section", () => {
   it("places the About section immediately after the Hero on the home page", () => {
     const page = read("src/pages/index.astro");
     const heroPosition = page.indexOf("<Hero");
+    const featuredPosition = page.indexOf("<FeaturedProjects");
     const aboutPosition = page.indexOf("<About");
-    const projectsPosition = page.indexOf("<ProjectCategories");
 
     expect(page).toContain('import About from "@presentation/components/sections/About.tsx"');
     expect(heroPosition).toBeGreaterThan(-1);
-    expect(aboutPosition).toBeGreaterThan(heroPosition);
-    expect(projectsPosition).toBeGreaterThan(aboutPosition);
+    expect(featuredPosition).toBeGreaterThan(heroPosition);
+    expect(aboutPosition).toBeGreaterThan(featuredPosition);
   });
 
   it("communicates evidence boundaries and enterprise AI operating concerns", () => {

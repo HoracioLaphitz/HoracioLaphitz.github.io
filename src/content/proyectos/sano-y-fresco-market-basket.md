@@ -6,6 +6,11 @@ category: "Análisis de datos"
 tags: ["Python", "SQL", "Market Basket Analysis", "Apriori", "Power BI", "Pandas", "mlxtend"]
 github: "https://github.com/HoracioLaphitz/MarketBasketAnalytics"
 featured: true
+showcase:
+  context: "4.9M+ transacciones de un retailer orgánico y cero insights accionables."
+  contribution: "Market Basket Analysis con Apriori (mlxtend), reglas de asociación filtradas por confianza > 60% y lift > 1.5."
+  result: "50+ reglas accionables, potencial de +15-20% en ticket promedio, layout optimizado."
+  evidenceAction: "Ver notebook y recursos en GitHub"
 draft: false
 resources:
   notebooks:

@@ -5,6 +5,11 @@ pubDate: 2024-03-22
 category: "Notebooks Analytics"
 tags: ["Python", "Web Scraping", "ETL", "SQLite", "Pandas", "BeautifulSoup"]
 github: "https://github.com/HoracioLaphitz/Capitalizacion-del-Mercado-de-los-Bancos-mas-Grandes"
+showcase:
+  context: "La capitalización de mercado de los bancos más grandes vive en una tabla de Wikipedia: sin API, sin CSV descargable."
+  contribution: "Web scraping con BeautifulSoup, pipeline ETL completo (extracción, transformación, carga a SQLite + CSV) con logging."
+  result: "Dato capturado y consultable por SQL, pipeline auditable con logging por etapa."
+  evidenceAction: "Ver notebook y código en GitHub"
 draft: false
 featured: true
 resources:

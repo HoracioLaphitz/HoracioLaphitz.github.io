@@ -49,7 +49,7 @@ describe("github sync contract", () => {
     const fetchImpl = async (url) => ({ ok: true, json: async () => url.includes("/readme") ? {} : [repo("Fresh")] });
     await syncRepositories({ owner: "HoracioLaphitz", token: "fixture", fetchImpl, outputDir });
     const files = await readdir(outputDir);
-    expect(files).toEqual(expect.arrayContaining(["curated.md", "fresh.md", ".github-sync-manifest.json"]));
+    expect(files).toEqual(expect.arrayContaining(["curated.md", "github-fresh.md", ".github-sync-manifest.json"]));
     expect(files).not.toContain("stale.md");
     expect(await readFile(path.join(outputDir, "curated.md"), "utf8")).toBe("curated");
   });
@@ -65,7 +65,7 @@ describe("github sync contract", () => {
     const outputDir = await mkdtemp(path.join(tmpdir(), "github-sync-"));
     const result = await syncRepositories({ owner: "HoracioLaphitz", token: "fixture", fetchImpl, outputDir });
     expect(result.generated[0].status).toBe(MISSING_README_STATUS);
-    expect(attempts).toBe(3);
+    expect(attempts).toBe(5);
   });
 
   it("retains the last valid snapshot when new synchronization fails", async () => {

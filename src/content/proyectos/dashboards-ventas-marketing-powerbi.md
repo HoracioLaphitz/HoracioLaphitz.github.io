@@ -4,6 +4,11 @@ description: "Dos tableros interactivos en Power BI que bajan millones de transa
 pubDate: 2025-07-29
 category: "Análisis de datos"
 tags: ["Power BI", "Data Visualization", "Business Intelligence", "KPIs", "Dashboards"]
+showcase:
+  context: "Insights de Market Basket Analysis sin capa visual para decisión diaria."
+  contribution: "Dos dashboards interactivos en Power BI: KPIs de ventas y análisis de marketing con asociaciones de producto."
+  result: "Insights de notebook pasan a operación: tableros consultados para layout, promociones y bundles."
+  evidenceAction: "Ver dashboards en Power BI"
 draft: false
 featured: true
 ---

@@ -2,10 +2,6 @@ import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
-/**
- * Schema para métricas de impacto de proyectos
- * Nueva Identidad: Data & Strategy - Enfoque en resultados medibles
- */
 const impactSchema = z
   .object({
     efficiencyGain: z.number().optional(),
@@ -27,6 +23,16 @@ const maturityStatuses = [
   "Currently deepening expertise in",
 ] as const;
 
+const showcaseSchema = z
+  .object({
+    context: z.string().max(200),
+    contribution: z.string().max(200),
+    result: z.string().max(200),
+    evidenceAction: z.string().max(100),
+    artifact: z.string().optional(),
+  })
+  .optional();
+
 const proyectosCollection = defineCollection({
   loader: glob({
     pattern: "**/[^_]*.{md,mdx}",
@@ -47,6 +53,7 @@ const proyectosCollection = defineCollection({
     featured: z.boolean().default(false),
     claimId: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/).optional(),
     maturity: z.enum(maturityStatuses).optional(),
+    showcase: showcaseSchema,
     impact: impactSchema,
     resources: z
       .object({

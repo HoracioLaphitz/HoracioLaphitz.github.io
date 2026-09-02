@@ -1,45 +1,21 @@
 ---
 import PageLayout from "@presentation/layouts/PageLayout.astro";
 import Hero from "@presentation/components/sections/Hero.tsx";
+import FeaturedProjects from "@presentation/components/sections/FeaturedProjects.astro";
 import About from "@presentation/components/sections/About.tsx";
 import Experience from "@presentation/components/sections/Experience.tsx";
-import Certifications from "@presentation/components/sections/Certifications.tsx";
 import Skills from "@presentation/components/sections/Skills.tsx";
-import ProjectCategories from "@presentation/components/sections/ProjectCategories.tsx";
 import Contact from "@presentation/components/sections/Contact.tsx";
-import { getCollection } from "astro:content";
-import { ProjectMapper } from "@infrastructure/mappers/project.mapper";
-import { getHomeProjects, mergeHomeProjectData } from "@data/home-projects";
-import {
-  serializeProjects,
-  type SerializedProject,
-} from "@presentation/components/sections/ProjectCategories.tsx";
-
-let proyectosSerializados: SerializedProject[] = [];
-try {
-  const proyectosRaw = await getCollection(
-    "proyectos",
-    ({ data }) => !data.draft
-  );
-  const homeProjects = getHomeProjects(proyectosRaw);
-  const allProjects = serializeProjects(
-    ProjectMapper.toDomainArray(proyectosRaw)
-  );
-  proyectosSerializados = mergeHomeProjectData(homeProjects, allProjects);
-} catch {
-  // Content collection "proyectos" does not exist yet
-}
 ---
 
 <PageLayout
   title="Home"
-  description="Data Analyst especializado en Python, SQL y Machine Learning: pipelines de datos, dashboards en Power BI y modelos evaluados con métricas."
+  description="Analista de datos orientado a la automatización de procesos. Convierto datos en decisiones con evidencia verificable."
 >
   <Hero client:load />
+  <FeaturedProjects />
   <About />
-  <ProjectCategories posts={proyectosSerializados} client:load />
-  <Skills client:visible />
   <Experience client:visible />
-  <Certifications client:visible />
+  <Skills client:visible />
   <Contact client:visible />
 </PageLayout>

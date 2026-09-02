@@ -7,6 +7,11 @@ tags: ["Python", "Streamlit", "XGBoost", "SQL", "ETL", "Churn Prediction", "Test
 github: "https://github.com/HoracioLaphitz/Data-Analysis-Ecommerce"
 dashboard: "https://data-analysis-ecommerce-horaciolaphitz.streamlit.app/"
 featured: true
+showcase:
+  context: "100k+ órdenes de Olist Brazil en tablas relacionales crudas, sin analytics accionable."
+  contribution: "ETL a data mart en estrella, app Streamlit con 6 tabs de insights y modelo XGBoost para churn de vendedores."
+  result: "AUC-ROC 0.99 en churn prediction, 2.433 vendedores analizados, app desplegada y usable."
+  evidenceAction: "Ver app en vivo y código en GitHub"
 draft: false
 ---
 

@@ -698,22 +698,22 @@ describe("motion orchestration contracts", () => {
 
     expect(eyebrow.tagName).toBe("P");
     expect(eyebrow.textContent).toBe(
-      "Datos · Automatización de procesos · Machine Learning",
+      "Analista de datos · Automatización de procesos",
     );
     expect(heading.tagName).toBe("H1");
     expect(heading.textContent).toBe("Horacio Laphitz");
     expect(summary.tagName).toBe("P");
     expect(summary.textContent).toContain(
-      "Convierto datos en decisiones. Integro fuentes, automatizo validaciones",
+      "Integro fuentes de datos, automatizo validaciones",
     );
     expect(actions.tagName).toBe("DIV");
     expect(Array.from(actions.querySelectorAll(":scope > a")).map((link) => link.getAttribute("href"))).toEqual([
-      "#proyectos",
+      "#featured-projects",
       "mailto:horaciolaphitz99@gmail.com",
       "/CV_HoracioLaphitz.pdf",
     ]);
     expect(Array.from(actions.querySelectorAll(":scope > a")).map(({ textContent }) => textContent)).toEqual([
-      "Ver proyectos",
+      "Ver evidencia",
       "Contacto",
       "Descargar CV",
     ]);
@@ -739,10 +739,10 @@ describe("motion orchestration contracts", () => {
     expect(heroSource).not.toMatch(/\buseEffect\b/);
     expect(content.className).toContain("max-w-content");
     expect(content.className).toContain("px-4");
-    expect(actions.querySelector('a[href="#proyectos"]')?.className).toContain(
+    expect(actions.querySelector('a[href="#featured-projects"]')?.className).toContain(
       "focus-ring",
     );
-    expect(actions.querySelector('a[href="#proyectos"]')?.className).toContain(
+    expect(actions.querySelector('a[href="#featured-projects"]')?.className).toContain(
       "hover:bg-brand-hover",
     );
     expect(actions.querySelector('a[href^="mailto:"]')?.className).toContain(
@@ -947,16 +947,14 @@ describe("motion orchestration contracts", () => {
       "utf8",
     );
 
-    expect(homePage.match(/client:load/g)).toHaveLength(2);
-    expect(homePage.match(/client:visible/g)).toHaveLength(4);
-    expect(homePage).toMatch(/import \{ getHomeProjects, mergeHomeProjectData \} from "@data\/home-projects";/);
-    expect(homePage).toMatch(/getHomeProjects\(proyectosRaw\)/);
-    expect(homePage).toMatch(/mergeHomeProjectData\(homeProjects, allProjects\)/);
+    expect(homePage.match(/client:load/g)).toHaveLength(1);
+    expect(homePage.match(/client:visible/g)).toHaveLength(3);
+    expect(homePage).toMatch(/import FeaturedProjects from "@presentation\/components\/sections\/FeaturedProjects\.astro";/);
+    expect(homePage).toMatch(/<FeaturedProjects\s*\/>/);
     expect(homePage).toMatch(/<Hero client:load\s*\/>/);
-    expect(homePage).toMatch(/<ProjectCategories posts=\{proyectosSerializados\} client:load\s*\/>/);
+    expect(homePage).toMatch(/<About\s*\/>/);
     expect(homePage).toMatch(/<Skills client:visible\s*\/>/);
     expect(homePage).toMatch(/<Experience client:visible\s*\/>/);
-    expect(homePage).toMatch(/<Certifications client:visible\s*\/>/);
     expect(homePage).toMatch(/<Contact client:visible\s*\/>/);
   });
 });
