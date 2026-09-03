@@ -17,8 +17,57 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+          fetch-depth: 1
+          clean: true
+
+      - name: Setup Node.js 23
+        uses: actions/setup-node@v4
+        with:
+          node-version: "23"
+          cache: "pnpm"
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run npm audit
+        run: pnpm audit --audit-level=high
+        continue-on-error: true
+
+      - name: Check for secrets in code
+        run: |
+          echo "🔍 Scanning for secrets in code..."
+          # Check for common secret patterns
+          if grep -r -E "(sk-[a-zA-Z0-9]{48}|xoxb-[a-zA-Z0-9-]{10,}|ghp_[a-zA-Z0-9]{36}|gho_[a-zA-Z0-9]{36}|-----BEGIN (RSA |DSA |EC |OPENSSH )?PRIVATE KEY-----)" --include="*.ts" --include="*.tsx" --include="*.mjs" --include="*.js" --include="*.json" --include="*.md" --include="*.astro" --include="*.css" --exclude-dir=node_modules --exclude-dir=dist --exclude-dir=.git . 2>/dev/null; then
+            echo "❌ Potential secrets found in code!"
+            exit 1
+          fi
+          echo "✅ No secrets detected"
+
+      - name: Check for debug statements
+        run: |
+          echo "🔍 Checking for debug statements..."
+          if grep -r -E "(console\.(log|debug|warn|error)|debugger)" --include="*.ts" --include="*.tsx" --include="*.mjs" --include="*.js" --include="*.astro" --exclude-dir=node_modules --exclude-dir=dist --exclude-dir=.git --exclude-dir=scripts --exclude-dir=tests --exclude="*.test.*" --exclude="*.spec.*" src/ 2>/dev/null; then
+            echo "⚠️  Debug statements found in src/ (review recommended)"
+          fi
+          echo "✅ Debug check completed"
+
   build:
     name: Build Portfolio
+    needs: security-scan
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -90,7 +139,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
       - name: Deployment summary
         env:
           SITE_URL: ${{ steps.deployment.outputs.page_url }}

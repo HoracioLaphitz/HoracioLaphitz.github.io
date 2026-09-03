@@ -27,14 +27,14 @@ describe("enterprise AI evidence contract", () => {
     const expectedCards = [
       {
         claimId: "agent-interoperability-protocols",
-        status: "Currently deepening expertise in",
-        scope: "Agent interoperability protocols — MCP & A2A",
+        status: "Actualmente profundizando conocimientos en",
+        scope: "Estudio de MCP y A2A",
         sources: ["src/data/profile-data.ts"],
       },
       {
         claimId: "multi-agent-framework-selection-and-evaluation",
-        status: "Currently deepening expertise in",
-        scope: "Multi-agent framework selection and evaluation",
+        status: "Actualmente profundizando conocimientos en",
+        scope: "Comparación de frameworks para flujos con agentes",
         sources: ["src/data/profile-data.ts"],
       },
     ] as const;

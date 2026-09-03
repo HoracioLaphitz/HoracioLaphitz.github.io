@@ -23,4 +23,37 @@ describe("public security regression", () => {
     expect(surfaces).not.toMatch(/fetch\s*\(|EventSource|WebSocket/);
     expect(read("src/presentation/layouts/Layout.astro")).toContain("PUBLIC_POSITIONING");
   });
+
+  it("includes all required security headers in vercel.json", () => {
+    const vercel = read("vercel.json");
+    const requiredHeaders = [
+      "X-Frame-Options",
+      "X-Content-Type-Options",
+      "X-XSS-Protection",
+      "Referrer-Policy",
+      "Permissions-Policy",
+      "Strict-Transport-Security",
+      "Content-Security-Policy",
+    ];
+    for (const header of requiredHeaders) {
+      expect(vercel, `Missing header: ${header}`).toContain(header);
+    }
+  });
+
+  it("includes security policy files", () => {
+    expect(() => read("SECURITY.md")).not.toThrow();
+    expect(() => read("CONTRIBUTING.md")).not.toThrow();
+  });
+
+  it("has dependabot configured for dependency updates", () => {
+    const dependabot = read(".github/dependabot.yml");
+    expect(dependabot).toContain("package-ecosystem");
+    expect(dependabot).toContain("npm");
+  });
+
+  it("does not expose secrets in error messages", () => {
+    const errorState = read("src/presentation/components/dashboards/shared/ErrorState.tsx");
+    expect(errorState).toContain("sanitizeErrorMessage");
+    expect(errorState).not.toMatch(/message:\s*string.*\n.*return\s+message/);
+  });
 });

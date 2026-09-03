@@ -6,7 +6,21 @@ interface ErrorStateProps {
     onRetry: () => void;
 }
 
+/**
+ * Sanitize error messages to prevent leaking internal details.
+ * Only show generic messages to users; log details to console in dev.
+ */
+function sanitizeErrorMessage(message: string): string {
+    // Never expose internal URLs, stack traces, or server details
+    if (message.includes("http") || message.includes("fetch") || message.includes("Error:")) {
+        return "No se pudieron cargar los datos. Intentá de nuevo más tarde.";
+    }
+    return message;
+}
+
 export function ErrorState({ message, repoUrl, onRetry }: ErrorStateProps) {
+    const safeMessage = sanitizeErrorMessage(message);
+
     return (
         <div
             role="alert"
@@ -15,7 +29,7 @@ export function ErrorState({ message, repoUrl, onRetry }: ErrorStateProps) {
             <p className="font-medium text-status-error">
                 No se pudieron cargar los datos del dashboard.
             </p>
-            <p className="mt-1 text-sm text-skin-muted">{message}</p>
+            <p className="mt-1 text-sm text-skin-muted">{safeMessage}</p>
             <div className="mt-md flex flex-wrap justify-center gap-sm">
                 <button
                     type="button"

@@ -428,6 +428,7 @@ logs/
 # ============================================================================
 
 !docs/**/*.md
+docs/deploy/
 docs/superpowers/
 !Proyectos/ai-sales-assistant/tests/fixtures/*.csv
 .Rproj.user/

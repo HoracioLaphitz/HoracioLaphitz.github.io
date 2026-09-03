@@ -24,8 +24,8 @@ describe("project evidence rendering", () => {
 
   it("keeps future entry statuses constrained and free of delivery outcomes", () => {
     const contract = read("src/data/enterprise-ai-evidence.v1.ts");
-    expect(contract).toContain('"Functional prototype"');
-    expect(contract).toContain('"Reference architecture"');
+    expect(contract).toContain('"Prototipo funcional"');
+    expect(contract).toContain('"Arquitectura de referencia"');
     expect(contract).not.toMatch(/client delivered|production operated|business outcome/i);
   });
 

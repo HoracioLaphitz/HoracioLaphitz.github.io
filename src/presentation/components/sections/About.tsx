@@ -44,16 +44,16 @@ const About = () => (
           className="max-w-xl text-display-sm font-bold tracking-tight text-skin-text"
           style={{ letterSpacing: "-0.02em" }}
         >
-          Datos + automatización + agentes
+          Datos y agentes
         </h2>
         <div className="mt-6 max-w-2xl space-y-4 text-sm leading-7 text-skin-muted md:text-base">
           <p>
             Trabajo con Python y SQL para preparar información, validar datos,
             automatizar procesos y acompañar el trabajo diario, además de
-            construir dashboards en Power BI. Actualmente exploro el
-            potencial de modelos multimodales para desarrollo de código con RAG,
-            agentes y flujos automatizados, siempre con miras a mejorar la
-            calidad de las decisiones.
+            construir dashboards en Power BI. Actualmente exploro el potencial
+            de modelos multimodales para desarrollo de código con RAG, agentes y
+            flujos automatizados, siempre con miras a mejorar la calidad de las
+            decisiones.
           </p>
         </div>
       </div>

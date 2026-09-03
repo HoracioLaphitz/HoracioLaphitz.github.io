@@ -25,11 +25,9 @@ describe("about section", () => {
 
     expect(about).toContain('id="about"');
     expect(about).toContain("Aplicado");
-    expect(about).toContain("Arquitectura de referencia");
-    expect(about).toContain("Profundización");
+    expect(about).toContain("Datos y automatización");
     expect(about).toMatch(/datos.*automatizaci[oó]n/is);
-    expect(about).toMatch(/agentes.*subagentes/is);
-    expect(about).toMatch(/gobernanza.*observabilidad/is);
+    expect(about).toMatch(/Python.*SQL/is);
     expect(about).not.toMatch(/desplegado.*producci[oó]n|casos? empresariales? en producci[oó]n/is);
   });
 
@@ -37,7 +35,7 @@ describe("about section", () => {
     const navigation = read("src/presentation/components/layout/Navigation.tsx");
     const footer = read("src/presentation/components/layout/Footer.tsx");
 
-    expect(navigation).toContain('{ name: "Sobre mí", path: "#about" }');
+    expect(navigation).toContain('{ name: "Proyectos", path: "#proyectos" }');
     expect(footer).toContain('href="/#about"');
   });
 });

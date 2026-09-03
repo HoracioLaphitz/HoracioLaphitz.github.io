@@ -22,20 +22,16 @@ describe("employment evidence", () => {
   });
 });
 
-const BASELINE_CLAIMS = [
-  { source: "experience", period: "Dic 2025 – Mar 2026", role: "Data Entry Specialist", company: "Ucrop.it", location: "Remoto", description: "Procesamiento y validación de datos georreferenciados" },
-  { source: "experience", period: "Ene 2021 – Nov 2025", role: "Help Desk", company: "PcService Posadas", location: "Posadas", description: "Mantenimiento de hardware y servidores, optimización de sistemas" },
-  { source: "experience", period: "Abr 2024 – May 2024", role: "Data Entry", company: "Ucrop.it", location: "Remoto", description: "Entrada precisa y eficiente de datos georreferenciados" },
-  { source: "experience", period: "Jul 2019 – Dic 2019", role: "Capacitador Help Desk", company: "Hospital Escuela Dr. Ramón Madariaga", location: "Posadas", description: "Coordinación de capacitación e implementación de sistema R.I.S.mi" },
-  { source: "experience", period: "Mar 2019 – Jun 2019", role: "Asistente Administrativo Contable", company: "Ministerio de Salud Pública de Misiones", location: "Posadas", description: "Gestión de compras, licitaciones y ERP" },
-  { source: "profile", period: "Dic 2025 – Mar 2026", role: "Data Entry Specialist", company: "Ucrop.it", location: "Remoto", description: "Validación de registros georreferenciados de Molinos SA, Heineken y COFCO con tasa de error menor al 5%; automaticé la validación para su carga en bases de datos SQL" },
-  { source: "profile", period: "Ene 2021 – Nov 2025", role: "Help Desk", company: "PcService Posadas", location: "Posadas", description: "Mantenimiento de hardware y servidores, optimización de sistemas" },
-  { source: "profile", period: "Abr 2024 – May 2024", role: "Data Entry", company: "Ucrop.it", location: "Remoto", description: "Entrada precisa y eficiente de datos georreferenciados" },
-  { source: "profile", period: "Jul 2019 – Dic 2019", role: "Capacitador Help Desk", company: "Hospital Escuela Dr. Ramón Madariaga", location: "Posadas", description: "Coordinación de capacitación e implementación de sistema R.I.S.mi" },
-  { source: "profile", period: "Mar 2019 – Jun 2019", role: "Asistente Administrativo Contable", company: "Ministerio de Salud Pública de Misiones", location: "Posadas", description: "Gestión de compras, licitaciones y ERP" },
-] as const;
-
 describe("preserved evidence", () => {
+  const BASELINE_CLAIMS = [
+    { source: "experience", period: "Dic 2025 – Mar 2026", role: "Data Entry Specialist", company: "Ucrop.it", location: "Remoto", description: "Procesamiento y validación de datos georreferenciados" },
+    { source: "experience", period: "Ene 2021 – Nov 2025", role: "Help Desk", company: "PcService Posadas", location: "Posadas", description: "Soporte técnico corporativo para servidores y sistemas" },
+    { source: "experience", period: "Abr 2024 – May 2024", role: "Data Entry", company: "Ucrop.it", location: "Remoto", description: "Carga y revisión de datos georreferenciados" },
+    { source: "experience", period: "Ene 2020 – Dic 2020", role: "Support Profesional Informatics Ad Honorem", company: "Multiple Local Clients", location: "Posadas, Misiones", description: "Base de datos MySQL, flujos en n8n y pipelines de datos en Python" },
+    { source: "experience", period: "Jul 2019 – Dic 2019", role: "Tech Lead", company: "Hospital Escuela Dr. Ramón Madariaga", location: "Posadas", description: "Capacitación e implementación del sistema R.I.S.mi" },
+    { source: "experience", period: "Mar 2019 – Jun 2019", role: "Administrative Assistant", company: "Ministerio de Salud Pública de Misiones", location: "Posadas", description: "Compras y licitaciones con Tango Gestión y el ERP interno" },
+  ] as const;
+
   for (const claim of BASELINE_CLAIMS) {
     it(`preserves ${claim.company} (${claim.period}) from ${claim.source}`, () => {
       const item = EXPERIENCE_ITEMS.find(

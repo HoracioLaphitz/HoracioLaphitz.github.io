@@ -97,7 +97,7 @@ describe("Home Projects", () => {
       ...project,
       title: `stale ${project.title}`,
       description: `stale ${project.description}`,
-      maturity: "Portfolio project",
+      maturity: "Proyecto de portfolio",
       category: "Análisis de datos",
       tags: [],
       publishDate: "2026-01-02T00:00:00.000Z",

@@ -9,7 +9,7 @@ describe("presentation accessibility and visual guardrails", () => {
     const navigation = read("src/presentation/components/layout/Navigation.tsx");
     const footer = read("src/presentation/components/layout/Footer.tsx");
     const contact = read("src/presentation/components/sections/Contact.tsx");
-    expect(navigation).toContain('"Cerrar menú" : "Abrir menú"');
+    expect(navigation).toContain('"Cerrar men\\u00FA" : "Abrir men\\u00FA"');
     expect(navigation).toContain('aria-expanded={isMenuOpen}');
     expect(navigation).toContain('aria-controls="navigation-menu"');
     expect(navigation).toContain('id="navigation-menu"');
@@ -57,7 +57,7 @@ describe("presentation accessibility and visual guardrails", () => {
     expect(logo).not.toMatch(/gradient/);
     expect(themeToggle).not.toMatch(/gradient/);
     expect(tailwind).toContain('"Space Grotesk"');
-    expect(tailwind).toContain('"Inter"');
+    expect(tailwind).toContain('"DM Sans"');
   });
 
   it("preserves reduced-motion support and rejects decorative effects", () => {

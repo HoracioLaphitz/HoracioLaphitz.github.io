@@ -24,16 +24,13 @@ const Contact = () => {
               className="text-display-sm font-bold text-skin-text tracking-tight mb-4"
               style={{ letterSpacing: "-0.02em" }}
             >
-              Hablemos de tu proyecto
+              Hablemos!
             </h2>
             <p className="text-lg md:text-xl text-skin-muted leading-relaxed mb-3 tracking-tight font-normal">
               <span className="font-semibold text-skin-text">
                 Automatización de procesos
               </span>{" "}
-              |{" "}
-              <span className="font-semibold text-skin-text">
-                Dashboards
-              </span>{" "}
+              | <span className="font-semibold text-skin-text">Dashboards</span>{" "}
               |{" "}
               <span className="font-semibold text-skin-text">
                 Análisis de datos

@@ -17,8 +17,47 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+          fetch-depth: 0
+
+      - name: Setup Node.js 23
+        uses: actions/setup-node@v4
+        with:
+          node-version: "23"
+          cache: "pnpm"
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run npm audit
+        run: pnpm audit --audit-level=high
+        continue-on-error: true
+
+      - name: Check for secrets in code
+        run: |
+          echo "🔍 Scanning for secrets in code..."
+          if grep -r -E "(sk-[a-zA-Z0-9]{48}|xoxb-[a-zA-Z0-9-]{10,}|ghp_[a-zA-Z0-9]{36}|gho_[a-zA-Z0-9]{36}|-----BEGIN (RSA |DSA |EC |OPENSSH )?PRIVATE KEY-----)" --include="*.ts" --include="*.tsx" --include="*.mjs" --include="*.js" --include="*.json" --include="*.md" --include="*.astro" --include="*.css" --exclude-dir=node_modules --exclude-dir=dist --exclude-dir=.git . 2>/dev/null; then
+            echo "❌ Potential secrets found in code!"
+            exit 1
+          fi
+          echo "✅ No secrets detected"
+
   validate:
     name: Validate PR
+    needs: security-scan
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -106,6 +145,7 @@ jobs:
         if: always()
         run: |
           echo "## PR Validation Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Security scan passed" >> $GITHUB_STEP_SUMMARY
           echo "- ✅ File sizes validated" >> $GITHUB_STEP_SUMMARY
           echo "- ✅ Tests passed" >> $GITHUB_STEP_SUMMARY
           echo "- ✅ Type check passed" >> $GITHUB_STEP_SUMMARY

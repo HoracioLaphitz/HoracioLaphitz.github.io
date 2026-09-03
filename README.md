@@ -4,7 +4,7 @@ Portfolio profesional Analisis de Datos.
 
 ## 👋 Sobre mí
 
-Soy **Horacio Laphitz**, Analista de Datos orientado a mejorar procesos con el uso de Machine Learning. Analizo datos y modelos evaluados con métricas.
+Soy **Horacio Laphitz**, Analista de Datos de la cuidad de Posadas, orientado a mejorar procesos con el uso de Machine Learning. Analizo datos y modelos evaluados con métricas.
 
 ### URL del Sitio
 
@@ -28,4 +28,5 @@ src/
 ├── presentation/    # UI Components
 └── main/           # DI Container
 ```
- © 2026 Horacio Laphitz. 
+
+© 2026 Horacio Laphitz.

@@ -13,25 +13,25 @@ const aboutSource = readFileSync(
 );
 
 describe("home capability presentation", () => {
-  it("Hero no longer renders Enterprise AI evidence inline", () => {
-    expect(heroSource).not.toContain("ENTERPRISE_AI_EVIDENCE");
-    expect(heroSource).not.toContain("capability.claimId");
-    expect(heroSource).not.toContain("capability.scope");
-    expect(heroSource).not.toContain("capability.status");
-    expect(heroSource).not.toContain("Currently deepening expertise in");
+  it("Hero renders Enterprise AI evidence in a collapsible details element", () => {
+    expect(heroSource).toContain("ENTERPRISE_AI_EVIDENCE");
+    expect(heroSource).toContain("capability.claimId");
+    expect(heroSource).toContain("capability.scope");
+    expect(heroSource).toContain("<details");
+    expect(heroSource).toContain("Pruebas y estudios con IA");
   });
 
   it("retains project discovery and avoids unsupported enterprise case-study language", () => {
-    expect(heroSource).toContain('href="#featured-projects"');
+    expect(heroSource).toContain('href="#proyectos"');
     expect(heroSource).not.toMatch(/client|production|deployed|security assurance/i);
   });
 
   it("qualifies private agent infrastructure as an area in development", () => {
     expect(aboutSource).toContain(
-      "Exploración de agentes y subagentes en infraestructura privada",
+      "Flujos con agentes",
     );
     expect(aboutSource).toContain(
-      "Investigo cómo coordinar especialistas sin",
+      "Diseño y orquestación de flujos con agentes",
     );
     expect(aboutSource).not.toContain(
       "Agentes y Subagentes autónomos en infraestructura privada",

@@ -6,8 +6,8 @@ describe("public positioning contract", () => {
     expect(PUBLIC_POSITIONING.identity.name).toBe("Horacio Laphitz");
     expect(PUBLIC_POSITIONING.contact.email).toBe("horaciolaphitz99@gmail.com");
     expect(PUBLIC_POSITIONING.siteUrl).toMatch(/^https:\/\//);
-    expect(PUBLIC_POSITIONING.positioning.focus).toMatch(/Enterprise AI/i);
-    expect(PUBLIC_POSITIONING.maturityStatuses).toContain("In development");
+    expect(PUBLIC_POSITIONING.positioning.focus).toMatch(/Power BI/i);
+    expect(PUBLIC_POSITIONING.maturityStatuses).toContain("En desarrollo");
   });
 
   it("connects every capability claim to evidence or an approved developing status", () => {

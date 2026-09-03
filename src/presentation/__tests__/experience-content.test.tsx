@@ -7,8 +7,7 @@ describe("Experience", () => {
     const html = renderToStaticMarkup(<Experience />);
     expect((html.match(/<article/g) ?? [])).toHaveLength(6);
     expect(html).toContain("Experiencia no remunerada");
-    expect(html).toContain("Ferretería Centenario Posadas");
-    expect(html).toContain("tasa de error menor al 5%");
+    expect(html).toContain("Multiple Local Clients");
   });
 
   it("renders both Ucrop.it periods", () => {
@@ -28,11 +27,10 @@ describe("Experience", () => {
     const html = renderToStaticMarkup(<Experience />);
     const claims = [
       "Procesamiento y validación de datos georreferenciados",
-      "Mantenimiento de hardware y servidores, optimización de sistemas",
-      "Entrada precisa y eficiente de datos georreferenciados",
-      "Coordinación de capacitación e implementación de sistema R.I.S.mi",
-      "Gestión de compras, licitaciones y ERP",
-      "Validación de registros georreferenciados de Molinos SA, Heineken y COFCO",
+      "Soporte técnico corporativo para servidores y sistemas",
+      "Carga y revisión de datos georreferenciados",
+      "Capacitación e implementación del sistema R.I.S.mi",
+      "Compras y licitaciones con Tango Gestión y el ERP interno",
     ];
     for (const claim of claims) {
       expect(html).toContain(claim);

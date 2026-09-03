@@ -698,22 +698,22 @@ describe("motion orchestration contracts", () => {
 
     expect(eyebrow.tagName).toBe("P");
     expect(eyebrow.textContent).toBe(
-      "Analista de datos · Automatización de procesos",
+      "Análisis de datos · Automatización",
     );
     expect(heading.tagName).toBe("H1");
     expect(heading.textContent).toBe("Horacio Laphitz");
     expect(summary.tagName).toBe("P");
     expect(summary.textContent).toContain(
-      "Integro fuentes de datos, automatizo validaciones",
+      "Trabajo con Python y SQL para preparar",
     );
     expect(actions.tagName).toBe("DIV");
     expect(Array.from(actions.querySelectorAll(":scope > a")).map((link) => link.getAttribute("href"))).toEqual([
-      "#featured-projects",
+      "#proyectos",
       "mailto:horaciolaphitz99@gmail.com",
       "/CV_HoracioLaphitz.pdf",
     ]);
     expect(Array.from(actions.querySelectorAll(":scope > a")).map(({ textContent }) => textContent)).toEqual([
-      "Ver evidencia",
+      "Proyectos",
       "Contacto",
       "Descargar CV",
     ]);
@@ -739,10 +739,10 @@ describe("motion orchestration contracts", () => {
     expect(heroSource).not.toMatch(/\buseEffect\b/);
     expect(content.className).toContain("max-w-content");
     expect(content.className).toContain("px-4");
-    expect(actions.querySelector('a[href="#featured-projects"]')?.className).toContain(
+    expect(actions.querySelector('a[href="#proyectos"]')?.className).toContain(
       "focus-ring",
     );
-    expect(actions.querySelector('a[href="#featured-projects"]')?.className).toContain(
+    expect(actions.querySelector('a[href="#proyectos"]')?.className).toContain(
       "hover:bg-brand-hover",
     );
     expect(actions.querySelector('a[href^="mailto:"]')?.className).toContain(
@@ -797,8 +797,8 @@ describe("motion orchestration contracts", () => {
     expect(projectCategoriesSource).not.toMatch(/getAnimationClass/);
     expect(heading.className).toBe("mb-10 lg:mb-12");
     expect(filters.className).toBe("");
-    expect(firstCard.className).toContain("transition-colors duration-200");
-    expect(firstCard.className).not.toContain("hover:-translate-y");
+    expect(firstCard.className).toContain("transition-all duration-300");
+    expect(firstCard.className).toContain("hover:-translate-y");
 
     fixture.selectCategory("Data Visualization");
     expect(fixture.cards()).toHaveLength(1);
@@ -823,7 +823,7 @@ describe("motion orchestration contracts", () => {
     expect(experienceGroup.textContent).toContain("Experiencia");
     expect(experience.querySelectorAll("article")).toHaveLength(6);
     expect(certificationsGroup.textContent).toContain("Certificaciones");
-    expect(contactGroup.textContent).toContain("Trabajemos juntos");
+    expect(contactGroup.textContent).toContain("Hablemos de tu proyecto");
     expect(contact.querySelectorAll("form, input, select, textarea")).toHaveLength(0);
     expect(Array.from(contact.querySelectorAll("a")).map((link) => link.getAttribute("href"))).toEqual([
       "mailto:horaciolaphitz99@gmail.com",
@@ -900,7 +900,7 @@ describe("motion orchestration contracts", () => {
     expectFinalVisibleState(serverContactGroup);
     expect(contactGroup.dataset.motion).toBeUndefined();
     expectFinalVisibleState(contactGroup);
-    expect(contactGroup.textContent).toContain("Trabajemos juntos");
+    expect(contactGroup.textContent).toContain("Hablemos de tu proyecto");
     expect(Array.from(contactGroup.querySelectorAll("a")).map((link) => link.getAttribute("href"))).toEqual([
       "mailto:horaciolaphitz99@gmail.com",
       "https://www.linkedin.com/in/horacio-laphitz/",

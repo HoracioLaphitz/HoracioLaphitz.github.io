@@ -1,0 +1,8 @@
+# CORS Policy for Portfolio-26
+# Only allow known origins and methods
+
+/*
+  Access-Control-Allow-Origin: https://horaciolaphitz.vercel.app
+  Access-Control-Allow-Methods: GET, OPTIONS
+  Access-Control-Allow-Headers: Content-Type
+  Access-Control-Max-Age: 86400
