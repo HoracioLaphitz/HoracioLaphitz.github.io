@@ -504,6 +504,21 @@
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-skin-accent focus-visible:ring-offset-2 focus-visible:ring-offset-skin-primary;
   }
 
+  /* External link indicator — ↗ on links that open in new tab */
+  a[target="_blank"]::after {
+    content: "\00a0\2197";
+    font-size: 0.75em;
+    opacity: 0.5;
+    display: inline-block;
+    transition: opacity 0.15s ease;
+  }
+
+  @media (hover: hover) {
+    a[target="_blank"]:hover::after {
+      opacity: 0.85;
+    }
+  }
+
   .hover-lift {
     @apply hover:-translate-y-1 transition-transform duration-200;
   }

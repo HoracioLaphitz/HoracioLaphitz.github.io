@@ -35,17 +35,17 @@ export const EXPERIENCE_ITEMS: readonly ExperienceItem[] = [
         scope: "engagement",
       },
       {
-        text: "Exploracion espacial y detección de inconsistencias",
+        text: "Exploración espacial y detección de inconsistencias",
         sources: ["cv-2026-08-27"],
         scope: "company-shared",
       },
       {
-        text: "Administraciòn de datos con Excel y Google Sheets",
+        text: "Administración de datos con Excel y Google Sheets",
         sources: ["cv-2026-08-27"],
         scope: "company-shared",
       },
       {
-        text: "Trabajo en Equipo",
+        text: "Trabajo en equipo",
         sources: ["cv-2026-08-27"],
         scope: "company-shared",
       },
@@ -67,7 +67,7 @@ export const EXPERIENCE_ITEMS: readonly ExperienceItem[] = [
         scope: "engagement",
       },
       {
-        text: "Instalación de sistemas y diagnósticos criticos de software",
+        text: "Instalación de sistemas y diagnósticos críticos de software",
         sources: ["cv-2026-08-27"],
         scope: "engagement",
       },
@@ -94,12 +94,12 @@ export const EXPERIENCE_ITEMS: readonly ExperienceItem[] = [
     description: "Carga y revisión de datos georreferenciados",
     details: [
       {
-        text: "Procesamiento y validación de Datos",
+        text: "Procesamiento y validación de datos",
         sources: ["cv-2026-08-27"],
         scope: "company-shared",
       },
       {
-        text: "Exploración de datos y detección de inconsistencias vs Observaciones de campo",
+        text: "Exploración de datos y detección de inconsistencias vs. observaciones de campo",
         sources: ["cv-2026-08-27"],
         scope: "company-shared",
       },

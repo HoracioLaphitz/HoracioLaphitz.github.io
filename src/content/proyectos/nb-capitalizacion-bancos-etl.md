@@ -22,7 +22,7 @@ resources:
 
 La capitalización de mercado de los bancos más grandes del mundo vive en una tabla de Wikipedia: sin API, sin CSV descargable. Proyecto de la carrera de **Data Engineering de IBM**: construir el pipeline completo para capturar ese dato y dejarlo consultable.
 
-## Resoluciónn
+## Resolución
 
 Un pipeline **ETL** de punta a punta:
 

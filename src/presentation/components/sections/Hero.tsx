@@ -26,8 +26,7 @@ const capabilities = [
   },
   {
     title: "Automatización e integración",
-    description:
-      "Pipelines y validaciones para reducir tareas repetitivas.",
+    description: "Pipelines y validaciones para reducir tareas repetitivas.",
     Icon: DatabaseIcon,
   },
   {
@@ -66,17 +65,17 @@ const Hero = () => {
           </h1>
 
           <p className="mt-6 max-w-3xl font-display text-xl font-medium leading-snug tracking-[-0.02em] text-skin-text-secondary sm:text-2xl">
-            Analista de datos. Automatizo tareas con Python y SQL.
+            Analista de Datos
           </p>
 
           <div className="mt-8 grid gap-8 border-t border-skin-border pt-7 lg:grid-cols-[minmax(0,1fr)_18rem]">
             <p
-              data-motion="hero-summary"
-              className="max-w-[68ch] text-base leading-relaxed text-skin-text-secondary sm:text-lg"
+            data-motion="hero-summary"
+            className="max-w-[68ch] text-base leading-relaxed text-skin-text-secondary sm:text-lg"
             >
-              Trabajo con Python y SQL para preparar y validar datos. Armo
-              dashboards en Power BI y modelos de machine learning para
-              responder preguntas concretas.
+            Trabajo con Python y SQL para preparar y validar información
+            disponible. Visualizo datos con Power BI y aplico modelos de
+            machine learning para responder preguntas concretas.
             </p>
 
             <div
@@ -87,7 +86,7 @@ const Hero = () => {
                 href="#proyectos"
                 className="focus-ring inline-flex min-h-11 items-center justify-between rounded-xl bg-brand-primary px-5 text-sm font-semibold text-white hover:bg-brand-hover"
               >
-                Ver proyectos
+                Proyectos
                 <ArrowRightIcon className="h-4 w-4" />
               </a>
               <a

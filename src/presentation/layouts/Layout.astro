@@ -2,6 +2,8 @@
 import Analytics from "@vercel/analytics/astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
 import Footer from "@presentation/components/layout/Footer.tsx";
+import ScrollProgress from "@presentation/components/ui/ScrollProgress.tsx";
+import BackToTop from "@presentation/components/ui/BackToTop.tsx";
 import { PUBLIC_POSITIONING } from "@data/public-positioning.v1";
 import "../styles/global.css";
 import "../styles/fonts.css";
@@ -190,8 +192,10 @@ const canonicalUrl = canonical
     <meta name="generator" content={Astro.generator} />
   </head>
   <body class="relative">
+    <ScrollProgress client:load />
     <slot />
     <Footer client:load />
+    <BackToTop client:load />
     <Analytics />
     <SpeedInsights />
   </body>

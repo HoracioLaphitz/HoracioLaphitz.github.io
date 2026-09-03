@@ -26,7 +26,7 @@ const ProjectCard = ({ title, description, slug, category, tags, github, dashboa
 
     return (
         <article
-            className="group relative overflow-hidden rounded-xl bg-skin-secondary transition-colors duration-200 hover:bg-skin-tertiary"
+            className="group relative overflow-hidden rounded-xl bg-skin-secondary transition-all duration-300 hover:bg-skin-tertiary hover:-translate-y-1 hover:shadow-lg"
             data-motion="project-card"
         >
             <div className="p-6 flex flex-col h-full">
