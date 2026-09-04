@@ -1,6 +1,6 @@
 ---
 title: "Limpieza de Datos para Google BigQuery"
-description: "Notebook de preparación y limpieza de datos, dejándolos listos para cargar y consultar en Google BigQuery."
+description: "Cuaderno de preparación y limpieza que deja los datos listos para cargarlos y consultarlos en Google BigQuery."
 pubDate: 2024-05-01
 category: "Notebooks Analytics"
 tags: ["Python", "Pandas", "Data Cleaning", "BigQuery", "SQL"]
@@ -18,14 +18,14 @@ resources:
 
 ## Resolución
 
-- Diagnóstico inicial del dataset con **Pandas** y Seaborn: tipos, nulos y valores fuera de rango.
+- Diagnóstico inicial del conjunto de datos con **Pandas** y Seaborn: tipos, nulos y valores fuera de rango.
 - Normalización de nombres de columna con **expresiones regulares** (`re`) al formato que BigQuery exige: sin espacios ni caracteres especiales.
 - Tipado explícito de cada columna y tratamiento de nulos, dejando el DataFrame listo para carga directa sin errores de esquema.
 
-## Stack
+## Tecnologías
 
 Python · Pandas · Regex · Google BigQuery
 
-## Conocimiento Demostrado
+## Conocimiento demostrado
 
 Que el warehouse define el contrato: la limpieza local tiene que apuntar al esquema que el destino exige, no a un estándar genérico de "datos limpios".

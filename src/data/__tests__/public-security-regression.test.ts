@@ -40,6 +40,21 @@ describe("public security regression", () => {
     }
   });
 
+  it("allows only generated notebooks to be framed from the same origin", () => {
+    const config = JSON.parse(read("vercel.json"));
+    const general = config.headers.find(({ source }: { source: string }) => source === "/(.*)");
+    const notebooks = config.headers.find(
+      ({ source }: { source: string }) => source === "/notebooks-html/(.*)",
+    );
+    const value = (entry: { headers: { key: string; value: string }[] }, key: string) =>
+      entry.headers.find((header) => header.key === key)?.value;
+
+    expect(value(general, "X-Frame-Options")).toBe("DENY");
+    expect(value(general, "Content-Security-Policy")).toContain("frame-ancestors 'none'");
+    expect(value(notebooks, "X-Frame-Options")).toBe("SAMEORIGIN");
+    expect(value(notebooks, "Content-Security-Policy")).toContain("frame-ancestors 'self'");
+  });
+
   it("includes security policy files", () => {
     expect(() => read("SECURITY.md")).not.toThrow();
     expect(() => read("CONTRIBUTING.md")).not.toThrow();

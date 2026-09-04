@@ -1,6 +1,6 @@
 ---
-title: "EDA-Procesos"
-description: "Script creado en python para automatizar el proceso de analisis de datos"
+title: "Automatización del análisis exploratorio"
+description: "Script en Python que automatiza tareas del análisis exploratorio de datos."
 pubDate: "2024-02-13T00:56:13.000Z"
 author: "Horacio Laphitz"
 category: "Análisis de datos"

@@ -61,6 +61,7 @@ const proyectosCollection = defineCollection({
           .array(
             z.object({
               name: z.string(),
+              slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/).optional(),
               path: z.string(),
               description: z.string().optional(),
             })

@@ -1,6 +1,6 @@
 ---
-title: "Clustering"
-description: "Proceso de Clusterizacion de Casas de la Ciudad de California"
+title: "Agrupamiento de viviendas de California"
+description: "Análisis de agrupamiento aplicado a viviendas de California."
 pubDate: "2024-02-13T16:52:04.000Z"
 author: "Horacio Laphitz"
 category: "Análisis de datos"

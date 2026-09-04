@@ -1,6 +1,6 @@
 ---
-title: "PrediccionImagenes"
-description: "Este Proyecto de Aprendizaje automatico realiza una prediccion basado en imagenes utilizadas dentro del entrenamiento, previamente convirtiendo estas imagenes a pixeles para que el script entienda de que imagen se trata."
+title: "Predicción con imágenes"
+description: "Modelo de aprendizaje automático que convierte imágenes en píxeles y clasifica ejemplos similares a los usados durante el entrenamiento."
 pubDate: "2024-02-13T14:45:11.000Z"
 author: "Horacio Laphitz"
 category: "Análisis de datos"

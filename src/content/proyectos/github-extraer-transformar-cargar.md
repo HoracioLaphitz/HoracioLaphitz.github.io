@@ -1,6 +1,6 @@
 ---
-title: "Extraer-Transformar-Cargar"
-description: "Este script de python es una automatizacion para : carga , transformacion y extraccion de datos de formatos como : XML , CSV y JSON , para posteriormente ser utilizados para ser analizados o entrenamiento de modelo de aprendizaje automático"
+title: "Extracción, transformación y carga"
+description: "Script en Python que automatiza la carga, transformación y extracción de archivos XML, CSV y JSON para su análisis o uso en modelos."
 pubDate: "2024-03-18T21:33:08.000Z"
 author: "Horacio Laphitz"
 category: "Análisis de datos"

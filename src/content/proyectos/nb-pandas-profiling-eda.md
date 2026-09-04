@@ -22,10 +22,10 @@ Un EDA manual completo — distribuciones, correlaciones, nulos, duplicados — 
 - El reporte cubre distribución por variable, matriz de correlaciones, valores faltantes, duplicados y alertas automáticas de calidad (alta cardinalidad, columnas constantes, correlaciones sospechosas).
 - Lectura crítica del reporte para decidir los siguientes pasos de limpieza — la herramienta señala, el criterio decide.
 
-## Stack
+## Tecnologías
 
 Python · Pandas · ydata-profiling
 
-## Conocimiento Demostrado
+## Conocimiento demostrado
 
 Dónde está el límite de la automatización: el reporte reemplaza el trabajo mecánico del EDA, pero la interpretación de qué es un problema real y qué es ruido sigue siendo del analista.

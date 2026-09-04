@@ -1,6 +1,6 @@
 ---
-title: "Porfolio"
-description: "Porfolio de Analisis de Datos con astro"
+title: "Portfolio de análisis de datos con Astro"
+description: "Portfolio de proyectos de análisis de datos desarrollado con Astro."
 pubDate: "2026-05-16T00:39:11.000Z"
 author: "Horacio Laphitz"
 category: "Análisis de datos"

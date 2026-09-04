@@ -764,7 +764,7 @@ describe("motion orchestration contracts", () => {
     expect(filters.tagName).toBe("DIV");
     expect(Array.from(filters.querySelectorAll("button")).map(({ textContent }) => textContent)).toEqual([
       "Mostrar todo",
-      "Machine Learning",
+      "Aprendizaje automático",
     ]);
     expect(card.tagName).toBe("ARTICLE");
     expect(projectsMarkup.querySelectorAll("article")).toHaveLength(1);
@@ -800,7 +800,7 @@ describe("motion orchestration contracts", () => {
     expect(firstCard.className).toContain("transition-all duration-300");
     expect(firstCard.className).toContain("hover:-translate-y");
 
-    fixture.selectCategory("Data Visualization");
+    fixture.selectCategory("Visualización de datos");
     expect(fixture.cards()).toHaveLength(1);
     fixture.selectCategory("Mostrar todo");
     expect(fixture.cards()).toHaveLength(3);
@@ -819,11 +819,11 @@ describe("motion orchestration contracts", () => {
     const certificationsGroup = certifications.querySelector("section > div") as HTMLElement;
     const contactGroup = contact.querySelector("section > div") as HTMLElement;
 
-    expect(skillsGroup.textContent).toContain("Stack");
+    expect(skillsGroup.textContent).toContain("Competencias");
     expect(experienceGroup.textContent).toContain("Experiencia");
     expect(experience.querySelectorAll("article")).toHaveLength(6);
     expect(certificationsGroup.textContent).toContain("Certificaciones");
-    expect(contactGroup.textContent).toContain("Hablemos de tu proyecto");
+    expect(contactGroup.textContent).toContain("¡Hablemos!");
     expect(contact.querySelectorAll("form, input, select, textarea")).toHaveLength(0);
     expect(Array.from(contact.querySelectorAll("a")).map((link) => link.getAttribute("href"))).toEqual([
       "mailto:horaciolaphitz99@gmail.com",
@@ -848,7 +848,7 @@ describe("motion orchestration contracts", () => {
     );
     expect(skillsGroup.dataset.motion).toBeUndefined();
     expectFinalVisibleState(skillsGroup);
-    expect(skillsGroup.textContent).toContain("Stack");
+    expect(skillsGroup.textContent).toContain("Competencias");
     expect(useScopedMotion).not.toHaveBeenCalled();
 
     root.unmount();
@@ -900,7 +900,7 @@ describe("motion orchestration contracts", () => {
     expectFinalVisibleState(serverContactGroup);
     expect(contactGroup.dataset.motion).toBeUndefined();
     expectFinalVisibleState(contactGroup);
-    expect(contactGroup.textContent).toContain("Hablemos de tu proyecto");
+    expect(contactGroup.textContent).toContain("¡Hablemos!");
     expect(Array.from(contactGroup.querySelectorAll("a")).map((link) => link.getAttribute("href"))).toEqual([
       "mailto:horaciolaphitz99@gmail.com",
       "https://www.linkedin.com/in/horacio-laphitz/",
@@ -971,7 +971,7 @@ describe("project motion generation contracts", () => {
     });
 
     const filter = Array.from(container.querySelectorAll("button")).find(
-      ({ textContent }) => textContent === "Data Visualization",
+      ({ textContent }) => textContent === "Visualización de datos",
     ) as HTMLButtonElement;
     flushSync(() => filter.click());
 
@@ -1044,10 +1044,10 @@ describe("project motion generation contracts", () => {
     const controller = setupProjectMotion({ root: fixture.container, animate });
 
     controller.mount();
-    fixture.selectCategory("Machine Learning");
+    fixture.selectCategory("Aprendizaje automático");
     const persistingCards = fixture.cards();
     controller.update();
-    fixture.selectCategory("Data Visualization");
+    fixture.selectCategory("Visualización de datos");
     const enteringDataCards = fixture.cards();
     controller.update();
     fixture.selectCategory("Mostrar todo");
@@ -1083,9 +1083,9 @@ describe("project motion generation contracts", () => {
     const controller = setupProjectMotion({ root: fixture.container, animate });
 
     controller.mount();
-    fixture.selectCategory("Machine Learning");
+    fixture.selectCategory("Aprendizaje automático");
     controller.update();
-    fixture.selectCategory("Data Visualization");
+    fixture.selectCategory("Visualización de datos");
     controller.update();
     fixture.selectCategory("Mostrar todo");
     controller.update();
@@ -1109,7 +1109,7 @@ describe("project motion generation contracts", () => {
     const controller = setupProjectMotion({ root: fixture.container, animate });
 
     controller.mount();
-    fixture.selectCategory("Data Visualization");
+    fixture.selectCategory("Visualización de datos");
     controller.update();
 
     expect(animate).not.toHaveBeenCalled();

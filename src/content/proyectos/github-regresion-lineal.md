@@ -1,6 +1,6 @@
 ---
-title: "Regresion_Lineal"
-description: "Modelo de Regresion Lineal el cual Toma datos en grados Celcius y los transforma de manera automatica a grados Fahrenheit"
+title: "Regresión lineal: de Celsius a Fahrenheit"
+description: "Modelo de regresión lineal que aprende a convertir temperaturas de grados Celsius a Fahrenheit."
 pubDate: "2024-02-13T19:35:11.000Z"
 author: "Horacio Laphitz"
 category: "Análisis de datos"

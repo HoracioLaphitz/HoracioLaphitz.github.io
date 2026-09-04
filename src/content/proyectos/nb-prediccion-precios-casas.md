@@ -9,6 +9,7 @@ draft: false
 resources:
   notebooks:
     - name: "Predicción de Precios"
+      slug: "prediccion-de-precios-de-casas"
       path: "/Proyectos/Notebooks/Predice-Precios-Casas/Predice-Precios-Casas.ipynb"
 ---
 
@@ -19,14 +20,14 @@ Un problema de regresión supervisada donde el riesgo es evaluar sobre los mismo
 
 ## Resolución
 
-- Análisis exploratorio con **Pandas** y **Seaborn**: correlaciones entre features y precio, distribución de la variable objetivo y detección de outliers.
-- Modelo de regresión con **Scikit-learn**, entrenado sobre el split de entrenamiento.
-- Evaluación con **MSE** sobre el set de prueba — datos que el modelo nunca vio — para medir el error real de generalización.
+- Análisis exploratorio con **Pandas** y **Seaborn**: correlaciones entre variables y precio, distribución de la variable objetivo y detección de valores atípicos.
+- Modelo de regresión con **Scikit-learn**, entrenado sobre la partición de entrenamiento.
+- Evaluación con **MSE** sobre el conjunto de prueba —datos que el modelo nunca vio— para medir el error de generalización.
 
-## Stack
+## Tecnologías
 
 Python · Scikit-learn · Pandas · Seaborn · NumPy
 
-## Conocimiento Demostrado
+## Conocimiento demostrado
 
-El flujo completo de una regresión supervisada: del EDA que sugiere qué features importan, al número de error que dice cuánto confiar en el modelo.
+El flujo completo de una regresión supervisada: desde el análisis exploratorio que señala las variables relevantes hasta la métrica de error que permite evaluar el modelo.

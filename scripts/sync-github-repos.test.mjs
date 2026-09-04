@@ -4,7 +4,15 @@ import * as fs from "node:fs/promises";
 import { promisify } from "node:util";
 import { tmpdir } from "node:os";
 import path from "node:path";
-import { renderMarkdown, toProjectRecord, fetchRepositories, syncRepositories, MISSING_README_STATUS, PERFORMANCE_LIMITS } from "./sync-github-repos.mjs";
+import {
+  applyEditorialOverride,
+  renderMarkdown,
+  toProjectRecord,
+  fetchRepositories,
+  syncRepositories,
+  MISSING_README_STATUS,
+  PERFORMANCE_LIMITS,
+} from "./sync-github-repos.mjs";
 
 const execFileAsync = promisify(execFile);
 const { mkdtemp, readFile, writeFile, readdir } = fs;
@@ -28,6 +36,38 @@ describe("github sync contract", () => {
     expect(renderMarkdown(record)).toBe(renderMarkdown(record));
   });
 
+  it("applies checked-in Spanish editorial copy after sanitizing GitHub data", () => {
+    const record = toProjectRecord(repo("Autoencoder"));
+    const edited = applyEditorialOverride(record, "Autoencoder");
+
+    expect(edited.title).toBe("Autoencoder — Restauración de imágenes");
+    expect(edited.description).toBe(
+      "Red neuronal que reconstruye dígitos a partir de imágenes borrosas.",
+    );
+    expect(edited.github).toBe(record.github);
+    expect(edited.tags).toEqual(record.tags);
+  });
+
+  it("rejects editorial override keys absent from the synchronized repository set", async () => {
+    const outputDir = await mkdtemp(path.join(tmpdir(), "github-sync-"));
+    const fetchImpl = async (url) => ({
+      ok: true,
+      json: async () => (url.includes("/readme") ? {} : [repo("Fresh")]),
+    });
+
+    await expect(
+      syncRepositories({
+        owner: "HoracioLaphitz",
+        token: "fixture",
+        fetchImpl,
+        outputDir,
+        editorialOverrides: {
+          Unknown: { title: "Desconocido", description: "No corresponde." },
+        },
+      }),
+    ).rejects.toThrow("Unknown editorial override key: Unknown");
+  });
+
   it("retrieves paginated repositories without live network calls", async () => {
     const calls = [];
     const fetchImpl = async (url) => {
@@ -47,7 +87,7 @@ describe("github sync contract", () => {
     await writeFile(path.join(outputDir, "stale.md"), "stale", "utf8");
     await writeFile(path.join(outputDir, ".github-sync-manifest.json"), JSON.stringify({ slugs: ["stale"] }), "utf8");
     const fetchImpl = async (url) => ({ ok: true, json: async () => url.includes("/readme") ? {} : [repo("Fresh")] });
-    await syncRepositories({ owner: "HoracioLaphitz", token: "fixture", fetchImpl, outputDir });
+    await syncRepositories({ owner: "HoracioLaphitz", token: "fixture", fetchImpl, outputDir, editorialOverrides: {} });
     const files = await readdir(outputDir);
     expect(files).toEqual(expect.arrayContaining(["curated.md", "github-fresh.md", ".github-sync-manifest.json"]));
     expect(files).not.toContain("stale.md");
@@ -63,7 +103,7 @@ describe("github sync contract", () => {
       return { ok: true, json: async () => [repo("Retry repo")] };
     };
     const outputDir = await mkdtemp(path.join(tmpdir(), "github-sync-"));
-    const result = await syncRepositories({ owner: "HoracioLaphitz", token: "fixture", fetchImpl, outputDir });
+    const result = await syncRepositories({ owner: "HoracioLaphitz", token: "fixture", fetchImpl, outputDir, editorialOverrides: {} });
     expect(result.generated[0].status).toBe(MISSING_README_STATUS);
     expect(attempts).toBe(5);
   });
@@ -72,7 +112,7 @@ describe("github sync contract", () => {
     const outputDir = await mkdtemp(path.join(tmpdir(), "github-sync-"));
     await writeFile(path.join(outputDir, "last-valid.md"), "last valid", "utf8");
     const fetchImpl = async () => ({ ok: true, json: async () => [{ name: "Broken", html_url: "javascript:alert(1)" }] });
-    await expect(syncRepositories({ owner: "HoracioLaphitz", token: "fixture", fetchImpl, outputDir })).rejects.toThrow("Invalid GitHub URL");
+    await expect(syncRepositories({ owner: "HoracioLaphitz", token: "fixture", fetchImpl, outputDir, editorialOverrides: {} })).rejects.toThrow("Invalid GitHub URL");
     expect(await readFile(path.join(outputDir, "last-valid.md"), "utf8")).toBe("last valid");
   });
 
@@ -88,7 +128,7 @@ describe("github sync contract", () => {
       },
     };
 
-    await expect(syncRepositories({ owner: "HoracioLaphitz", token: "fixture", fetchImpl, outputDir, fileSystem })).rejects.toThrow("simulated backup failure");
+    await expect(syncRepositories({ owner: "HoracioLaphitz", token: "fixture", fetchImpl, outputDir, fileSystem, editorialOverrides: {} })).rejects.toThrow("simulated backup failure");
     expect(await readFile(path.join(outputDir, "last-valid.md"), "utf8")).toBe("last valid");
   });
 

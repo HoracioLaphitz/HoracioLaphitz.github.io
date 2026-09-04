@@ -51,7 +51,7 @@ const Footer = () => {
               <a
                 href={`mailto:${PUBLIC_POSITIONING.contact.email}`}
                 className="focus-ring inline-flex items-center justify-center h-8 w-8 rounded-full text-skin-muted hover:text-skin-text hover:bg-skin-primary/80 border border-skin-border/30 transition-all"
-                aria-label="Email"
+                aria-label="Correo electrónico"
               >
                 <MailIcon width="16" height="16" />
               </a>
@@ -86,7 +86,7 @@ const Footer = () => {
                 href="/#skills"
                 className="text-xs text-skin-muted hover:text-skin-text transition-colors"
               >
-                Stack
+                Competencias
               </a>
               <a
                 href="/#experience"
@@ -138,7 +138,7 @@ const Footer = () => {
                 GitHub
               </a>
               <p className="text-xs text-skin-muted pt-1">
-                Posadas, Misiones | Remoto
+                Posadas, Misiones · Remoto
               </p>
             </div>
           </div>

@@ -1,6 +1,6 @@
 ---
 title: "Red Neuronal Convolucional (CNN)"
-description: "Implementación de una CNN para clasificación de imágenes desarrollado con TensorFlow/Keras."
+description: "Implementación de una CNN para la clasificación de imágenes, desarrollada con TensorFlow y Keras."
 pubDate: 2024-03-05
 category: "Notebooks Analytics"
 tags: ["Python", "TensorFlow", "CNN", "Deep Learning", "Computer Vision"]
@@ -16,19 +16,19 @@ resources:
 
 ## El problema
 
-Una red densa  trata cada píxel como independiente y pierde la estructura espacial de la imagen. Las CNN existen para eso: detectar patrones locales (Data Analytics | Machine Learning | GenAIbordes, texturas, formas) y componerlos jerárquicamente.
+Una red densa trata cada píxel como independiente y pierde la estructura espacial de la imagen. Las CNN detectan patrones locales —bordes, texturas y formas— y los combinan de manera jerárquica.
 
 ## Resolución
 
-- Dataset de imágenes vía **tensorflow_datasets**, con normalización y separación de los datos en entrenamiento y prueba.
-- Arquitectura convolucional en **Keras**: bloques `Conv2D` + `MaxPooling2D` para extraer features, luego `Flatten` + `Dense` para clasificar.
+- Conjunto de imágenes cargado mediante **tensorflow_datasets**, con normalización y separación de los datos en entrenamiento y prueba.
+- Arquitectura convolucional en **Keras**: bloques `Conv2D` + `MaxPooling2D` para extraer variables visuales y luego `Flatten` + `Dense` para clasificar.
 - Entrenamientos de 10 y 50 épocas comparando contra la versión densa, con inspección visual de predicciones usando OpenCV y Matplotlib.
-- Notebook complementario de **análisis exploratorio** en `experiments/` con la inspección previa del dataset.
+- Cuaderno complementario de **análisis exploratorio** en `experiments/`, con la inspección previa del conjunto de datos.
 
-## Stack
+## Tecnologías
 
 Python · TensorFlow · Keras · tensorflow_datasets · OpenCV
 
-## Moraleja
+## Conocimiento demostrado
 
-Por qué la convolución gana en visión: menos parámetros que una densa equivalente y mejor accuracy, porque la arquitectura codifica el conocimiento de que los píxeles vecinos se relacionan.
+La convolución emplea menos parámetros que una red densa equivalente y obtiene mayor exactitud porque su arquitectura considera la relación entre píxeles vecinos.

@@ -1,6 +1,6 @@
 ---
-title: "EDA_IBM"
-description: "Analisis exploratorio de datos, set IBM HR Analytics Attrition"
+title: "Análisis exploratorio — IBM HR Analytics"
+description: "Análisis exploratorio del conjunto de datos IBM HR Analytics Employee Attrition."
 pubDate: "2025-01-09T15:33:48.000Z"
 author: "Horacio Laphitz"
 category: "Análisis de datos"

@@ -1,6 +1,6 @@
 ---
 title: "Predicción de Precios de Acciones — NYSE"
-description: "Modelo de machine learning que anticipa el precio de acciones del NYSE a partir de su histórico de mercado, domando el ruido de una serie temporal notoriamente volátil."
+description: "Modelo de aprendizaje automático que estima el precio de acciones del NYSE a partir de su historial de mercado y una serie temporal volátil."
 pubDate: 2024-02-13
 category: "Análisis de datos"
 tags: ["Python", "Machine Learning", "Scikit-learn", "Pandas", "Time Series", "Finance"]
@@ -23,7 +23,7 @@ Construir un modelo capaz de predecir el precio de acciones del **NYSE** usando 
 
 ## La solución
 
-Un modelo supervisado en Python: ingesta de datos de mercado, ingeniería de features temporales, entrenamiento y evaluación con métricas de error sobre datos que el modelo no vio.
+Un modelo supervisado en Python: ingesta de datos de mercado, ingeniería de variables temporales, entrenamiento y evaluación con métricas de error sobre datos que el modelo no vio.
 
 ## Impacto
 

@@ -1,6 +1,6 @@
 ---
 title: "Regresión Logística — Clasificación Binaria"
-description: "Cuando la respuesta es sí o no, la regresión logística es la herramienta base: clasificación binaria con lectura fina de precision, recall y matriz de confusión."
+description: "La regresión logística permite resolver problemas de clasificación binaria y evaluar precisión, exhaustividad y matriz de confusión."
 pubDate: 2024-03-15
 category: "Notebooks Analytics"
 tags: ["Python", "Scikit-learn", "Logistic Regression", "Classification", "Machine Learning"]
@@ -14,18 +14,18 @@ resources:
 
 ## El problema
 
-Clasificación binaria: dado un conjunto de features, decidir sí o no. El accuracy solo no alcanza para evaluar un clasificador — con clases desbalanceadas puede ser alto y el modelo, inútil.
+En una clasificación binaria se decide entre dos resultados a partir de un conjunto de variables. La exactitud no basta para evaluar el clasificador: con clases desbalanceadas puede ser alta aunque el modelo no resulte útil.
 
 ## Resolución
 
-- Análisis exploratorio previo con **Pandas** y **Seaborn** para entender distribución de features y balance de clases.
-- Modelo de **regresión logística** con Scikit-learn, entrenado sobre el split de entrenamiento y evaluado sobre datos que nunca vio.
-- Evaluación completa: `classification_report` (precision, recall, F1 por clase) y **matriz de confusión** para ver exactamente qué tipo de error comete el modelo — falsos positivos vs falsos negativos.
+- Análisis exploratorio previo con **Pandas** y **Seaborn** para entender la distribución de las variables y el balance de las clases.
+- Modelo de **regresión logística** con Scikit-learn, entrenado sobre la partición de entrenamiento y evaluado con datos que nunca vio.
+- Evaluación completa mediante `classification_report` —precisión, exhaustividad y F1 por clase— y una **matriz de confusión** para distinguir entre falsos positivos y falsos negativos.
 
-## Stack
+## Tecnologías
 
 Python · Scikit-learn · Pandas · Seaborn
 
-## Conocimiento Demostrado
+## Conocimiento demostrado
 
-A elegir la métrica según el costo del error: cuándo importa más el recall (no dejar pasar positivos) y cuándo la precision (no dar falsas alarmas). La matriz de confusión cuenta la historia que el accuracy esconde.
+Cómo elegir la métrica según el costo del error: cuándo importa más la exhaustividad —no omitir positivos— y cuándo la precisión —no generar falsas alarmas—. La matriz de confusión muestra información que la exactitud agregada oculta.

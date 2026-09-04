@@ -10,3 +10,7 @@
   
   # Cache Control
   Cache-Control: public, max-age=3600, must-revalidate
+
+/notebooks-html/*
+  X-Frame-Options: SAMEORIGIN
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://embedding.tableauusercontent.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.github.com https://raw.githubusercontent.com https://api.web3forms.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://api.web3forms.com; upgrade-insecure-requests;

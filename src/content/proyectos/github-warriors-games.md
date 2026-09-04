@@ -1,6 +1,6 @@
 ---
-title: "Warriors-Games"
-description: "Este script de python lo que hace es comparar los juegos de visitante y de local del equipo de baloncesto \"Golden State Warriors\""
+title: "Golden State Warriors — Partidos de local y visitante"
+description: "Comparación de los partidos que Golden State Warriors disputa como local y como visitante."
 pubDate: "2024-02-20T22:12:36.000Z"
 author: "Horacio Laphitz"
 category: "Análisis de datos"

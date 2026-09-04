@@ -30,7 +30,7 @@ export interface TangoBadge {
 
 export const CERTIFICATIONS: readonly Certification[] = [
   {
-    period: "Febrero 2026",
+    period: "feb. 2026",
     title: "SQL con Databricks",
     company: "Lovelytics Latam",
     issuer: "Databricks",
@@ -39,7 +39,7 @@ export const CERTIFICATIONS: readonly Certification[] = [
     description: "Limpieza y validacion de datos con SQL en Databricks",
   },
   {
-    period: "Mar 2025",
+    period: "mar. 2025",
     title: "Business & Operations Management Excellence",
     company: "MTF Institute - Udemy",
     issuer: "Udemy",
@@ -48,7 +48,7 @@ export const CERTIFICATIONS: readonly Certification[] = [
       "/Certificaciones/CertificateinBusiness&OperationsManagementExcellence.pdf",
   },
   {
-    period: "Mar 2025",
+    period: "mar. 2025",
     title: "Sales & Service Data Analysis & Analytics Expert",
     company: "MTF Institute - Udemy",
     issuer: "Udemy",
@@ -57,7 +57,7 @@ export const CERTIFICATIONS: readonly Certification[] = [
       "/Certificaciones/Sales & Service Data Analysis & Analytics Expert.pdf",
   },
   {
-    period: "Mar 2025",
+    period: "mar. 2025",
     title: "Microsoft Office Mastery",
     company: "Sayman Creative Institute - Udemy",
     issuer: "Udemy",
@@ -66,7 +66,7 @@ export const CERTIFICATIONS: readonly Certification[] = [
       "/Certificaciones/Microsoft Office Mastery Learn Word Excel and PowerPoint.pdf",
   },
   {
-    period: "Mar 2025",
+    period: "mar. 2025",
     title: "Professional Diploma in Corporate Management",
     company: "MTF Institute - Udemy",
     issuer: "Udemy",
@@ -75,7 +75,7 @@ export const CERTIFICATIONS: readonly Certification[] = [
       "/Certificaciones/Prefesional diploma in corporate managemet.pdf",
   },
   {
-    period: "May 2024",
+    period: "may. 2024",
     title: "Supervised Machine Learning",
     company: "Stanford University - Coursera",
     issuer: "Stanford",
@@ -85,7 +85,7 @@ export const CERTIFICATIONS: readonly Certification[] = [
       "/Certificaciones/Supervised Machine Learning_ Regression and Classification.pdf",
   },
   {
-    period: "Abr 2024",
+    period: "abr. 2024",
     title: "Python for Data Engineering",
     company: "IBM - Coursera",
     issuer: "IBM",
@@ -94,7 +94,7 @@ export const CERTIFICATIONS: readonly Certification[] = [
     certificateUrl: "/Certificaciones/IBM-python-data-engineering.pdf",
   },
   {
-    period: "Mar 2024",
+    period: "mar. 2024",
     title: "Certificado Profesional de Análisis de Datos",
     company: "Google Careers - Coursera",
     issuer: "Google",
@@ -103,7 +103,7 @@ export const CERTIFICATIONS: readonly Certification[] = [
     certificateUrl: "/Certificaciones/GOOGLE-PYTHON-CERTIFICATE.pdf",
   },
   {
-    period: "Mar 2024",
+    period: "mar. 2024",
     title: "Fundamentos de Ciencia de Datos",
     company: "Google Careers - Coursera",
     issuer: "Google",
@@ -111,7 +111,7 @@ export const CERTIFICATIONS: readonly Certification[] = [
     certificateUrl: "/Certificaciones/Fundamentos de ciencia de datos.pdf",
   },
   {
-    period: "Feb 2024",
+    period: "feb. 2024",
     title: "Python for Data Science, AI & Development",
     company: "IBM - Coursera",
     issuer: "IBM",
@@ -120,7 +120,7 @@ export const CERTIFICATIONS: readonly Certification[] = [
     certificateUrl: "/Certificaciones/IBM-DATA SCIENCE - AI - DEVELOPMENT.pdf",
   },
   {
-    period: "Feb 2024",
+    period: "feb. 2024",
     title: "Análisis computacional de Datos en R",
     company: "Google Careers - Coursera",
     issuer: "Google",
@@ -129,7 +129,7 @@ export const CERTIFICATIONS: readonly Certification[] = [
       "/Certificaciones/GOOGLE-Analisis-computacional-de-datos-R.pdf",
   },
   {
-    period: "Feb 2024",
+    period: "feb. 2024",
     title: "Curso Final de Análisis Computacional de Datos",
     company: "Google Careers - Coursera",
     issuer: "Google",
@@ -138,7 +138,7 @@ export const CERTIFICATIONS: readonly Certification[] = [
       "/Certificaciones/Curso final de análisis computacional de datos completa un caso practico.pdf",
   },
   {
-    period: "Ene 2024",
+    period: "ene. 2024",
     title: "Go Beyond the Numbers: Translate Data into Insights",
     company: "Google Careers - Coursera",
     issuer: "Google",
@@ -146,7 +146,7 @@ export const CERTIFICATIONS: readonly Certification[] = [
     certificateUrl: "/Certificaciones/GoBeyondtheNumbersTranslateData.pdf",
   },
   {
-    period: "Ene 2024",
+    period: "ene. 2024",
     title: "Get Started with Python",
     company: "Google Careers - Coursera",
     issuer: "Google",
@@ -154,7 +154,7 @@ export const CERTIFICATIONS: readonly Certification[] = [
     certificateUrl: "/Certificaciones/GOOGLE-PYTHON-CERTIFICATE.pdf",
   },
   {
-    period: "Ene 2024",
+    period: "ene. 2024",
     title: "Tu Primera Experiencia como Analista de Datos",
     company: "Google Careers - Coursera",
     issuer: "Google",
@@ -163,7 +163,7 @@ export const CERTIFICATIONS: readonly Certification[] = [
       "/Certificaciones/certificate-of-completion-for-tu-primera-experiencia-como-analista-de-datos.pdf",
   },
   {
-    period: "Dic 2023",
+    period: "dic. 2023",
     title: "Python Expertise",
     company: "Nicolas Schurmann - Udemy",
     issuer: "Udemy",
@@ -171,14 +171,14 @@ export const CERTIFICATIONS: readonly Certification[] = [
     certificateUrl: "/Certificaciones/Python-Developer-Udemy.pdf",
   },
   {
-    period: "Nov 2023",
+    period: "nov. 2023",
     title: "Introducción a Machine Learning",
     company: "Domestika",
     issuer: "Domestika",
     sortDate: new Date(2023, 10, 1),
   },
   {
-    period: "Jul 2023",
+    period: "jul. 2023",
     title: "Bases de Datos desde Cero",
     company: "Silicon Misiones",
     issuer: "Silicon Misiones",
@@ -187,7 +187,7 @@ export const CERTIFICATIONS: readonly Certification[] = [
       "/Certificaciones/SILICON MISIONES- Certificado Digital Bases de Datos.pdf",
   },
   {
-    period: "Mar 2023",
+    period: "mar. 2023",
     title: "Data Analytics Nivel Growth",
     company: "Silicon Misiones",
     issuer: "Silicon Misiones",
@@ -196,7 +196,7 @@ export const CERTIFICATIONS: readonly Certification[] = [
       "/Certificaciones/SILICON MISIONES-Certificado de Data & Analytics.pdf",
   },
   {
-    period: "Dic 2022",
+    period: "dic. 2022",
     title: "Introducción a la Programación",
     company: "Silicon Misiones",
     issuer: "Silicon Misiones",

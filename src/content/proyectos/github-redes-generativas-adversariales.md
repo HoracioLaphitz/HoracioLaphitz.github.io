@@ -1,6 +1,6 @@
 ---
-title: "Redes-Generativas-Adversariales"
-description: "Algoritmo de Aprendizaje no supervisado, capaz de competir con otro para poder entrenarse."
+title: "Redes generativas adversariales"
+description: "Algoritmo de aprendizaje no supervisado en el que dos redes compiten para mejorar durante el entrenamiento."
 pubDate: "2024-07-25T20:06:39.000Z"
 author: "Horacio Laphitz"
 category: "Análisis de datos"

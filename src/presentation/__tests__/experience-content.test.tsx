@@ -7,13 +7,13 @@ describe("Experience", () => {
     const html = renderToStaticMarkup(<Experience />);
     expect((html.match(/<article/g) ?? [])).toHaveLength(6);
     expect(html).toContain("Experiencia no remunerada");
-    expect(html).toContain("Multiple Local Clients");
+    expect(html).toContain("Clientes locales");
   });
 
   it("renders both Ucrop.it periods", () => {
     const html = renderToStaticMarkup(<Experience />);
-    expect(html).toContain("Dic 2025 – Mar 2026");
-    expect(html).toContain("Abr 2024 – May 2024");
+    expect(html).toContain("dic. 2025 – mar. 2026");
+    expect(html).toContain("abr. 2024 – may. 2024");
   });
 
   it("renders Ferreteria's three details", () => {

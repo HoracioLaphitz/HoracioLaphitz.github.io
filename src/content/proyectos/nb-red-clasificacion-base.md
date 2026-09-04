@@ -14,19 +14,19 @@ resources:
 
 ## El problema
 
-Antes de optimizar cualquier modelo hace falta una línea base medible. Este notebook establece esa referencia para un clasificador de imágenes: si después una mejora no supera este número, no es mejora.
+Antes de optimizar un modelo hace falta una línea base medible. Este cuaderno establece esa referencia para un clasificador de imágenes: una modificación solo representa una mejora si supera el resultado inicial.
 
 ## Resolución
 
-- Dataset de imágenes cargado con **tensorflow_datasets**, con normalización de píxeles a [0, 1].
+- Conjunto de imágenes cargado con **tensorflow_datasets**, con normalización de píxeles al intervalo [0, 1].
 - Primera arquitectura: red densa (`Flatten` + capas `Dense`) como referencia.
-- Segunda arquitectura en el mismo notebook: variante convolucional (`Conv2D` + `MaxPooling2D`) para comparar contra la densa.
-- Entrenamientos de 10 y 50 épocas midiendo accuracy sobre el set de prueba, con visualización de predicciones usando Matplotlib y OpenCV.
+- Segunda arquitectura en el mismo cuaderno: variante convolucional (`Conv2D` + `MaxPooling2D`) para compararla con la red densa.
+- Entrenamientos de 10 y 50 épocas, con medición de la exactitud sobre el conjunto de prueba y visualización de predicciones mediante Matplotlib y OpenCV.
 
-## Stack
+## Tecnologías
 
 Python · TensorFlow · Keras · tensorflow_datasets · OpenCV
 
-## Conocimiento Demostrado
+## Conocimiento demostrado
 
-El valor de un baseline honesto: la red densa ya clasifica razonablemente bien, y ese número es lo que justifica (o no) la complejidad extra de las capas convolucionales en las iteraciones siguientes.
+El valor de una referencia honesta: la red densa ya clasifica razonablemente bien, y ese resultado permite decidir si la complejidad adicional de las capas convolucionales se justifica en las iteraciones siguientes.

@@ -1,6 +1,6 @@
 ---
-title: "curva-soberanos-ar"
-description: "Repository curva-soberanos-ar"
+title: "Curva de bonos soberanos argentinos"
+description: "Proyecto en desarrollo para analizar la curva de bonos soberanos argentinos."
 pubDate: "2026-07-19T02:27:51.000Z"
 author: "Horacio Laphitz"
 category: "Análisis de datos"

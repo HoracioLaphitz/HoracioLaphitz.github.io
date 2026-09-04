@@ -1,6 +1,6 @@
 ---
 title: "Redes Convolucionales — Clasificador"
-description: "Dos CNN: reconocimiento de dígitos manuscritos (MNIST) y un clasificador de perros vs gatos. Del dato crudo a la predicción, capa por capa."
+description: "Dos CNN: reconocimiento de dígitos manuscritos con MNIST y clasificación de imágenes de perros y gatos. Del dato sin procesar a la predicción, capa por capa."
 pubDate: 2024-02-13
 category: "Análisis de datos"
 tags: ["Python", "TensorFlow", "CNN", "Deep Learning", "MNIST", "Computer Vision"]
@@ -22,9 +22,9 @@ Implementar y comparar dos arquitecturas de red sobre dos problemas distintos de
 
 ## La solución
 
-- **Red 1** — reconocimiento de dígitos escritos a mano (dataset MNIST).
-- **Red 2** — CNN que clasifica perros vs gatos, usando un set de datos de la librería TensorFlow.
+- **Red 1** — reconocimiento de dígitos escritos a mano con el conjunto MNIST.
+- **Red 2** — CNN que clasifica imágenes de perros y gatos mediante un conjunto de datos de la biblioteca TensorFlow.
 
 ## Impacto
 
-Dos modelos entrenados que ilustran cómo una CNN aprende features visuales jerárquicas, desde bordes hasta objetos completos. La red de dígitos alcanzó **99.76% de accuracy de entrenamiento** (loss 0.0072) tras 10 épocas, con la curva de loss bajando de forma consistente y sin señales de overfitting severo. La arquitectura y el learning rate estaban bien calibrados para el problema.
+Dos modelos entrenados que ilustran cómo una CNN aprende variables visuales jerárquicas, desde bordes hasta objetos completos. La red de dígitos alcanzó una **exactitud de entrenamiento del 99,76 %** y una pérdida de 0,0072 tras 10 épocas. La curva de pérdida descendió de forma consistente y no mostró señales de sobreajuste severo; la arquitectura y la tasa de aprendizaje resultaron adecuadas para el problema.

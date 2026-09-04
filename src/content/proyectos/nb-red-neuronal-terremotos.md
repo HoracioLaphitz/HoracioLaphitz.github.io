@@ -18,14 +18,14 @@ Un catálogo sísmico histórico tiene miles de registros con magnitud, profundi
 
 ## Resolución
 
-- Preparación del dataset histórico con **Pandas** y **NumPy**: selección de features, normalización y split entrenamiento/prueba con Scikit-learn.
+- Preparación del conjunto histórico con **Pandas** y **NumPy**: selección de variables, normalización y división entre entrenamiento y prueba con Scikit-learn.
 - Red neuronal densa en **Keras** (capas `Dense`), entrenada durante 50 épocas con **MSE** como función de pérdida — es un problema de regresión, no de clasificación.
 - Curvas de pérdida con Matplotlib para controlar la convergencia y detectar sobreajuste.
 
-## Stack
+## Tecnologías
 
 Python · TensorFlow · Keras · Scikit-learn · Pandas
 
-## Conocimiento Demostrado
+## Conocimiento demostrado
 
 Transformación de datos geofísicos ruidosos, preparación para arquitectura de datos: la red converge, pero el techo de precisión lo pone la señal disponible en los datos, no la cantidad de capas.

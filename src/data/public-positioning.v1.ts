@@ -17,7 +17,7 @@ export const PUBLIC_POSITIONING = {
   },
   siteUrl: "https://horaciolaphitz.vercel.app",
   positioning: {
-    focus: "Análisis de datos y automatización con Python, SQL y Power BI; estudio de RAG y flujos con agentes en proyectos personales",
+    focus: "Análisis de datos y automatización con Python, SQL y Power BI. Estudio de RAG y flujos con agentes en proyectos personales",
     qualification: "Actualmente profundizando conocimientos en",
   },
   maturityStatuses: ALLOWED_MATURITY_STATUSES,

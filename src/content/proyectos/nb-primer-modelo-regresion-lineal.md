@@ -9,23 +9,24 @@ draft: false
 resources:
   notebooks:
     - name: "Regresión Lineal"
+      slug: "primer-modelo-de-regresion-lineal"
       path: "/Proyectos/Notebooks/PrimerModeloRegresionLineal/PrimerModeloRegresionLineal.ipynb"
 ---
 
 ## El problema
 
-La regresión lineal es la puerta de entrada al machine learning supervisado: si no se entiende cómo una recta se ajusta a los datos, los modelos complejos se usan a ciegas.
+La regresión lineal es la puerta de entrada al aprendizaje automático supervisado: comprender cómo una recta se ajusta a los datos permite interpretar modelos más complejos.
 
 ## Resolución
 
-- Exploración inicial del dataset con **Pandas** y **Seaborn** para ver la relación entre la feature y la variable objetivo.
+- Exploración inicial del conjunto de datos con **Pandas** y **Seaborn** para observar la relación entre la variable explicativa y la variable objetivo.
 - Modelo de regresión lineal con **Scikit-learn**: entrenamiento, coeficientes resultantes y predicción sobre datos nuevos.
 - Visualización de la recta ajustada sobre los puntos reales para ver, literalmente, qué aprendió el modelo.
 
-## Stack
+## Tecnologías
 
 Python · Scikit-learn · Pandas · Seaborn
 
-## Conocimiento Demostrado
+## Conocimiento demostrado
 
 Los fundamentos que se repiten en todo el ML supervisado: separar datos, ajustar, predecir y medir. Todo lo que vino después — de la regresión logística a las redes neuronales — usa esta misma mecánica.

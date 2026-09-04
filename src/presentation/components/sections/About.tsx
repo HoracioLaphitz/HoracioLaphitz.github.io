@@ -16,7 +16,7 @@ const areas = [
     status: "Aplicado",
     title: "Flujos con agentes",
     description:
-      "Diseño y orquestación de flujos con agentes, aplicando principios de Harness Engineering para integrar automatización, validación y ejecución segura de procesos en entornos reales.",
+      "Diseño y orquestación de flujos con agentes para integrar automatización, validación y ejecución controlada de procesos.",
     Icon: RobotIcon,
   },
   {
@@ -50,10 +50,9 @@ const About = () => (
           <p>
             Trabajo con Python y SQL para preparar información, validar datos,
             automatizar procesos y acompañar el trabajo diario, además de
-            construir dashboards en Power BI. Actualmente exploro el potencial
-            de modelos multimodales para desarrollo de código con RAG, agentes y
-            flujos automatizados, siempre con miras a mejorar la calidad de las
-            decisiones.
+            construir tableros en Power BI. Actualmente exploro modelos
+            multimodales, RAG y agentes aplicados al desarrollo de código y a la
+            automatización de flujos.
           </p>
         </div>
       </div>

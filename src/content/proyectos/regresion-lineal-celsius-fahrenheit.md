@@ -9,6 +9,7 @@ draft: true
 resources:
   notebooks:
     - name: "Regresión Lineal — Temperaturas"
+      slug: "regresion-lineal-celsius-a-fahrenheit"
       path: "/Proyectos/Notebooks/Celcius_a_Fahrenheit.ipynb"
 ---
 
@@ -26,4 +27,4 @@ Un modelo de regresión lineal simple: el algoritmo ajusta pendiente y sesgo has
 
 ## Impacto
 
-Un ejemplo pedagógico y claro de qué significa "aprender" para un modelo de machine learning.
+Un ejemplo pedagógico de lo que significa «aprender» para un modelo de aprendizaje automático.

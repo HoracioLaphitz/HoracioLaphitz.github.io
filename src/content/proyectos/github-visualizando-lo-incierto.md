@@ -1,6 +1,6 @@
 ---
-title: "visualizando-lo-incierto"
-description: "Plataforma experimental: semiótica y cognición de la probabilidad — fórmulas vs. diagramas (Streamlit)"
+title: "Visualizando lo incierto"
+description: "Plataforma experimental sobre semiótica y cognición de la probabilidad mediante fórmulas y diagramas."
 pubDate: "2026-07-06T13:56:03.000Z"
 author: "Horacio Laphitz"
 category: "Análisis de datos"

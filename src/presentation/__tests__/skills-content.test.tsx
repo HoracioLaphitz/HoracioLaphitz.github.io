@@ -11,11 +11,11 @@ const dataAnalysisTechniques = [
   "EDA",
   "Limpieza y preparación de datos",
   "Estadística descriptiva",
-  "Análisis Estadístico",
+  "Análisis estadístico",
   "Pruebas de hipótesis e inferencia",
   "Correlación",
   "Chi-cuadrado",
-  "Análisis Multivariante",
+  "Análisis multivariante",
   "Series temporales",
   "Segmentación y RFM",
   "Reglas de asociación (Market Basket)",
@@ -65,9 +65,9 @@ describe("skills presentation", () => {
     const dataAnalysis = groups.find(
       ({ label }) => label === "Análisis de Datos",
     );
-    const genAi = groups.find(({ label }) => label === "GenAI & IA");
+    const genAi = groups.find(({ label }) => label === "GenAI e IA");
     const machineLearning = groups.find(
-      ({ label }) => label === "Machine Learning",
+      ({ label }) => label === "Aprendizaje automático",
     );
 
     expect(dataAnalysis?.skills.map(({ name }) => name)).toEqual(

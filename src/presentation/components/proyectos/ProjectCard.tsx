@@ -1,5 +1,6 @@
 import { RobotIcon, ChartBarIcon, BriefcaseIcon, PresentationChartLineIcon, DocumentIcon, GithubMarkIcon, DashboardIcon, ArrowRightIcon } from "@presentation/components/ui/Icons";
 import type { ReactElement } from "react";
+import { getProjectCategoryLabel, getProjectMaturityLabel } from "@shared/project-labels";
 
 interface ProjectCardProps {
     title: string;
@@ -15,6 +16,8 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ title, description, slug, category, tags, github, dashboard, maturity = "Proyecto personal", syncStatus }: ProjectCardProps) => {
+    const categoryLabel = getProjectCategoryLabel(category);
+    const maturityLabel = getProjectMaturityLabel(maturity) ?? maturity;
     const categoryIcons: Record<string, ReactElement> = {
         "Machine Learning": <RobotIcon className="w-4 h-4" />,
         "Análisis de datos": <ChartBarIcon className="w-4 h-4" />,
@@ -34,7 +37,7 @@ const ProjectCard = ({ title, description, slug, category, tags, github, dashboa
                 <div className="flex items-center gap-2 mb-3 text-skin-muted">
                     {categoryIcons[category] || <DocumentIcon className="w-4 h-4 text-brand-primary" />}
                     <span className="text-xs font-medium uppercase tracking-[0.15em] text-skin-muted">
-                        {category}
+                        {categoryLabel}
                     </span>
                 </div>
                 {/* Título */}
@@ -47,8 +50,8 @@ const ProjectCard = ({ title, description, slug, category, tags, github, dashboa
                     {description}
                 </p>
 
-                <div className="text-xs text-skin-muted mb-3" data-maturity={maturity} aria-label={`Etapa: ${maturity}`}>
-                    {maturity}
+                <div className="text-xs text-skin-muted mb-3" data-maturity={maturity} aria-label={`Etapa: ${maturityLabel}`}>
+                    {maturityLabel}
                     {syncStatus && <span className="ml-2 text-brand-primary" aria-label={`Estado: ${syncStatus}`}>{syncStatus}</span>}
                 </div>
 

@@ -1,6 +1,6 @@
 ---
-title: "Autoencoder"
-description: "Este script de python es una Red Nueronal capaz de reconocer images borrosas y predecir a que numero corresponde."
+title: "Autoencoder — Restauración de imágenes"
+description: "Red neuronal que reconstruye dígitos a partir de imágenes borrosas."
 pubDate: "2024-07-22T16:18:03.000Z"
 author: "Horacio Laphitz"
 category: "Análisis de datos"

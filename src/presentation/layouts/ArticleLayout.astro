@@ -1,9 +1,11 @@
 ---
 import PageLayout from './PageLayout.astro';
 import { slugify } from '@shared/slugify';
+import { getProjectCategoryLabel, getProjectMaturityLabel } from '@shared/project-labels';
 
 interface NotebookResource {
   name: string;
+  slug?: string;
   path: string;
   description?: string;
 }
@@ -24,6 +26,8 @@ interface Props {
 }
 
 const { title, description, category, pubDate, tags, author, github, dashboard, currentPath, notebooks, projectSlug, maturity = "Portfolio project" } = Astro.props;
+const categoryLabel = getProjectCategoryLabel(category);
+const maturityLabel = getProjectMaturityLabel(maturity);
 
 const siteUrl = "https://horaciolaphitz.vercel.app";
 const articleUrl = new URL(currentPath, siteUrl).href;
@@ -50,8 +54,8 @@ const articleSchema = {
       <div class="article-header-content">
         <!-- Categoría y fecha -->
         <div class="article-meta">
-          <span class="article-category">{category}</span>
-          <span class="article-maturity">{maturity}</span>
+          <span class="article-category">{categoryLabel}</span>
+          <span class="article-maturity">{maturityLabel}</span>
           <span class="article-divider">|</span>
           <time class="article-date">
             {pubDate.toLocaleDateString('es-AR', {
@@ -112,7 +116,7 @@ const articleSchema = {
             )}
             {notebooks && projectSlug && notebooks.map((notebook) => (
               <a
-                href={`/proyectos/${projectSlug}/notebook/${slugify(notebook.name)}`}
+                href={`/proyectos/${projectSlug}/notebook/${notebook.slug ?? slugify(notebook.name)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 class="article-action article-action-secondary"

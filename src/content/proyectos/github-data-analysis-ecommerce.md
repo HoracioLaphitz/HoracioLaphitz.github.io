@@ -1,6 +1,6 @@
 ---
-title: "Data-Analysis-Ecommerce"
-description: "Chat en lenguaje natural sobre 100k+ órdenes de e-commerce. LangChain + Groq llama3-70b + Streamlit + Olist Brazil dataset."
+title: "Análisis de comercio electrónico"
+description: "Consulta en lenguaje natural sobre más de 100.000 órdenes de Olist mediante LangChain, Groq y Streamlit."
 pubDate: "2026-06-30T20:19:19.000Z"
 author: "Horacio Laphitz"
 category: "Análisis de datos"

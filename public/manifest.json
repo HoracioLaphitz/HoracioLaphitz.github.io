@@ -1,7 +1,7 @@
 {
   "name": "Horacio Laphitz - Analista de Datos",
   "short_name": "HL Portfolio",
-  "description": "Análisis de datos y automatización con Python, SQL y Power BI; estudio de RAG y flujos con agentes en proyectos personales",
+  "description": "Análisis de datos y automatización con Python, SQL y Power BI. Estudio de RAG y flujos con agentes en proyectos personales",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0F172A",

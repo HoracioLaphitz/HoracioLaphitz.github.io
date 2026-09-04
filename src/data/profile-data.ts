@@ -18,7 +18,7 @@ export const PROFILE_DATA = new ProfileEntity(
   "Horacio Laphitz",
   "",
   [
-    "Trabajo con Python, SQL y Power BI para preparar datos, armar dashboards y automatizar tareas repetitivas",
+    "Trabajo con Python, SQL y Power BI para preparar datos, crear tableros y automatizar tareas repetitivas",
   ],
   {
     email: "horaciolaphitz99@gmail.com",
@@ -30,13 +30,13 @@ export const PROFILE_DATA = new ProfileEntity(
   PROFILE_EXPERIENCE,
   [
     {
-      period: "Febrero 2026",
+      period: "feb. 2026",
       title: "SQL con Databricks",
       issuer: "Lovelytics Latam",
       sortDate: new Date(2026, 1, 1),
     },
     {
-      period: "May 2024",
+      period: "may. 2024",
       title: "Supervised Machine Learning",
       issuer: "Stanford University - Coursera",
       certificateUrl:
@@ -44,7 +44,7 @@ export const PROFILE_DATA = new ProfileEntity(
       sortDate: new Date(2024, 4, 1),
     },
     {
-      period: "Abr 2024",
+      period: "abr. 2024",
       title: "Python for Data Engineering",
       issuer: "IBM - Coursera",
       certificateUrl: "/Certificaciones/IBM-python-data-engineering.pdf",
@@ -52,21 +52,21 @@ export const PROFILE_DATA = new ProfileEntity(
       sortDate: new Date(2024, 3, 1),
     },
     {
-      period: "Mar 2024",
+      period: "mar. 2024",
       title: "Certificado Profesional de Análisis de Datos",
       issuer: "Google Careers - Coursera",
       certificateUrl: "/Certificaciones/GOOGLE-PYTHON-CERTIFICATE.pdf",
       sortDate: new Date(2024, 2, 1),
     },
     {
-      period: "Mar 2024",
+      period: "mar. 2024",
       title: "Fundamentos de Ciencia de Datos",
       issuer: "Google Careers - Coursera",
       certificateUrl: "/Certificaciones/Fundamentos de ciencia de datos.pdf",
       sortDate: new Date(2024, 2, 1),
     },
     {
-      period: "Feb 2024",
+      period: "feb. 2024",
       title: "Python for Data Science, AI & Development",
       issuer: "IBM - Coursera",
       certificateUrl:
@@ -75,7 +75,7 @@ export const PROFILE_DATA = new ProfileEntity(
       sortDate: new Date(2024, 1, 1),
     },
     {
-      period: "Feb 2024",
+      period: "feb. 2024",
       title: "Análisis computacional de Datos en R",
       issuer: "Google Careers - Coursera",
       certificateUrl:
@@ -215,12 +215,12 @@ export const PROFILE_DATA = new ProfileEntity(
       level: SkillLevel.Intermediate,
     },
     {
-      name: "Análisis Multivariante",
+      name: "Análisis multivariante",
       category: SkillCategory.DataAnalysis,
       level: SkillLevel.Intermediate,
     },
     {
-      name: "Análisis Estadístico",
+      name: "Análisis estadístico",
       category: SkillCategory.DataAnalysis,
       level: SkillLevel.Intermediate,
     },
@@ -429,18 +429,18 @@ export const PROFILE_DATA = new ProfileEntity(
       level: SkillLevel.Intermediate,
     },
     {
-      name: "Excel Avanzado",
+      name: "Excel avanzado",
       category: SkillCategory.Tools,
       level: SkillLevel.Advanced,
     },
-    // Soft Skills
+    // Habilidades interpersonales
     {
-      name: "Resolución de Problemas",
+      name: "Resolución de problemas",
       category: SkillCategory.Soft,
       level: SkillLevel.Advanced,
     },
     {
-      name: "Pensamiento Analítico",
+      name: "Pensamiento analítico",
       category: SkillCategory.Soft,
       level: SkillLevel.Advanced,
     },
@@ -450,28 +450,28 @@ export const PROFILE_DATA = new ProfileEntity(
       level: SkillLevel.Advanced,
     },
     {
-      name: "Trabajo en Equipo",
+      name: "Trabajo en equipo",
       category: SkillCategory.Soft,
       level: SkillLevel.Advanced,
     },
     // Tango Gestión (ERP)
     {
-      name: "Parametrización Contable",
+      name: "Parametrización contable",
       category: SkillCategory.Tools,
       level: SkillLevel.Intermediate,
     },
     {
-      name: "Gestión de Datos Maestros",
+      name: "Gestión de datos maestros",
       category: SkillCategory.Tools,
       level: SkillLevel.Intermediate,
     },
     {
-      name: "Gestión de Stock",
+      name: "Gestión de stock",
       category: SkillCategory.Tools,
       level: SkillLevel.Intermediate,
     },
     {
-      name: "Procesos de Ventas",
+      name: "Procesos de ventas",
       category: SkillCategory.Tools,
       level: SkillLevel.Intermediate,
     },
@@ -481,7 +481,7 @@ export const PROFILE_DATA = new ProfileEntity(
       level: SkillLevel.Intermediate,
     },
     {
-      name: "Gestión de Compras",
+      name: "Gestión de compras",
       category: SkillCategory.Tools,
       level: SkillLevel.Intermediate,
     },

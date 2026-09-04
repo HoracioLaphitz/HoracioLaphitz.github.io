@@ -25,10 +25,10 @@ Ejercicios prácticos de los cuatro pilares de la **POO** en Python:
 - **Encapsulamiento** — exponer una interfaz y ocultar la implementación.
 - **Polimorfismo** — que distintas clases respondan al mismo mensaje cada una a su manera.
 
-## Stack
+## Tecnologías
 
 Python · POO
 
-## Conocimiento Demostrado
+## Conocimiento demostrado
 
-La base que después uso en proyectos reales: el notebook de la red de clasificación optimizada aplica exactamente estos conceptos (clases para datos, modelo y entrenamiento) sobre un problema de deep learning.
+El cuaderno de la red de clasificación optimizada aplica estos conceptos —clases para datos, modelo y entrenamiento— a un problema de aprendizaje profundo.

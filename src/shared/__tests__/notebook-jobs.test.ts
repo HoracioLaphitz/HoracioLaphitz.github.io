@@ -55,4 +55,24 @@ describe("getNotebookConversionJobs", () => {
 
     expect(jobs).toHaveLength(0);
   });
+
+  it("uses the explicit shared slug for route and artifact parity", () => {
+    const jobs = getNotebookConversionJobs([
+      {
+        slug: "nb-prediccion-precios-casas",
+        resources: {
+          notebooks: [
+            {
+              name: "Predicción de precios",
+              slug: "prediccion-de-precios-de-casas",
+              path: "public/Proyectos/Notebooks/Predice-Precios-Casas/Predice-Precios-Casas.ipynb",
+            },
+          ],
+        },
+      },
+    ]);
+
+    expect(jobs[0].notebookSlug).toBe("prediccion-de-precios-de-casas");
+    expect(jobs[0].outputFile).toBe("prediccion-de-precios-de-casas.html");
+  });
 });

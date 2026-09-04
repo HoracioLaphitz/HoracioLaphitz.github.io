@@ -23,7 +23,7 @@ export const EXPERIENCE_ITEMS: readonly ExperienceItem[] = [
   {
     id: "ucropit-2025-data-entry-specialist",
     kind: "professional",
-    period: "Dic 2025 – Mar 2026",
+    period: "dic. 2025 – mar. 2026",
     role: "Data Entry Specialist",
     company: "Ucrop.it",
     location: "Remoto",
@@ -55,7 +55,7 @@ export const EXPERIENCE_ITEMS: readonly ExperienceItem[] = [
   {
     id: "pcservice-2021-help-desk",
     kind: "professional",
-    period: "Ene 2021 – Nov 2025",
+    period: "ene. 2021 – nov. 2025",
     role: "Help Desk",
     company: "PcService Posadas",
     location: "Posadas",
@@ -87,7 +87,7 @@ export const EXPERIENCE_ITEMS: readonly ExperienceItem[] = [
   {
     id: "ucropit-2024-data-entry",
     kind: "professional",
-    period: "Abr 2024 – May 2024",
+    period: "abr. 2024 – may. 2024",
     role: "Data Entry",
     company: "Ucrop.it",
     location: "Remoto",
@@ -99,7 +99,7 @@ export const EXPERIENCE_ITEMS: readonly ExperienceItem[] = [
         scope: "company-shared",
       },
       {
-        text: "Exploración de datos y detección de inconsistencias vs. observaciones de campo",
+        text: "Exploración de datos y detección de inconsistencias frente a observaciones de campo",
         sources: ["cv-2026-08-27"],
         scope: "company-shared",
       },
@@ -114,9 +114,9 @@ export const EXPERIENCE_ITEMS: readonly ExperienceItem[] = [
   {
     id: "ferreteria-centenario-2020",
     kind: "unpaid-project",
-    period: "Ene 2020 – Dic 2020",
-    role: "Support Profesional Informatics Ad Honorem",
-    company: "Multiple Local Clients",
+    period: "ene. 2020 – dic. 2020",
+    role: "Profesional de soporte informático ad honorem",
+    company: "Clientes locales",
     location: "Posadas, Misiones",
     description:
       "Base de datos MySQL, flujos en n8n y pipelines de datos en Python",
@@ -142,7 +142,7 @@ export const EXPERIENCE_ITEMS: readonly ExperienceItem[] = [
   {
     id: "hospital-madariaga-2019-trainer",
     kind: "professional",
-    period: "Jul 2019 – Dic 2019",
+    period: "jul. 2019 – dic. 2019",
     role: "Tech Lead",
     company: "Hospital Escuela Dr. Ramón Madariaga",
     location: "Posadas",
@@ -169,7 +169,7 @@ export const EXPERIENCE_ITEMS: readonly ExperienceItem[] = [
   {
     id: "ministerio-salud-2019-admin",
     kind: "professional",
-    period: "Mar 2019 – Jun 2019",
+    period: "mar. 2019 – jun. 2019",
     role: "Administrative Assistant",
     company: "Ministerio de Salud Pública de Misiones",
     location: "Posadas",

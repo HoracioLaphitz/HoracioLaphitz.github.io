@@ -39,7 +39,7 @@ const ProjectFilters = ({
                                 : "bg-skin-primary/80 border border-skin-border/60 text-skin-muted hover:text-skin-text hover:border-skin-border-medium"
                         }`}
                     >
-                        {cat}
+                        {getProjectCategoryLabel(cat)}
                     </button>
                 ))}
             </div>
@@ -55,3 +55,4 @@ const ProjectFilters = ({
 };
 
 export default ProjectFilters;
+import { getProjectCategoryLabel } from "@shared/project-labels";

@@ -12,7 +12,7 @@ export async function getStaticPaths() {
     const notebooks = proyecto.data.resources?.notebooks ?? [];
     for (const notebook of notebooks) {
       paths.push({
-        params: { slug: proyecto.id, notebook: slugify(notebook.name) },
+        params: { slug: proyecto.id, notebook: notebook.slug ?? slugify(notebook.name) },
         props: { proyecto, notebook },
       });
     }
@@ -22,7 +22,7 @@ export async function getStaticPaths() {
 }
 
 const { proyecto, notebook } = Astro.props;
-const iframeSrc = `/notebooks-html/${proyecto.id}/${slugify(notebook.name)}.html`;
+const iframeSrc = `/notebooks-html/${proyecto.id}/${notebook.slug ?? slugify(notebook.name)}.html`;
 ---
 
 <PageLayout

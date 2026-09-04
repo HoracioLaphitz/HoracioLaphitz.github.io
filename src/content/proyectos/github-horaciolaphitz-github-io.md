@@ -1,6 +1,6 @@
 ---
-title: "horaciolaphitz.github.io"
-description: "Repository horaciolaphitz.github.io"
+title: "Portfolio anterior en GitHub Pages"
+description: "Versión anterior del portfolio publicada mediante GitHub Pages."
 pubDate: "2026-05-18T00:52:58.000Z"
 author: "Horacio Laphitz"
 category: "Análisis de datos"

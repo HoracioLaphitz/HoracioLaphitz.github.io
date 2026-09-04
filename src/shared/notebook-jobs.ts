@@ -2,6 +2,7 @@ import { slugify } from "./slugify";
 
 export interface NotebookResource {
   name: string;
+  slug?: string;
   path: string;
   description?: string;
 }
@@ -30,7 +31,7 @@ export function getNotebookConversionJobs(
     const notebooks = proyecto.resources?.notebooks ?? [];
 
     for (const notebook of notebooks) {
-      const notebookSlug = slugify(notebook.name);
+      const notebookSlug = notebook.slug ?? slugify(notebook.name);
       jobs.push({
         projectSlug: proyecto.slug,
         notebookSlug,

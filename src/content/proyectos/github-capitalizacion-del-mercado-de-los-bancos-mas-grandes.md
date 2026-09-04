@@ -1,6 +1,6 @@
 ---
-title: "Capitalizacion-del-Mercado-de-los-Bancos-mas-Grandes"
-description: "Este Script de pyton se encarga de utilizar la tecnica de Webscrapping para obtener datos de una pagina web, en especifico de una tabla dentro de la misma y pasarlos por el proceso ETL para hacer estos datos mas útiles"
+title: "Capitalización de los bancos más grandes"
+description: "Extracción web y proceso ETL para obtener una tabla, transformar sus datos y dejarlos listos para el análisis."
 pubDate: "2024-03-22T21:36:37.000Z"
 author: "Horacio Laphitz"
 category: "Análisis de datos"

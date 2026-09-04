@@ -24,18 +24,16 @@ const Contact = () => {
               className="text-display-sm font-bold text-skin-text tracking-tight mb-4"
               style={{ letterSpacing: "-0.02em" }}
             >
-              Hablemos!
+              ¡Hablemos!
             </h2>
             <p className="text-lg md:text-xl text-skin-muted leading-relaxed mb-3 tracking-tight font-normal">
               <span className="font-semibold text-skin-text">
                 Automatización de procesos
               </span>{" "}
-              | <span className="font-semibold text-skin-text">Dashboards</span>{" "}
-              |{" "}
+              · <span className="font-semibold text-skin-text">Tableros</span> ·{" "}
               <span className="font-semibold text-skin-text">
                 Análisis de datos
               </span>
-              .
             </p>
             <p className="text-base text-skin-muted leading-relaxed mb-8 font-normal">
               ¿Necesitás ordenar datos o automatizar una tarea repetitiva?
@@ -60,15 +58,6 @@ const Contact = () => {
             >
               <LinkedinIcon className="w-4 h-4" />
               LinkedIn
-            </a>
-            <a
-              href={PROFILE_DATA.contact.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="focus-ring inline-flex items-center gap-2.5 px-6 py-3 text-sm font-medium text-skin-text bg-skin-secondary/70 border border-skin-border/50 rounded-full hover:bg-skin-secondary hover:border-skin-border-medium transition-all duration-200"
-            >
-              <GithubIcon className="w-4 h-4" />
-              GitHub
             </a>
           </div>
         </div>

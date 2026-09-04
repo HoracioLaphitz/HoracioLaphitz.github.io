@@ -26,7 +26,7 @@ const capabilities = [
   },
   {
     title: "Automatización e integración",
-    description: "Pipelines y validaciones para reducir tareas repetitivas.",
+    description: "Procesos y validaciones para reducir tareas repetitivas.",
     Icon: DatabaseIcon,
   },
   {
@@ -65,7 +65,7 @@ const Hero = () => {
           </h1>
 
           <p className="mt-6 max-w-3xl font-display text-xl font-medium leading-snug tracking-[-0.02em] text-skin-text-secondary sm:text-2xl">
-            Analista de Datos
+            Analista de datos
           </p>
 
           <div className="mt-8 grid gap-8 border-t border-skin-border pt-7 lg:grid-cols-[minmax(0,1fr)_18rem]">
@@ -75,7 +75,7 @@ const Hero = () => {
             >
             Trabajo con Python y SQL para preparar y validar información
             disponible. Visualizo datos con Power BI y aplico modelos de
-            machine learning para responder preguntas concretas.
+            aprendizaje automático para responder preguntas concretas.
             </p>
 
             <div

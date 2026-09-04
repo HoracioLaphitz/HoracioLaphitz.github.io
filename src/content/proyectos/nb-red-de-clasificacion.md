@@ -18,14 +18,14 @@ Clasificación multiclase de imágenes: dado un dígito manuscrito, decidir entr
 
 ## Resolución
 
-- Carga y preprocesamiento del dataset con **tensorflow_datasets**: normalización de píxeles y separación entrenamiento/prueba.
+- Carga y preprocesamiento del conjunto de datos con **tensorflow_datasets**: normalización de píxeles y separación entre entrenamiento y prueba.
 - Red densa en **Keras**: `Flatten` para pasar de matriz de píxeles a vector, capas `Dense` ocultas y salida softmax de 10 neuronas.
-- Entrenamiento de 10 épocas midiendo accuracy, más visualización de predicciones individuales con Matplotlib para ver dónde acierta y dónde falla.
+- Entrenamiento de 10 épocas, con medición de la exactitud y visualización de predicciones individuales mediante Matplotlib para observar los aciertos y los errores.
 
-## Stack
+## Tecnologías
 
 Python · TensorFlow · Keras · tensorflow_datasets
 
-## Conocimiento Demostrado
+## Conocimiento demostrado
 
-Cómo se diseña la capa de salida según el problema — softmax y una neurona por clase — y a leer los errores del modelo mirando ejemplos concretos, no solo la métrica agregada.
+Cómo diseñar la capa de salida según el problema —softmax y una neurona por clase— y cómo interpretar los errores del modelo mediante ejemplos concretos, además de la métrica agregada.

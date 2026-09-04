@@ -10,7 +10,7 @@ import type { Skill } from "@domain/entities/profile.entity";
  */
 export const SKILL_GROUPS: { label: string; names: string[] }[] = [
   {
-    label: "GenAI & IA",
+    label: "GenAI e IA",
     names: [
       "RAG",
       "Descomposición de tareas",
@@ -31,18 +31,18 @@ export const SKILL_GROUPS: { label: string; names: string[] }[] = [
       "EDA",
       "Limpieza y preparación de datos",
       "Estadística descriptiva",
-      "Análisis Estadístico",
+      "Análisis estadístico",
       "Pruebas de hipótesis e inferencia",
       "Correlación",
       "Chi-cuadrado",
-      "Análisis Multivariante",
+      "Análisis multivariante",
       "Series temporales",
       "Segmentación y RFM",
       "Reglas de asociación (Market Basket)",
     ],
   },
   {
-    label: "Machine Learning",
+    label: "Aprendizaje automático",
     names: [
       "Aprendizaje supervisado",
       "Aprendizaje no supervisado",
@@ -67,7 +67,7 @@ export const SKILL_GROUPS: { label: string; names: string[] }[] = [
       "NumPy",
       "Matplotlib",
       "Power BI",
-      "Excel Avanzado",
+      "Excel avanzado",
       "LangChain",
       "LangGraph",
       "LlamaIndex",
@@ -88,31 +88,31 @@ export const SKILL_GROUPS: { label: string; names: string[] }[] = [
     names: ["Python", "R", "SQL"],
   },
   {
-    label: "Bases de Datos & Cloud",
+    label: "Bases de datos y nube",
     names: ["PostgreSQL", "MySQL", "BigQuery", "Databricks"],
   },
   {
-    label: "Dev & Herramientas",
+    label: "Desarrollo y herramientas",
     names: ["Git", "Docker", "Web Scraping", "Testing"],
   },
   {
-    label: "Soft Skills",
+    label: "Habilidades interpersonales",
     names: [
-      "Resolución de Problemas",
-      "Pensamiento Analítico",
+      "Resolución de problemas",
+      "Pensamiento analítico",
       "Comunicación",
-      "Trabajo en Equipo",
+      "Trabajo en equipo",
     ],
   },
   {
     label: "Tango Gestión (ERP)",
     names: [
-      "Parametrización Contable",
-      "Gestión de Datos Maestros",
-      "Gestión de Stock",
-      "Procesos de Ventas",
+      "Parametrización contable",
+      "Gestión de datos maestros",
+      "Gestión de stock",
+      "Procesos de ventas",
       "Tesorería",
-      "Gestión de Compras",
+      "Gestión de compras",
     ],
   },
 ];
@@ -139,7 +139,7 @@ const Skills = () => {
             className="text-display-sm font-bold text-skin-text tracking-tight"
             style={{ letterSpacing: "-0.02em" }}
           >
-            Stack
+            Competencias
           </h2>
         </div>
 
